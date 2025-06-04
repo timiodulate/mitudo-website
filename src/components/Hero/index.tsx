@@ -1,71 +1,122 @@
+"use client";
+
 // src/components/Hero.tsx
-import {
-	Box,
-	Heading,
-	Text,
-	Button,
-	VStack,
-	Container,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Container, Flex } from "@chakra-ui/react";
+import { useColorModeValue } from "../ui/color-mode";
 
 export const Hero = () => {
 	return (
-		<Container
-			maxW="container.xl"
-			centerContent
-			py={{ base: "20", md: "28" }}
-		>
-			<VStack gap={6} textAlign="center">
-				<Box
-					animation="moBox1"
-					// initial={{ y: -20, opacity: 0 }}
-					// animate={{ y: 0, opacity: 1 }}
-					// transition={{ duration: 0.8 }}
+		<Box as="section" bg={"hero.bg"} h={"fit-content"}>
+			<Container
+				// centerContent
+				py={{ base: 12, md: 20 }}
+				// py={{ base: "20", md: "28" }}
+				px={{ base: 4, md: 8 }}
+				borderRadius="xl"
+				maxW="1200px"
+				mx="auto"
+				// my={8}
+				// initial={{ opacity: 0, scale: 0.95 }}
+				// animate={{ opacity: 1, scale: 1 }}
+				// transition={{ duration: 0.8, delay: 0.2 }}
+			>
+				<Flex
+					direction={{ base: "column", md: "row" }}
+					align="center"
+					justify="space-between"
+					gap={{ base: 8, md: 16 }}
 				>
-					<Heading
-						as="h2"
-						size="3xl"
-						fontWeight="bold"
-						color="brand.gray.darkGray"
-					>
-						Building the Future, One Line of Code at a Time.
-					</Heading>
-				</Box>
-				<Box
-					animation="moBox2"
+					{/* Left Content */}
+					<Box textAlign={{ base: "center", md: "left" }} flex={1}>
+						<Heading
+							// 			size="3xl"
+							as="h2"
+							fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
+							fontWeight="extrabold"
+							lineHeight="shorter"
+							mb={4}
+							color={"hero.text"}
 
-					// initial={{ y: -20, opacity: 0 }}
-					// animate={{ y: 0, opacity: 1 }}
-					// transition={{ duration: 0.8, delay: 0.2 }}
-				>
-					<Text
-						fontSize="xl"
-						color="brand.gray.mediumGray"
-						maxW="2xl"
-					>
-						We deliver cutting-edge custom software, mobile apps,
-						and web solutions that power growth and transform
-						industries. Your vision, engineered with precision.
-					</Text>
-				</Box>
-				<Box
-					animation="moBox3"
+							// initial={{ x: -50, opacity: 0 }}
+							// animate={{ x: 0, opacity: 1 }}
+							// transition={{ duration: 0.6, delay: 0.4 }}
+						>
+							Innovate . Connect . Grow .
+						</Heading>
 
-					// initial={{ scale: 0.8, opacity: 0 }}
-					// animate={{ scale: 1, opacity: 1 }}
-					// transition={{ duration: 0.5, delay: 0.4 }}
-				>
-					<Button
-						size="lg"
-						colorScheme="teal"
-						variant="solid"
-						px={10}
-						py={8}
+						<Text
+							fontSize={{ base: "lg", md: "xl" }}
+							maxW="lg"
+							//   maxW="2xl"
+							mx={{ base: "auto", md: "0" }}
+							mb={8}
+							color={"hero.text"}
+							// initial={{ x: -50, opacity: 0 }}
+							// animate={{ x: 0, opacity: 1 }}
+							// transition={{ duration: 0.6, delay: 0.6 }}
+						>
+							We deliver custom digital solution that power growth
+							and transform industries. Your vision, engineered
+							with precision.
+						</Text>
+
+						<Button
+							//   colorScheme="teal"
+							//   variant="solid"
+							//   px={10}
+							//   py={8}
+							bg={"hero.button-bg"}
+							color={"hero.button-text"}
+							_hover={{
+								bg: "hero.button-bg-hover",
+							}}
+							borderRadius="full"
+							size="lg"
+							px={8}
+							py={6}
+							// initial={{ y: 20, opacity: 0 }}
+							// animate={{ y: 0, opacity: 1 }}
+							// transition={{ duration: 0.6, delay: 0.8 }}
+						>
+							Get Started
+						</Button>
+					</Box>
+
+					{/* Right Illustration Placeholder */}
+					<Flex
+						flex={1}
+						justifyContent="center"
+						alignItems="center"
+						//   initial={{ x: 50, opacity: 0 }}
+						//   animate={{ x: 0, opacity: 1 }}
+						//   transition={{ duration: 0.6, delay: 0.4 }}
 					>
-						Start Your Project
-					</Button>
-				</Box>
-			</VStack>
-		</Container>
+						{/* Placeholder for the illustration */}
+						<Box
+							w={{ base: "250px", md: "350px", lg: "450px" }}
+							h={{ base: "200px", md: "280px", lg: "360px" }}
+							// Updated to use the new 'purple' color names
+							bg={useColorModeValue("purple.200", "purple.700")}
+							borderRadius="xl"
+							display="flex"
+							alignItems="center"
+							justifyContent="center"
+							fontSize="xl"
+							fontWeight="bold"
+							// Updated to use the new 'purple' color names
+							color={useColorModeValue(
+								"purple.800",
+								"purple.200"
+							)}
+							textAlign="center"
+							p={4}
+						>
+							Illustration Placeholder
+							{/* You would replace this Box with an actual SVG or image component */}
+						</Box>
+					</Flex>
+				</Flex>
+			</Container>
+		</Box>
 	);
 };

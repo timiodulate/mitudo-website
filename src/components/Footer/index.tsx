@@ -1,28 +1,112 @@
 // src/components/Footer.tsx
-import { Box, Flex, Text, Link, Spacer } from "@chakra-ui/react";
+import {
+	Box,
+	Flex,
+	Text,
+	Link,
+	Spacer,
+	Container,
+	Stack,
+} from "@chakra-ui/react";
 
 export const Footer = () => {
 	return (
-		<Box bg="brand.gray.darkGray" color="white" py={10}>
-			<Flex
-				px={8}
-				direction={{ base: "column", md: "row" }}
-				align="center"
+		<Box
+			as="footer"
+			bg={"footer.bg"}
+			borderTopWidth="1px"
+			borderColor={"footer.border"}
+
+			// initial={{ opacity: 0, y: 50 }}
+			// whileInView={{ opacity: 1, y: 0 }}
+			// viewport={{ once: true }}
+			// transition={{ duration: 0.8 }}
+		>
+			<Container
+				// py={{ base: 12, md: 20 }}
+				px={{ base: 4, md: 8 }}
+				py={8}
+				maxW="1200px"
+				mx="auto"
 			>
-				<Text>
-					&copy; {new Date().getFullYear()} IgniteDev. All Rights
-					Reserved.
-				</Text>
-				<Spacer />
-				<Box>
-					<Link href="#" p={2}>
-						Privacy Policy
-					</Link>
-					<Link href="#" p={2}>
-						Terms of Service
-					</Link>
-				</Box>
-			</Flex>
+				<Flex
+					direction={{ base: "column", md: "row" }}
+					justify="space-between"
+					align={{ base: "center", md: "flex-start" }}
+					gap={8}
+					pb={8}
+				>
+					{/* Left: Logo */}
+					<Box textAlign={{ base: "center", md: "left" }}>
+						<Text
+							fontSize="2xl"
+							fontWeight="bold"
+							color={"footer.text"}
+							mb={2}
+						>
+							MIA
+						</Text>
+					</Box>
+
+					{/* Right: Navigation Links */}
+					<Flex
+						direction={{ base: "column", md: "row" }}
+						gap={{ base: 4, md: 16 }}
+						textAlign={{ base: "center", md: "left" }}
+					>
+						<Stack gap={2}>
+							<Text fontWeight="bold" color={"footer.text"}>
+								Solutions
+							</Text>
+							<Link href="#" color={"footer.link"}>
+								Custom Software
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Mobile Development
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Web Solutions
+							</Link>
+						</Stack>
+						<Stack gap={2}>
+							<Text fontWeight="bold" color={"footer.text"}>
+								Company
+							</Text>
+							<Link href="#" color={"footer.link"}>
+								About Us
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Blog
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Contact
+							</Link>
+						</Stack>
+						<Stack gap={2}>
+							<Text fontWeight="bold" color={"footer.text"}>
+								Privacy Policy
+							</Text>
+							<Link href="#" color={"footer.link"}>
+								Privacy Policy
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Terms of Service
+							</Link>
+						</Stack>
+					</Flex>
+				</Flex>
+
+				<Flex
+					pt={8}
+					justify="flex-end"
+					borderTopWidth="1px"
+					borderColor={"footer.border"}
+				>
+					<Text fontSize="sm" color={"footer.link"} textAlign="right">
+						© {new Date().getFullYear()} MIA. All rights reserved.
+					</Text>
+				</Flex>
+			</Container>
 		</Box>
 	);
 };

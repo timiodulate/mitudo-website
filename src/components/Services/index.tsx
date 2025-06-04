@@ -1,47 +1,79 @@
+"use client";
 // src/components/Services.tsx
-import { SimpleGrid, Box, Heading, Text } from "@chakra-ui/react";
+import { SimpleGrid, Box, Heading, Text, Container } from "@chakra-ui/react";
 import { FaCode, FaMobileAlt, FaLaptopCode } from "react-icons/fa";
 import { ServiceCard } from "./ServiceCard";
+import { useColorModeValue } from "../ui/color-mode";
 
 export const Services = () => {
 	const ourServices = [
 		{
-			icon: FaLaptopCode,
+			icon: <FaLaptopCode />,
+
 			title: "Web Development",
-			text: "Modern, responsive, and high-performance websites for a stunning online presence.",
+			// title="Web solutions"
+
+			description:
+				"Modern, responsive, and high-performance websites for a stunning online presence.",
+			// description="Crafting intuitive apps for iOS and Android platforms. Elegant design, robust code."
 		},
 		{
-			icon: FaCode,
+			icon: <FaCode />,
 			title: "Custom Software",
-			text: "Bespoke software solutions tailored to your unique business needs and goals.",
+
+			description:
+				"Bespoke software solutions tailored to your unique business needs and goals.",
+			// description="Tailored solutions built for your unique business needs. Flexible, scalable, secure."
 		},
 		{
-			icon: FaMobileAlt,
-			title: "Mobile Apps",
-			text: "Engaging and intuitive iOS and Android applications that delight your users.",
+			icon: <FaMobileAlt />,
+
+			// title: "Mobile Apps",
+			title: "Mobile development",
+
+			// text: "Engaging and intuitive iOS and Android applications that delight your users.",
+			description:
+				"Crafting intuitive apps for iOS and Android platforms. Elegant design, robust code.",
 		},
 	];
 
 	return (
-		<Box id="services" p={8} bg="brand.gray.lightGray">
-			<Box textAlign="center" mb={10}>
-				<Heading as="h2" size="2xl" color="brand.gray.darkGray">
-					Our Services
-				</Heading>
-
-				<Text fontSize="lg" color="brand.gray.mediumGray">
-					We offer a wide range of development services.
-				</Text>
-			</Box>
-
-			<SimpleGrid
-				columns={{ base: 1, md: 3 }}
-				// spacing={10}
+		<Box as="section" id="services" minH={"100vh"}>
+			<Container
+				py={{ base: 12, md: 20 }}
+				px={{ base: 4, md: 8 }}
+				maxW="1200px"
+				mx="auto"
 			>
-				{ourServices.map((service, index) => (
-					<ServiceCard key={index} {...service} />
-				))}
-			</SimpleGrid>
+				<Box textAlign="center" mb={12}>
+					<Heading
+						as="h2"
+						fontSize={{ base: "3xl", md: "4xl" }}
+						fontWeight="bold"
+						textAlign="center"
+						color="services.section-title"
+						// size="2xl" color="brand.gray.darkGray"
+
+						// initial={{ y: -50, opacity: 0 }}
+						// whileInView={{ y: 0, opacity: 1 }}
+						// viewport={{ once: true }}
+						// transition={{ duration: 0.6 }}
+					>
+						{/* Our  */}
+						Services
+					</Heading>
+
+					{/* <Text fontSize="lg" color="brand.gray.mediumGray">
+					We offer a wide range of development services.
+				</Text> */}
+				</Box>
+
+				<SimpleGrid columns={{ base: 1 }} gap={8}>
+					{ourServices.map((service, index) => (
+						<ServiceCard key={index} {...service} />
+					))}
+				</SimpleGrid>
+			</Container>
 		</Box>
 	);
 };
