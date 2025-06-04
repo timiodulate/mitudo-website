@@ -101,9 +101,22 @@ export const Footer = () => {
 					justify="flex-end"
 					borderTopWidth="1px"
 					borderColor={"footer.border"}
+					gap={1}
 				>
 					<Text fontSize="sm" color={"footer.link"} textAlign="right">
 						© {new Date().getFullYear()} MIA. All rights reserved.
+					</Text>{" "}
+					<Text
+						fontSize="sm"
+						color={"footer.link"}
+						textAlign="right"
+						gap={1}
+					>
+						Designed and built by{" "}
+						<Link href="#" target={"_blank"} color={"footer.text"}>
+							timiodulate
+						</Link>{" "}
+						.
 					</Text>
 				</Flex>
 			</Container>
