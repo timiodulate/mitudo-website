@@ -32,6 +32,7 @@ const ProjectCard = ({
 			borderRadius="xl"
 			shadow="lg"
 			textAlign="left"
+			//
 			// whileHover={{ scale: 1.03, boxShadow: 'xl' }}
 			// transition={{ duration: 0.3 }}
 		>
@@ -60,7 +61,7 @@ const ProjectCard = ({
 				{description}
 			</Text>
 
-			<Wrap spacing={2} mb={4}>
+			<Wrap gap={2} mb={4}>
 				{" "}
 				{/* Using Wrap for tags for better responsiveness */}
 				{/* {technologies.map((tech) => (
