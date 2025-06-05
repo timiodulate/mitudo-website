@@ -81,7 +81,7 @@ const ProjectCard = ({
 			{link && (
 				<Link
 					href={link}
-					isExternal
+					// isExternal
 					color={"portfolio.card.link.text"}
 					fontWeight="bold"
 					_hover={{ textDecoration: "underline" }}
