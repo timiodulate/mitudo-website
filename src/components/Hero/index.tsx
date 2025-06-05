@@ -6,16 +6,20 @@ import { useColorModeValue } from "../ui/color-mode";
 
 export const Hero = () => {
 	return (
-		<Box as="section" bg={"hero.bg"} h={"fit-content"}>
+		<Box
+			as="section"
+			id={`hero`}
+			bg={"hero.bg"}
+			h={"fit-content"}
+			borderRadius="xl"
+			overflow={`hidden`}
+		>
 			<Container
 				// centerContent
 				py={{ base: 12, md: 20 }}
 				// py={{ base: "20", md: "28" }}
-				px={{ base: 4, md: 8 }}
-				borderRadius="xl"
-				maxW="1200px"
-				mx="auto"
 				// my={8}
+				//
 				// initial={{ opacity: 0, scale: 0.95 }}
 				// animate={{ opacity: 1, scale: 1 }}
 				// transition={{ duration: 0.8, delay: 0.2 }}

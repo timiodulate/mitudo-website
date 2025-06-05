@@ -7,10 +7,12 @@ const CTA = () => {
 	return (
 		<Box
 			as="section"
+			id={`cta`}
 			bg={"cta.bg"}
 			py={{ base: 12, md: 20 }}
 			px={{ base: 4, md: 8 }}
 			textAlign="center"
+			//
 			//   initial={{ opacity: 0, y: 50 }}
 			//   whileInView={{ opacity: 1, y: 0 }}
 			//   viewport={{ once: true }}

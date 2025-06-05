@@ -1,14 +1,13 @@
 /* theme.ts */
 
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
-
-// import { listTheme } from "./components/list";
-// import { accordionTheme } from "./components/accordion";
-// import { buttonTheme } from "./components/button";
-// import { inputTheme } from "./components/input";
-// import { containerTheme } from "./components/container";
-// import { linkTheme } from "./components/link";
-// import { modalTheme } from "./components/modal";
+import { linkRecipe } from "./components/link.recipe";
+import { buttonRecipe } from "./components/button.recipe";
+import { containerRecipe } from "./components/container.recipe";
+import { inputSlotRecipe } from "./components/input.recipe";
+import { accordionSlotRecipe } from "./components/accordion.recipe";
+import { listSlotRecipe } from "./components/list.recipe";
+import { modalSlotRecipe } from "./components/modal.recipe";
 
 export const config = defineConfig({
 	globalCss: {
@@ -238,6 +237,71 @@ export const config = defineConfig({
 					},
 				},
 
+				portfolio: {
+					"section-title": {
+						value: {
+							_light: "{colors.gray.800}",
+							_dark: "{colors.whiteAlpha.900}",
+						},
+					},
+					card: {
+						bg: {
+							value: {
+								_light: "{colors.white}",
+								_dark: "{colors.gray.700}",
+							},
+						},
+						text: {
+							value: {
+								_light: "{colors.gray.800}",
+								_dark: "{colors.whiteAlpha.900}",
+							},
+						},
+						banner: {
+							bg: {
+								value: {
+									_light: "{colors.gray.200}",
+									_dark: "{colors.gray.600}",
+								},
+							},
+							text: {
+								value: {
+									_light: "{colors.gray.600}",
+									_dark: "{colors.gray.300}",
+								},
+							},
+						},
+						link: {
+							bg: {
+								value: {
+									_light: "{colors.gray.200}",
+									_dark: "{colors.gray.600}",
+								},
+							},
+							text: {
+								value: {
+									_light: "{colors.purple.500}",
+									_dark: "{colors.purple.300}",
+								},
+							},
+						},
+					},
+					tag: {
+						bg: {
+							value: {
+								_light: "{colors.purple.50}",
+								_dark: "{colors.purple.800}",
+							},
+						},
+						text: {
+							value: {
+								_light: "{colors.purple.500}",
+								_dark: "{colors.purple.300}",
+							},
+						},
+					},
+				},
+
 				cta: {
 					bg: {
 						value: {
@@ -321,16 +385,22 @@ export const config = defineConfig({
 			},
 		},
 
-		// recipes: {
-		// 	container: containerTheme,
-		// 	//
-		// 	link: linkTheme,
-		// 	button: buttonTheme,
-		// 	List: listTheme,
-		// 	accordion: accordionTheme,
-		// 	input: inputTheme,
-		// 	modal: modalTheme,
-		// },
+		// components
+		// one element components
+		recipes: {
+			container: containerRecipe,
+			//
+			link: linkRecipe,
+			button: buttonRecipe,
+			//
+		},
+		// multi element components
+		slotRecipes: {
+			accordion: accordionSlotRecipe,
+			input: inputSlotRecipe,
+			List: listSlotRecipe,
+			modal: modalSlotRecipe,
+		},
 	},
 });
 

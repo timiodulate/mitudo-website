@@ -38,18 +38,13 @@ export const Header = () => {
 			top={0}
 			// zIndex="banner"
 			zIndex={100}
-
+			//
 			// initial={{ y: -100 }}
 			// animate={{ y: 0 }}
 			// transition={{ duration: 0.5 }}
 		>
 			<Collapsible.Root>
-				<Container
-					px={{ base: 4, md: 8 }}
-					py={4}
-					maxW="1200px"
-					mx="auto"
-				>
+				<Container py={4}>
 					<Flex alignItems="center">
 						{/* <Heading as="h1" size="lg" color="brand.gray.darkGray">
 					Ignite{" "}

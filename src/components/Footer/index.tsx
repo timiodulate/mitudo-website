@@ -23,11 +23,8 @@ export const Footer = () => {
 			// transition={{ duration: 0.8 }}
 		>
 			<Container
-				// py={{ base: 12, md: 20 }}
-				px={{ base: 4, md: 8 }}
 				py={8}
-				maxW="1200px"
-				mx="auto"
+				// py={{ base: 12, md: 20 }}
 			>
 				<Flex
 					direction={{ base: "column", md: "row" }}
