@@ -124,11 +124,11 @@ export const Header = () => {
 
 						{/* Mobile Hamburger Menu */}
 						<Collapsible.Trigger
-							paddingY="3"
+							paddingBlock={3}
 							display={{ base: "flex", md: "none" }}
 							aria-label="Open menu"
 							onClick={handleToggle}
-							variant="ghost"
+							// variant="ghost"
 						>
 							{isOpen ? <BiX /> : <BiBraille />}
 						</Collapsible.Trigger>
