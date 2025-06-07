@@ -19,10 +19,7 @@ export const Hero = () => {
 				py={{ base: 12, md: 20 }}
 				// py={{ base: "20", md: "28" }}
 				// my={8}
-				//
-				// initial={{ opacity: 0, scale: 0.95 }}
-				// animate={{ opacity: 1, scale: 1 }}
-				// transition={{ duration: 0.8, delay: 0.2 }}
+				animation="heroBg"
 			>
 				<Flex
 					direction={{ base: "column", md: "row" }}
@@ -40,10 +37,7 @@ export const Hero = () => {
 							lineHeight="shorter"
 							mb={4}
 							color={"hero.text"}
-
-							// initial={{ x: -50, opacity: 0 }}
-							// animate={{ x: 0, opacity: 1 }}
-							// transition={{ duration: 0.6, delay: 0.4 }}
+							animation="heroHeading"
 						>
 							Innovate . Connect . Grow .
 						</Heading>
@@ -55,12 +49,10 @@ export const Hero = () => {
 							mx={{ base: "auto", md: "0" }}
 							mb={8}
 							color={"hero.text"}
-							// initial={{ x: -50, opacity: 0 }}
-							// animate={{ x: 0, opacity: 1 }}
-							// transition={{ duration: 0.6, delay: 0.6 }}
+							animation="heroText"
 						>
 							We deliver custom digital solution that power growth
-							and transform industries. Your vision, engineered
+							and transform businesses. Your vision, engineered
 							with precision.
 						</Text>
 
@@ -78,9 +70,7 @@ export const Hero = () => {
 							size="lg"
 							px={8}
 							py={6}
-							// initial={{ y: 20, opacity: 0 }}
-							// animate={{ y: 0, opacity: 1 }}
-							// transition={{ duration: 0.6, delay: 0.8 }}
+							animation="heroBtn"
 						>
 							Get Started
 						</Button>
@@ -91,9 +81,7 @@ export const Hero = () => {
 						flex={1}
 						justifyContent="center"
 						alignItems="center"
-						//   initial={{ x: 50, opacity: 0 }}
-						//   animate={{ x: 0, opacity: 1 }}
-						//   transition={{ duration: 0.6, delay: 0.4 }}
+						animation="heroIllustration"
 					>
 						{/* Placeholder for the illustration */}
 						<Box
