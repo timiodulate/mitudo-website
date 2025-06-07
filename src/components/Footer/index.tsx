@@ -56,13 +56,13 @@ export const Footer = () => {
 								Solutions
 							</Text>
 							<Link href="#" color={"footer.link"}>
+								Web Solutions
+							</Link>
+							<Link href="#" color={"footer.link"}>
 								Custom Software
 							</Link>
 							<Link href="#" color={"footer.link"}>
 								Mobile Development
-							</Link>
-							<Link href="#" color={"footer.link"}>
-								Web Solutions
 							</Link>
 						</Stack>
 						<Stack gap={2}>
@@ -110,7 +110,11 @@ export const Footer = () => {
 						gap={1}
 					>
 						Designed and built by{" "}
-						<Link href="#" target={"_blank"} color={"footer.text"}>
+						<Link
+							href="https://timiodulatelinks.netlify.app/"
+							target={"_blank"}
+							color={"footer.text"}
+						>
 							timiodulate
 						</Link>{" "}
 						.
