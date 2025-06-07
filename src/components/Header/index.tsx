@@ -39,9 +39,7 @@ export const Header = () => {
 			// zIndex="banner"
 			zIndex={100}
 			//
-			// initial={{ y: -100 }}
-			// animate={{ y: 0 }}
-			// transition={{ duration: 0.5 }}
+			animation="headerBg"
 		>
 			<Collapsible.Root>
 				<Container py={4}>
@@ -75,12 +73,13 @@ export const Header = () => {
 								fontWeight="medium"
 								color={"header.text"}
 							>
-								{/* Services */}
-								Solutions
+								Services
+								{/* Solutions */}
 							</Link>
 
 							<Link
-								href="#about"
+								// href="#about"
+								href="#portfolio"
 								p={4}
 								fontWeight="medium"
 								color={"header.text"}
