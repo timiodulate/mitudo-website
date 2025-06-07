@@ -56,7 +56,7 @@ const Portfolio = () => {
 
 	return (
 		<Box as="section" id={`portfolio`}>
-			<Container py={{ base: 12, md: 20 }}>
+			<Container py={{ base: 12, md: 20 }} _vie>
 				<Heading
 					as="h2"
 					fontSize={{ base: "3xl", md: "4xl" }}
@@ -64,6 +64,7 @@ const Portfolio = () => {
 					textAlign="center"
 					mb={12}
 					color={"portfolio.section-title"}
+
 					//   initial={{ y: -50, opacity: 0 }}
 					//   whileInView={{ y: 0, opacity: 1 }}
 					//   viewport={{ once: true }}

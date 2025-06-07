@@ -32,9 +32,10 @@ const ProjectCard = ({
 			borderRadius="xl"
 			shadow="lg"
 			textAlign="left"
-			//
-			// whileHover={{ scale: 1.03, boxShadow: 'xl' }}
-			// transition={{ duration: 0.3 }}
+			_hover={{
+				animation: "servicesCard",
+			}}
+			cursor={"pointer"}
 		>
 			<Box
 				w="full"
@@ -64,18 +65,18 @@ const ProjectCard = ({
 			<Wrap gap={2} mb={4}>
 				{" "}
 				{/* Using Wrap for tags for better responsiveness */}
-				{/* {technologies.map((tech) => (
-					<Tag
+				{technologies.map((tech) => (
+					<Tag.Root
 						key={tech}
 						size="sm"
-						variant="solid"
-						color={'portfolio.tag.text'}
-						bg={'portfolio.tag.bg'}
+						color={"portfolio.tag.text"}
+						bg={"portfolio.tag.bg"}
 						borderRadius="full"
+						variant="solid"
 					>
-						{tech}
-					</Tag>
-				))} */}
+						<Tag.Label>{tech}</Tag.Label>
+					</Tag.Root>
+				))}
 			</Wrap>
 
 			{link && (
