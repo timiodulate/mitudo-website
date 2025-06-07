@@ -56,7 +56,7 @@ const Portfolio = () => {
 
 	return (
 		<Box as="section" id={`portfolio`}>
-			<Container py={{ base: 12, md: 20 }} _vie>
+			<Container py={{ base: 12, md: 20 }}>
 				<Heading
 					as="h2"
 					fontSize={{ base: "3xl", md: "4xl" }}
