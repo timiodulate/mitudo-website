@@ -402,8 +402,8 @@ export const config = defineConfig({
 				"100%": {
 					scale: 1.03,
 					opacity: 1,
-					// boxShadow: "xl"
-					shadow: "xl",
+					boxShadow: "xl",
+					// shadow: "xl",
 				},
 			},
 			motionHeading1: {
