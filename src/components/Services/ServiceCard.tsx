@@ -14,7 +14,6 @@ export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
 	return (
 		<Box
 			// whileHover={{ y: -5, scale: 1.05 }}
-			// transition={{ duration: 0.3 }}
 
 			bg="services.card.bg"
 			p={6}
@@ -24,13 +23,12 @@ export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
 			shadow="lg"
 			// boxShadow="lg"
 			textAlign="center"
-
-			// whileHover={{ scale: 1.03, boxShadow: "xl" }}
-			// transition={{ duration: 0.3 }}
+			_hover={{
+				animation: "servicesCard",
+			}}
+			cursor={"pointer"}
 		>
 			<VStack gap={4}>
-				{/* <Icon as={icon} w={16} h={16} color="brand.primary" /> */}
-
 				<Box mb={4} fontSize="5xl" color={"service.card.icon"}>
 					{icon}
 				</Box>
