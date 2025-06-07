@@ -112,6 +112,21 @@ export const config = defineConfig({
 			},
 
 			animations: {
+				headerBg: { value: "motionBox1 0.5s ease-in-out 1" },
+				heroBg: { value: "motionBox2 0.8s ease-in-out 0.2s 1" },
+				heroHeading: {
+					value: "motionHeading1 0.6s ease-in-out 0.4s 1",
+				},
+				heroText: { value: "motionText1 0.6s ease-in-out 0.6s 1" },
+				heroBtn: { value: "motionButton1 0.6s ease-in-out 0.8s 1" },
+				heroIllustration: {
+					value: "motionBox3 0.6s ease-in-out 0.4s 1",
+				},
+				//
+				servicesCard: {
+					value: "motionBox4 0.3s 1 forwards",
+				},
+				//
 				shakeX: { value: "shakeX 1s ease-in-out infinite" },
 				moBox1: { value: "motionBox1 0.8s ease-in-out 1" },
 				moBox2: { value: "motionBox2 0.8s ease-in-out 1" },
@@ -372,16 +387,36 @@ export const config = defineConfig({
 				"50%": { transform: "translateX(100%)" },
 			},
 			motionBox1: {
-				"0%": { transform: "translateY( -20)", opacity: 0 },
-				"100%": { transform: "translateY(0)", opacity: 1 },
+				"0%": { transform: "translateY(-100%)" },
+				"100%": { transform: "translateY(0)" },
 			},
 			motionBox2: {
-				"0%": { transform: "translateY( -20)", opacity: 0 },
-				"100%": { transform: "translateY(0)", opacity: 1 },
+				"0%": { scale: 0.95, opacity: 0 },
+				"100%": { scale: 1, opacity: 1 },
 			},
 			motionBox3: {
-				"0%": { scale: 0.8, opacity: 0 },
-				"100%": { scale: 1, opacity: 1 },
+				"0%": { transform: "translateX(50%)", opacity: 0 },
+				"100%": { transform: "translateX(0)", opacity: 1 },
+			},
+			motionBox4: {
+				"100%": {
+					scale: 1.03,
+					opacity: 1,
+					// boxShadow: "xl"
+					shadow: "xl",
+				},
+			},
+			motionHeading1: {
+				"0%": { transform: "translateX(-50%)", opacity: 0 },
+				"100%": { transform: "translateX(0)", opacity: 1 },
+			},
+			motionText1: {
+				"0%": { transform: "translateX(-50%)", opacity: 0 },
+				"100%": { transform: "translateX(0)", opacity: 1 },
+			},
+			motionButton1: {
+				"0%": { transform: "translateY(20%)", opacity: 0 },
+				"100%": { transform: "translateY(0)", opacity: 1 },
 			},
 		},
 
