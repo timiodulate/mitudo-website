@@ -9,7 +9,8 @@ export const containerRecipe = defineRecipe({
 		// px: "1.3vw",
 		//
 		width: "100%",
-		maxWidth: "1200px",
+		maxWidth: "1000px",
+		// maxWidth: "1200px",
 		// maxWidth: "calc(1400px + 6.6vw)",
 		//// maxWidth={{ base: "calc(1400px + 6.6vw)" }}
 		//// maxWidth={{md:'calc(var(--max-width) + calc(var(--space-outer) * 2))'}}

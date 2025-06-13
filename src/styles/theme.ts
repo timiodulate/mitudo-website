@@ -22,18 +22,23 @@ export const config = defineConfig({
 			},
 			// foreground
 			color: {
-				_light: "{colors.gray.800}",
+				_light: "{colors.gray.900}",
 				_dark: "{colors.whiteAlpha.900}",
 			},
+			scrollBehavior: "smooth",
+		},
+		"section[id]": {
+			// Target any section with an ID
+			scrollMarginTop: "80px", // Adjust this value to match your header's height + desired padding
 		},
 	},
 	theme: {
 		tokens: {
 			fonts: {
-				// heading: { value: "var(--font-geist-sans)" },
-				// body: { value: "var(--font-geist-mono)" },
-				heading: { value: `'Inter', sans-serif` }, // A clean, contemporary sans-serif
-				body: { value: `'Roboto', sans-serif` }, // Readable body text
+				// heading: { value: `'Inter', sans-serif` }, // A clean, contemporary sans-serif
+				heading: { value: `var(--font-inter)` },
+				// body: { value: `'Roboto', sans-serif` }, // Readable body text
+				body: { value: `var(--font-roboto)` },
 			},
 			colors: {
 				// Breaking down the original 'brand' colors into more semantic categories
@@ -183,15 +188,16 @@ export const config = defineConfig({
 				},
 
 				hero: {
-					bg: {
-						value: {
-							_light: "{colors.purple.50}",
-							_dark: "{colors.purple.900}",
-						},
-					},
+					// bg: {
+					// 	value: {
+					// 		_light: "{colors.purple.50}",
+					// 		_dark: "{colors.purple.900}",
+					// 	},
+					// },
 					text: {
 						value: {
-							_light: "{colors.gray.800}",
+							// _light: "{colors.gray.800}",
+							_light: "{colors.gray.900}",
 							_dark: "{colors.whiteAlpha.900}",
 							// _light: "whiteAlpha.900",
 						},

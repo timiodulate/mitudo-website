@@ -7,6 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"check-code": "npx eslint . --ext .js,.jsx,.ts,.tsx && npx tsc --noEmit",
 		"cypress:open": "cypress open"
 	},
 	"dependencies": {

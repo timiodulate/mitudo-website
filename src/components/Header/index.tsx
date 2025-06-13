@@ -76,7 +76,6 @@ export const Header = () => {
 								Services
 								{/* Solutions */}
 							</Link>
-
 							<Link
 								// href="#about"
 								href="#portfolio"
@@ -87,9 +86,9 @@ export const Header = () => {
 								{/* About Us */}
 								Portfolio
 							</Link>
-
 							<Link
-								href="#contact"
+								// href="#contact"
+								href="#cta"
 								p={4}
 								fontWeight="medium"
 								color={"header.text"}
@@ -97,21 +96,25 @@ export const Header = () => {
 								Contact
 							</Link>
 
-							<Button
-								bg={"header.button-bg"}
-								color={"header.button-text"}
-								_hover={{
-									bg: "header.button-bg-hover",
-								}}
-								borderRadius="full"
-								px={6}
-								py={2}
-								// colorScheme="teal" variant="solid"
+							<Link
+								href="https://wa.me/message/ZLLYAMBC6FPBN1"
+								target="_blank"
 							>
-								Get Started
-								{/* Get a Quote */}
-							</Button>
-
+								<Button
+									bg={"header.button-bg"}
+									color={"header.button-text"}
+									_hover={{
+										bg: "header.button-bg-hover",
+									}}
+									borderRadius="full"
+									px={6}
+									py={2}
+									// colorScheme="teal" variant="solid"
+								>
+									{/* Get Started */}
+									Get a Quote
+								</Button>
+							</Link>
 							<ColorThemeToggler />
 						</Stack>
 						{/* <Spacer /> */}

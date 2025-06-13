@@ -2,7 +2,8 @@
 
 // src/components/Hero.tsx
 import { Box, Heading, Text, Button, Container, Flex } from "@chakra-ui/react";
-import { useColorModeValue } from "../ui/color-mode";
+import { heroIllustration } from "@/images";
+import Image from "next/image";
 
 export const Hero = () => {
 	return (
@@ -10,9 +11,11 @@ export const Hero = () => {
 			as="section"
 			id={`hero`}
 			bg={"hero.bg"}
-			h={"fit-content"}
+			h={{ base: `calc(100vh - 75px)`, md: "fit-content" }}
 			borderRadius="xl"
 			overflow={`hidden`}
+			display={`flex`}
+			alignItems={`center`}
 		>
 			<Container
 				// centerContent
@@ -28,18 +31,22 @@ export const Hero = () => {
 					gap={{ base: 8, md: 16 }}
 				>
 					{/* Left Content */}
-					<Box textAlign={{ base: "center", md: "left" }} flex={1}>
+					<Flex
+						direction={`column`}
+						gap={`4`}
+						textAlign={{ base: "center", md: "left" }}
+						flex={1}
+					>
 						<Heading
 							// 			size="3xl"
 							as="h2"
-							fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
-							fontWeight="extrabold"
+							fontSize={{ base: "4xl", md: "5xl", lg: "5xl" }}
+							fontWeight="bold"
 							lineHeight="shorter"
-							mb={4}
 							color={"hero.text"}
 							animation="heroHeading"
 						>
-							Innovate . Connect . Grow .
+							Innovate. Connect. Grow.
 						</Heading>
 
 						<Text
@@ -47,7 +54,6 @@ export const Hero = () => {
 							maxW="lg"
 							//   maxW="2xl"
 							mx={{ base: "auto", md: "0" }}
-							mb={8}
 							color={"hero.text"}
 							animation="heroText"
 						>
@@ -70,11 +76,13 @@ export const Hero = () => {
 							size="lg"
 							px={8}
 							py={6}
+							width={{ base: `full`, md: `fit` }}
+							minWidth={{ base: `_`, md: `70%` }}
 							animation="heroBtn"
 						>
-							Get Started
+							See Our Work
 						</Button>
-					</Box>
+					</Flex>
 
 					{/* Right Illustration Placeholder */}
 					<Flex
@@ -82,30 +90,18 @@ export const Hero = () => {
 						justifyContent="center"
 						alignItems="center"
 						animation="heroIllustration"
+						hideBelow={`md`}
 					>
-						{/* Placeholder for the illustration */}
-						<Box
-							w={{ base: "250px", md: "350px", lg: "450px" }}
-							h={{ base: "200px", md: "280px", lg: "360px" }}
-							// Updated to use the new 'purple' color names
-							bg={useColorModeValue("purple.200", "purple.700")}
-							borderRadius="xl"
-							display="flex"
-							alignItems="center"
-							justifyContent="center"
-							fontSize="xl"
-							fontWeight="bold"
-							// Updated to use the new 'purple' color names
-							color={useColorModeValue(
-								"purple.800",
-								"purple.200"
-							)}
-							textAlign="center"
-							p={4}
-						>
-							Illustration Placeholder
-							{/* You would replace this Box with an actual SVG or image component */}
-						</Box>
+						<Image
+							src={heroIllustration}
+							alt="Picture of the author"
+							// width={500} automatically provided
+							// height={500} automatically provided
+							// blurDataURL="data:..." automatically provided
+							// placeholder="blur" // Optional blur-up while loading
+							// w={{ base: "250px", md: "350px", lg: "450px" }}
+							// h={{ base: "200px", md: "280px", lg: "360px" }}
+						/>
 					</Flex>
 				</Flex>
 			</Container>
