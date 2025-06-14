@@ -1,7 +1,15 @@
 "use client";
 
 // src/components/Hero.tsx
-import { Box, Heading, Text, Button, Container, Flex } from "@chakra-ui/react";
+import {
+	Box,
+	Heading,
+	Text,
+	Button,
+	Container,
+	Flex,
+	Link,
+} from "@chakra-ui/react";
 import { heroIllustration } from "@/images";
 import Image from "next/image";
 
@@ -11,7 +19,7 @@ export const Hero = () => {
 			as="section"
 			id={`hero`}
 			bg={"hero.bg"}
-			h={{ base: `calc(100vh - 75px)`, md: "fit-content" }}
+			h={{ base: `calc(100vb - 80px)`, md: "fit-content" }}
 			borderRadius="xl"
 			overflow={`hidden`}
 			display={`flex`}
@@ -62,26 +70,28 @@ export const Hero = () => {
 							with precision.
 						</Text>
 
-						<Button
-							//   colorScheme="teal"
-							//   variant="solid"
-							//   px={10}
-							//   py={8}
-							bg={"hero.button-bg"}
-							color={"hero.button-text"}
-							_hover={{
-								bg: "hero.button-bg-hover",
-							}}
-							borderRadius="full"
-							size="lg"
-							px={8}
-							py={6}
-							width={{ base: `full`, md: `fit` }}
-							minWidth={{ base: `_`, md: `70%` }}
-							animation="heroBtn"
-						>
-							See Our Work
-						</Button>
+						<Link href="#portfolio">
+							<Button
+								//   colorScheme="teal"
+								//   variant="solid"
+								//   px={10}
+								//   py={8}
+								bg={"hero.button-bg"}
+								color={"hero.button-text"}
+								_hover={{
+									bg: "hero.button-bg-hover",
+								}}
+								borderRadius="full"
+								size="lg"
+								px={8}
+								py={6}
+								width={{ base: `full`, md: `fit` }}
+								minWidth={{ base: `_`, md: `70%` }}
+								animation="heroBtn"
+							>
+								See Our Work
+							</Button>
+						</Link>
 					</Flex>
 
 					{/* Right Illustration Placeholder */}
