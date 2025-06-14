@@ -16,7 +16,7 @@ import {
 	Icon,
 	Container,
 } from "@chakra-ui/react";
-import { BiBraille, BiMoon, BiSun, BiX } from "react-icons/bi";
+import { BiBraille, BiMenu, BiMoon, BiSun, BiX } from "react-icons/bi";
 import { useColorMode, useColorModeValue } from "../ui/color-mode";
 import { useState } from "react";
 import ColorThemeToggler from "./ColorThemeToggler";
@@ -67,54 +67,8 @@ export const Header = () => {
 							align="center"
 							display={{ base: "none", md: "flex" }}
 						>
-							<Link
-								href="#services"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								Services
-								{/* Solutions */}
-							</Link>
-							<Link
-								// href="#about"
-								href="#portfolio"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								{/* About Us */}
-								Portfolio
-							</Link>
-							<Link
-								// href="#contact"
-								href="#cta"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								Contact
-							</Link>
+							<Navigation />
 
-							<Link
-								href="https://wa.me/message/ZLLYAMBC6FPBN1"
-								target="_blank"
-							>
-								<Button
-									bg={"header.button-bg"}
-									color={"header.button-text"}
-									_hover={{
-										bg: "header.button-bg-hover",
-									}}
-									borderRadius="full"
-									px={6}
-									py={2}
-									// colorScheme="teal" variant="solid"
-								>
-									{/* Get Started */}
-									Get a Quote
-								</Button>
-							</Link>
 							<ColorThemeToggler />
 						</Stack>
 						{/* <Spacer /> */}
@@ -127,7 +81,7 @@ export const Header = () => {
 							onClick={handleToggle}
 							// variant="ghost"
 						>
-							{isOpen ? <BiX /> : <BiBraille />}
+							{isOpen ? <BiX /> : <BiMenu />}
 						</Collapsible.Trigger>
 					</Flex>
 				</Container>
@@ -143,54 +97,65 @@ export const Header = () => {
 						shadow="md"
 					>
 						<Stack as="nav" gap={4}>
-							<Link
-								href="#services"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								{/* Services */}
-								Solutions
-							</Link>
+							<Navigation />
 
-							<Link
-								href="#about"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								{/* About Us */}
-								Portfolio
-							</Link>
-
-							<Link
-								href="#contact"
-								p={4}
-								fontWeight="medium"
-								color={"header.text"}
-							>
-								Contact
-							</Link>
-
-							<Button
-								bg={"header.button-bg"}
-								color={"header.button-text"}
-								_hover={{
-									bg: "header.button-bg-hover",
-								}}
-								borderRadius="full"
-								px={6}
-								py={2}
-								// colorScheme="teal" variant="solid"
-							>
-								{/* Get Started */}
-								Get a Quote
-							</Button>
 							<ColorThemeToggler />
 						</Stack>
 					</Box>
 				</Collapsible.Content>
 			</Collapsible.Root>
 		</Box>
+	);
+};
+
+const Navigation = () => {
+	return (
+		<>
+			<Link
+				href="#services"
+				p={4}
+				fontWeight="medium"
+				color={"header.text"}
+			>
+				Services
+				{/* Solutions */}
+			</Link>
+			<Link
+				// href="#about"
+				href="#portfolio"
+				p={4}
+				fontWeight="medium"
+				color={"header.text"}
+			>
+				{/* About Us */}
+				Portfolio
+			</Link>
+			<Link
+				// href="#contact"
+				href="#cta"
+				p={4}
+				fontWeight="medium"
+				color={"header.text"}
+			>
+				Contact
+			</Link>
+
+			<Link href="https://wa.me/message/ZLLYAMBC6FPBN1" target="_blank">
+				<Button
+					bg={"header.button-bg"}
+					color={"header.button-text"}
+					_hover={{
+						bg: "header.button-bg-hover",
+					}}
+					borderRadius="full"
+					px={6}
+					py={2}
+					// colorScheme="teal" variant="solid"
+				>
+					{/* Get Started */}
+					Get a Quote
+				</Button>
+			</Link>
+		</>
 	);
 };
