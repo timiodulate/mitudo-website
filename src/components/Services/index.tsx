@@ -43,7 +43,10 @@ export const Services = () => {
 				<Box textAlign="center" mb={12}>
 					<Heading
 						as="h2"
-						fontSize={{ base: "3xl", md: "4xl" }}
+						fontSize={{
+							base: "lg",
+							//  md: "4xl"
+						}}
 						fontWeight="bold"
 						textAlign="center"
 						color="services.section-title"
@@ -63,9 +66,9 @@ export const Services = () => {
 				</Text> */}
 				</Box>
 
-				<SimpleGrid columns={{ base: 1 }} gap={8}>
+				<SimpleGrid columns={{ base: 1 }} gap={{ mdDown: 8, md: 2 }}>
 					{ourServices.map((service, index) => (
-						<ServiceCard key={index} {...service} />
+						<ServiceCard key={index} index={index} {...service} />
 					))}
 				</SimpleGrid>
 			</Container>
