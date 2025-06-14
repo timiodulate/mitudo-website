@@ -28,13 +28,16 @@ export const Footer = () => {
 			>
 				<Flex
 					direction={{ base: "column", md: "row" }}
-					justify="space-between"
-					align={{ base: "center", md: "flex-start" }}
+					justify={{ md: "space-between" }}
+					align={{ base: "flex-start", md: "flex-start" }}
 					gap={8}
 					pb={8}
 				>
 					{/* Left: Logo */}
-					<Box textAlign={{ base: "center", md: "left" }}>
+					<Box
+						textAlign={{ base: "center", md: "left" }}
+						hideBelow={"md"}
+					>
 						<Text
 							fontSize="2xl"
 							fontWeight="bold"
@@ -49,22 +52,26 @@ export const Footer = () => {
 					<Flex
 						direction={{ base: "column", md: "row" }}
 						gap={{ base: 4, md: 16 }}
-						textAlign={{ base: "center", md: "left" }}
+						textAlign={{ base: "left", md: "left" }}
 					>
 						<Stack gap={2}>
 							<Text fontWeight="bold" color={"footer.text"}>
-								Solutions
+								Services
+								{/* Solutions  */}
 							</Text>
 							<Link href="#" color={"footer.link"}>
-								Web Solutions
+								{/* Web Solutions */}
+								Website Development
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								{/* Mobile Development */}
+								Mobile App Development
 							</Link>
 							<Link href="#" color={"footer.link"}>
 								Custom Software
 							</Link>
-							<Link href="#" color={"footer.link"}>
-								Mobile Development
-							</Link>
 						</Stack>
+
 						<Stack gap={2}>
 							<Text fontWeight="bold" color={"footer.text"}>
 								Company
@@ -79,6 +86,7 @@ export const Footer = () => {
 								Contact
 							</Link>
 						</Stack>
+
 						<Stack gap={2}>
 							<Text fontWeight="bold" color={"footer.text"}>
 								Privacy Policy
@@ -93,17 +101,25 @@ export const Footer = () => {
 					</Flex>
 				</Flex>
 
-				<Flex
+				<Box
 					pt={8}
-					justify="flex-end"
+					// justify={{ base: "center", md: "flex-end" }}
 					borderTopWidth="1px"
 					borderColor={"footer.border"}
-					gap={1}
+					// gap={1}
+
+					ml={{ base: "_", md: "auto" }}
 				>
-					<Text fontSize="sm" color={"footer.link"} textAlign="right">
+					<Text
+						as={"span"}
+						fontSize="sm"
+						color={"footer.link"}
+						textAlign="right"
+					>
 						© {new Date().getFullYear()} MIA. All rights reserved.
 					</Text>{" "}
 					<Text
+						as={"span"}
 						fontSize="sm"
 						color={"footer.link"}
 						textAlign="right"
@@ -119,7 +135,7 @@ export const Footer = () => {
 						</Link>{" "}
 						.
 					</Text>
-				</Flex>
+				</Box>
 			</Container>
 		</Box>
 	);
