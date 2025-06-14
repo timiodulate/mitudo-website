@@ -59,7 +59,11 @@ const Portfolio = () => {
 			<Container py={{ base: 12, md: 20 }}>
 				<Heading
 					as="h2"
-					fontSize={{ base: "3xl", md: "4xl" }}
+					fontSize={{
+						base: "lg",
+						//  md: "4xl"
+					}}
+					// fontSize={{ base: "3xl", md: "4xl" }}
 					fontWeight="bold"
 					textAlign="center"
 					mb={12}
