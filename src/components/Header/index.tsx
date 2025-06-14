@@ -50,13 +50,14 @@ export const Header = () => {
 						Dev
 					</Box>
 				</Heading> */}
-						<Text
+						<Link
+							href="#"
 							fontSize="2xl"
 							fontWeight="bold"
 							color={"header.text"}
 						>
 							MIA
-						</Text>
+						</Link>
 
 						<Spacer />
 
@@ -74,15 +75,26 @@ export const Header = () => {
 						{/* <Spacer /> */}
 
 						{/* Mobile Hamburger Menu */}
-						<Collapsible.Trigger
-							paddingBlock={3}
+						<Stack
+							direction="row"
+							gap={4}
+							align="center"
+							// display={{ base: "none", md: "flex" }}
 							display={{ base: "flex", md: "none" }}
-							aria-label="Open menu"
-							onClick={handleToggle}
-							// variant="ghost"
 						>
-							{isOpen ? <BiX /> : <BiMenu />}
-						</Collapsible.Trigger>
+							<ColorThemeToggler />
+
+							{/* <Navigation /> */}
+							<Collapsible.Trigger
+								paddingBlock={3}
+								aria-label="Open menu"
+								onClick={handleToggle}
+								// variant="ghost"
+								fontSize={"2xl"}
+							>
+								{isOpen ? <BiX /> : <BiMenu />}
+							</Collapsible.Trigger>
+						</Stack>
 					</Flex>
 				</Container>
 
