@@ -1,7 +1,7 @@
 // components/CTA.tsx
 // This component is the Call to Action section at the bottom of the page.
 
-import { Box, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Link } from "@chakra-ui/react";
 
 const CTA = () => {
 	return (
@@ -46,22 +46,27 @@ const CTA = () => {
 			>
 				Ready for your next big digital transformation?
 			</Text>
-			<Button
-				bg={"cta.button.bg"}
-				color={"cta.button.text"}
-				_hover={{ bg: "cta.button.bg-hover" }}
-				borderRadius="full"
-				size="lg"
-				px={8}
-				py={6}
 
-				// initial={{ opacity: 0, y: 20 }}
-				// whileInView={{ opacity: 1, y: 0 }}
-				// viewport={{ once: true }}
-				// transition={{ duration: 0.6, delay: 0.6 }}
-			>
-				Start a new project
-			</Button>
+			<Link href="https://wa.me/message/ZLLYAMBC6FPBN1" target="_blank">
+				<Button
+					bg={{
+						base: "cta.button.bg",
+						_hover: "cta.button.bg-hover",
+					}}
+					color={"cta.button.text"}
+					borderRadius="full"
+					size="lg"
+					px={8}
+					py={6}
+
+					// initial={{ opacity: 0, y: 20 }}
+					// whileInView={{ opacity: 1, y: 0 }}
+					// viewport={{ once: true }}
+					// transition={{ duration: 0.6, delay: 0.6 }}
+				>
+					Start a new project
+				</Button>
+			</Link>
 		</Box>
 	);
 };
