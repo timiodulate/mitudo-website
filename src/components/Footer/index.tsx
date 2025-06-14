@@ -32,6 +32,9 @@ export const Footer = () => {
 					align={{ base: "flex-start", md: "flex-start" }}
 					gap={8}
 					pb={8}
+					//
+					borderBottomWidth="1px"
+					borderColor={"footer.border"}
 				>
 					{/* Left: Logo */}
 					<Box
@@ -104,11 +107,11 @@ export const Footer = () => {
 				<Box
 					pt={8}
 					// justify={{ base: "center", md: "flex-end" }}
-					borderTopWidth="1px"
-					borderColor={"footer.border"}
+
 					// gap={1}
 
-					ml={{ base: "_", md: "auto" }}
+					ml={{ md: "auto" }}
+					w={"fit-content"}
 				>
 					<Text
 						as={"span"}
