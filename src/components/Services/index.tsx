@@ -18,22 +18,22 @@ export const Services = () => {
 			// description="Crafting intuitive apps for iOS and Android platforms. Elegant design, robust code."
 		},
 		{
+			icon: <FaMobileAlt />,
+
+			// title: "Mobile Apps",
+			title: "Mobile Development",
+
+			// text: "Engaging and intuitive iOS and Android applications that delight your users.",
+			description:
+				"Crafting intuitive apps for iOS and Android platforms. Elegant design, robust code.",
+		},
+		{
 			icon: <FaCode />,
 			title: "Custom Software",
 
 			description:
 				"Bespoke software solutions tailored to your unique business needs and goals.",
 			// description="Tailored solutions built for your unique business needs. Flexible, scalable, secure."
-		},
-		{
-			icon: <FaMobileAlt />,
-
-			// title: "Mobile Apps",
-			title: "Mobile development",
-
-			// text: "Engaging and intuitive iOS and Android applications that delight your users.",
-			description:
-				"Crafting intuitive apps for iOS and Android platforms. Elegant design, robust code.",
 		},
 	];
 
