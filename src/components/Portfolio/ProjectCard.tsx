@@ -29,17 +29,18 @@ const ProjectCard = ({
 		<Box
 			bg={"portfolio.card.bg"}
 			p={6}
+			textAlign="left"
+			cursor={"pointer"}
+			//
 			borderRadius="xl"
 			shadow="lg"
-			textAlign="left"
 			_hover={{
 				animation: "servicesCard",
 			}}
-			cursor={"pointer"}
 		>
 			<Box
 				w="full"
-				h="200px"
+				h="300px"
 				bg={"portfolio.card.banner.bg"}
 				borderRadius="md"
 				mb={4}
@@ -54,7 +55,13 @@ const ProjectCard = ({
 				{imagePlaceholder}
 			</Box>
 
-			<Heading as="h3" size="md" mb={2} color={"portfolio.card.text"}>
+			<Heading
+				as="h3"
+				size="md"
+				fontWeight={"bold"}
+				mb={2}
+				color={"portfolio.card.text"}
+			>
 				{title}
 			</Heading>
 

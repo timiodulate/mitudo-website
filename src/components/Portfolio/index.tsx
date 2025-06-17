@@ -20,38 +20,38 @@ const Portfolio = () => {
 			technologies: ["React Native", "Firebase", "GraphQL"],
 			link: "#",
 		},
-		{
-			title: "AI-Powered Chatbot Integration",
-			description:
-				"Integrated a custom AI chatbot into a customer service portal to automate inquiries and improve efficiency.",
-			imagePlaceholder: "Project 3 Image",
-			technologies: ["Python", "TensorFlow", "REST API", "React"],
-			link: "#",
-		},
-		{
-			title: "SaaS Dashboard Development",
-			description:
-				"Built a comprehensive SaaS dashboard for analytics and user management, offering real-time insights.",
-			imagePlaceholder: "Project 4 Image",
-			technologies: ["Angular", "NgRx", "Chart.js", "NestJS"],
-			link: "#",
-		},
-		{
-			title: "Healthcare Management System",
-			description:
-				"A web-based system for managing patient records, appointments, and medical inventory for clinics.",
-			imagePlaceholder: "Project 5 Image",
-			technologies: ["Laravel", "Vue.js", "MySQL"],
-			link: "#",
-		},
-		{
-			title: "Real-time Collaboration Tool",
-			description:
-				"Developed a web application enabling real-time document editing and collaborative workspaces.",
-			imagePlaceholder: "Project 6 Image",
-			technologies: ["Next.js", "Socket.IO", "PostgreSQL"],
-			link: "#",
-		},
+		// {
+		// 	title: "AI-Powered Chatbot Integration",
+		// 	description:
+		// 		"Integrated a custom AI chatbot into a customer service portal to automate inquiries and improve efficiency.",
+		// 	imagePlaceholder: "Project 3 Image",
+		// 	technologies: ["Python", "TensorFlow", "REST API", "React"],
+		// 	link: "#",
+		// },
+		// {
+		// 	title: "SaaS Dashboard Development",
+		// 	description:
+		// 		"Built a comprehensive SaaS dashboard for analytics and user management, offering real-time insights.",
+		// 	imagePlaceholder: "Project 4 Image",
+		// 	technologies: ["Angular", "NgRx", "Chart.js", "NestJS"],
+		// 	link: "#",
+		// },
+		// {
+		// 	title: "Healthcare Management System",
+		// 	description:
+		// 		"A web-based system for managing patient records, appointments, and medical inventory for clinics.",
+		// 	imagePlaceholder: "Project 5 Image",
+		// 	technologies: ["Laravel", "Vue.js", "MySQL"],
+		// 	link: "#",
+		// },
+		// {
+		// 	title: "Real-time Collaboration Tool",
+		// 	description:
+		// 		"Developed a web application enabling real-time document editing and collaborative workspaces.",
+		// 	imagePlaceholder: "Project 6 Image",
+		// 	technologies: ["Next.js", "Socket.IO", "PostgreSQL"],
+		// 	link: "#",
+		// },
 	];
 
 	return (
@@ -77,7 +77,7 @@ const Portfolio = () => {
 					Our Portfolio
 				</Heading>
 
-				<SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
+				<SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} gap={8}>
 					{projects.map((project, index) => (
 						<Box
 							key={index}

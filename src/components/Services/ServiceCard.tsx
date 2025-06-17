@@ -20,7 +20,7 @@ export const ServiceCard = ({
 	index,
 }: ServiceCardProps) => {
 	const isEven = index % 2 == 0;
-	console.log(isEven);
+	// console.log(isEven);
 
 	return (
 		<Flex
@@ -28,66 +28,42 @@ export const ServiceCard = ({
 				base: "column",
 				md: isEven ? "row-reverse" : "row",
 			}}
-			// gap={{ mdDown: 6 }}
+			gap={{ mdDown: 6 }}
 			//
-			p={6} // Adjust overall card padding as needed
 			borderRadius="xl"
 			shadow="lg"
 			_hover={{
 				animation: "servicesCard",
 			}}
-			overflow="hidden" // Ensure no overflow from illustration positioning
-			position="relative" // For absolute positioning of illustration
-			minH="250px" // Ensure a minimum height for all cards
 		>
 			<Flex
-				// flex={{ md: 3 }}
-				// // whileHover={{ y: -5, scale: 1.05 }}
-				// align={"center"}
-				// justify={"center"}
-				// bg="services.card.bg"
-				// // p={6}
-				// // minH={"20rem"}
+				flex={{ md: 1 }}
+				// whileHover={{ y: -5, scale: 1.05 }}
+				align={"center"}
+				justify={"center"}
+				bg="services.card.bg"
+				// p={6}
+				// minH={"20rem"}
 				// aspectRatio={"square"}
-				// // p={8}
-				// borderRadius="xl"
-				// // shadow="lg"
-				// // boxShadow="lg"
-				// textAlign="center"
-				// _hover={{
-				// 	animation: "servicesCard",
-				// }}
-				// cursor={"pointer"}
-
-				position="absolute"
-				top="0" // Adjust as needed
-				right="0" // Adjust as needed
-				width="50%" // Control its horizontal space
-				height="100%" // Control its vertical space
-				justifyContent="flex-end" // Align to the right
-				alignItems="flex-start" // Align to the top
-				p={4} // Padding around the illustration within its container
-				pointerEvents="none" // Prevent illustration from blocking clicks
+				// p={8}
+				borderRadius="xl"
+				// boxShadow="lg"
+				textAlign="center"
+				cursor={"pointer"}
 			>
 				{/* <Box fontSize="5xl" color={"service.card.icon"}>
 					{icon}
 				</Box> */}
-				<Box width="100%" height="auto" maxW="200px" maxH="200px">
-					{" "}
-					{/* Max size for the SVG */}
-					<Image src={webDevIllustration} alt="hero illustration" />
-				</Box>
+				<Image src={webDevIllustration} alt="hero illustration" />
 			</Flex>
 
-			<Box
-				flex={{ md: 7 }} //
-				// pr="50%"
-			>
+			<Box flex={{ md: 1 }}>
 				<VStack
 					h={"100%"}
-					// maxW={{ md: "60%" }}
-					// mx={{ md: "auto" }}
-					gap={4}
+					maxW={{ base: "100%" }}
+					w={{ base: "320px" }}
+					mx={{ md: "auto" }}
+					gap={2}
 					alignItems={{ base: "flex-start" }}
 					justifyContent={{ md: "center" }}
 				>

@@ -66,7 +66,7 @@ export const Services = () => {
 				</Text> */}
 				</Box>
 
-				<SimpleGrid columns={{ base: 1 }} gap={{ mdDown: 8, md: 2 }}>
+				<SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
 					{ourServices.map((service, index) => (
 						<ServiceCard key={index} index={index} {...service} />
 					))}

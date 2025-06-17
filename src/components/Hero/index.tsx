@@ -65,9 +65,9 @@ export const Hero = () => {
 							color={"hero.text"}
 							animation="heroText"
 						>
-							We deliver custom digital solution that power growth
-							and transform businesses. Your vision, engineered
-							with precision.
+							We deliver custom digital solutions that power
+							growth and transform businesses. Your vision,
+							engineered with precision.
 						</Text>
 
 						<Link href="#portfolio">
@@ -104,7 +104,7 @@ export const Hero = () => {
 					>
 						<Image
 							src={heroIllustration}
-							alt="Picture of the author"
+							alt="hero illustration"
 							// width={500} automatically provided
 							// height={500} automatically provided
 							// blurDataURL="data:..." automatically provided
@@ -114,6 +114,26 @@ export const Hero = () => {
 						/>
 					</Flex>
 				</Flex>
+
+				{/* Mobile Illustration (appears below text on small screens) */}
+				{/* <Box
+					display={{ base: "flex", md: "none" }} // Only show on small screens
+					justifyContent="center"
+					alignItems="center"
+					mt={8} // Add some margin from the text above
+					boxSize={{ base: "200px", sm: "250px" }}
+					mx={"auto"}
+					// initial={{ opacity: 0, y: 50 }}
+					// animate={{ opacity: 1, y: 0 }}
+					// transition={{ duration: 0.6, delay: 1 }} // Slight delay after text animation
+				>
+
+					<Image
+						src={heroIllustration}
+						alt="hero illustration"
+					/> 
+					Smaller size for mobile
+				</Box> */}
 			</Container>
 		</Box>
 	);
