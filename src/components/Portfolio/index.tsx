@@ -20,22 +20,22 @@ const Portfolio = () => {
 			technologies: ["React Native", "Firebase", "GraphQL"],
 			link: "#",
 		},
-		// {
-		// 	title: "AI-Powered Chatbot Integration",
-		// 	description:
-		// 		"Integrated a custom AI chatbot into a customer service portal to automate inquiries and improve efficiency.",
-		// 	imagePlaceholder: "Project 3 Image",
-		// 	technologies: ["Python", "TensorFlow", "REST API", "React"],
-		// 	link: "#",
-		// },
-		// {
-		// 	title: "SaaS Dashboard Development",
-		// 	description:
-		// 		"Built a comprehensive SaaS dashboard for analytics and user management, offering real-time insights.",
-		// 	imagePlaceholder: "Project 4 Image",
-		// 	technologies: ["Angular", "NgRx", "Chart.js", "NestJS"],
-		// 	link: "#",
-		// },
+		{
+			title: "AI-Powered Chatbot Integration",
+			description:
+				"Integrated a custom AI chatbot into a customer service portal to automate inquiries and improve efficiency.",
+			imagePlaceholder: "Project 3 Image",
+			technologies: ["Python", "TensorFlow", "REST API", "React"],
+			link: "#",
+		},
+		{
+			title: "SaaS Dashboard Development",
+			description:
+				"Built a comprehensive SaaS dashboard for analytics and user management, offering real-time insights.",
+			imagePlaceholder: "Project 4 Image",
+			technologies: ["Angular", "NgRx", "Chart.js", "NestJS"],
+			link: "#",
+		},
 		// {
 		// 	title: "Healthcare Management System",
 		// 	description:
@@ -56,7 +56,7 @@ const Portfolio = () => {
 
 	return (
 		<Box as="section" id={`portfolio`}>
-			<Container py={{ base: 12, md: 20 }}>
+			<Container pb={{ base: 12, md: 20 }}>
 				<Heading
 					as="h2"
 					fontSize={{
