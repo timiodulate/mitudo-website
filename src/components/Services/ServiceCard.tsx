@@ -26,8 +26,9 @@ export const ServiceCard = ({
 		<Flex
 			direction={{
 				base: "column",
-				md: isEven ? "row-reverse" : "row",
+				// md: isEven ? "row-reverse" : "row",
 			}}
+			alignItems={"center"}
 			gap={{ mdDown: 6 }}
 			//
 			borderRadius="xl"
@@ -35,16 +36,17 @@ export const ServiceCard = ({
 			_hover={{
 				animation: "servicesCard",
 			}}
+			p={6}
+			cursor={"pointer"}
 		>
 			<Flex
-				flex={{ md: 1 }}
+				// flex={{ md: 1 }}
 				// whileHover={{ y: -5, scale: 1.05 }}
 				align={"center"}
 				justify={"center"}
 				bg="services.card.bg"
-				// p={6}
-				// minH={"20rem"}
-				// aspectRatio={"square"}
+				w={"5rem"}
+				aspectRatio={"square"}
 				// p={8}
 				borderRadius="xl"
 				// boxShadow="lg"
@@ -57,22 +59,23 @@ export const ServiceCard = ({
 				<Image src={webDevIllustration} alt="hero illustration" />
 			</Flex>
 
-			<Box flex={{ md: 1 }}>
+			<Box flex={{ md: 1 }} w={"100%"}>
 				<VStack
 					h={"100%"}
 					maxW={{ base: "100%" }}
-					w={{ base: "320px" }}
+					// w={{ base: "320px" }}
 					mx={{ md: "auto" }}
 					gap={2}
-					alignItems={{ base: "flex-start" }}
+					alignItems={{ base: "center" }}
 					justifyContent={{ md: "center" }}
+					textAlign={{ base: "center" }}
 				>
 					<Heading
 						as="h3"
-						size="3xl"
+						size="xl"
 						fontWeight={"bold"}
 						color="services.card.text"
-						textAlign={{ base: "left" }}
+						// textAlign={{ base: "left" }}
 					>
 						{title}
 					</Heading>

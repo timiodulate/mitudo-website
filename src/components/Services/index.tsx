@@ -38,7 +38,7 @@ export const Services = () => {
 	];
 
 	return (
-		<Box as="section" id="services" minH={"100vh"}>
+		<Box as="section" id="services">
 			<Container py={{ base: 12, md: 20 }}>
 				<Box textAlign="center" mb={12}>
 					<Heading
