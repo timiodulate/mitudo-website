@@ -59,46 +59,49 @@ export const Footer = () => {
 					>
 						<Stack gap={2}>
 							<Text fontWeight="bold" color={"footer.text"}>
-								Services
-								{/* Solutions  */}
-							</Text>
-							<Link href="#" color={"footer.link"}>
-								{/* Web Solutions */}
-								Website Development
-							</Link>
-							<Link href="#" color={"footer.link"}>
-								{/* Mobile Development */}
-								Mobile App Development
-							</Link>
-							<Link href="#" color={"footer.link"}>
-								Custom Software
-							</Link>
-						</Stack>
-
-						<Stack gap={2}>
-							<Text fontWeight="bold" color={"footer.text"}>
 								Company
 							</Text>
 							<Link href="#" color={"footer.link"}>
 								About Us
 							</Link>
 							<Link href="#" color={"footer.link"}>
-								Blog
+								Services
 							</Link>
 							<Link href="#" color={"footer.link"}>
-								Contact
+								Portfolio
 							</Link>
 						</Stack>
 
 						<Stack gap={2}>
 							<Text fontWeight="bold" color={"footer.text"}>
-								Privacy Policy
+								Support
+								{/* Solutions  */}
 							</Text>
 							<Link href="#" color={"footer.link"}>
-								Privacy Policy
+								{/* Web Solutions */}
+								Contact
 							</Link>
 							<Link href="#" color={"footer.link"}>
-								Terms of Service
+								{/* Mobile Development */}
+								FAQs
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Help Center
+							</Link>
+						</Stack>
+
+						<Stack gap={2}>
+							<Text fontWeight="bold" color={"footer.text"}>
+								Connect
+							</Text>
+							<Link href="#" color={"footer.link"}>
+								Linkedin
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Twitter
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								Instagram
 							</Link>
 						</Stack>
 					</Flex>
