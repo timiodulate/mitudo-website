@@ -44,6 +44,7 @@ export const AboutUs = () => {
 					gap={{ mdDown: 6 }}
 				>
 					<Flex
+						position={{ base: "relative" }}
 						flex={{ md: 1 }}
 						// whileHover={{ y: -5, scale: 1.05 }}
 						align={"center"}
@@ -63,6 +64,7 @@ export const AboutUs = () => {
 						<Image
 							src={webDevIllustration}
 							alt="hero illustration"
+							fill
 						/>
 					</Flex>
 
@@ -70,7 +72,7 @@ export const AboutUs = () => {
 						<VStack
 							h={"100%"}
 							maxW={{ base: "100%" }}
-							w={{ base: "320px" }}
+							w={{ base: "68%" }}
 							mx={{ md: "auto" }}
 							gap={2}
 							alignItems={{ base: "flex-start" }}
