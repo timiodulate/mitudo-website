@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-const SectionTitle = ({ title }: { title: string }) => {
+const SectionTitleWrapper = ({ title }: { title: string }) => {
 	return (
 		<Box textAlign="center" mb={12}>
 			<Heading
@@ -29,4 +29,4 @@ const SectionTitle = ({ title }: { title: string }) => {
 		</Box>
 	);
 };
-export default SectionTitle;
+export default SectionTitleWrapper;
