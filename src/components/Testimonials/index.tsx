@@ -1,7 +1,7 @@
 "use client";
 import { SimpleGrid, Box, Container } from "@chakra-ui/react";
 import { TestimonyCard } from "./TestimonyCard";
-import SectionTitle from "../shared/SectionTitle";
+import SectionTitleWrapper from "../shared/SectionTitleWrapper";
 
 export const Testimonials = () => {
 	const testimonies = [
@@ -29,8 +29,8 @@ export const Testimonials = () => {
 
 	return (
 		<Box as="section" id="services">
-			<Container pb={{ base: 12, md: 20 }}>
-				<SectionTitle title="What Clients Say" />
+			<Container py={{ base: 12, md: 20 }} mb={{ base: 12, md: 20 }}>
+				<SectionTitleWrapper title="What Clients Say" />
 
 				<SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
 					{testimonies.map((testimony, index) => (

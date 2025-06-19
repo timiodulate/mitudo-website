@@ -1,17 +1,25 @@
 import { Box, Heading } from "@chakra-ui/react";
 
-const SectionTitleWrapper = ({ title }: { title: string }) => {
+const SectionTitleWrapper = ({
+	title,
+	md,
+}: {
+	title: string;
+	md?: string | number;
+}) => {
 	return (
-		<Box textAlign="center" mb={12}>
+		<Box textAlign="center" mb={md ?? 12}>
 			<Heading
 				as="h2"
 				fontSize={{
-					base: "lg",
+					base: "md",
 					//  md: "4xl"
 				}}
 				fontWeight="bold"
 				textAlign="center"
 				color="services.section-title"
+				// color={"header.text"}
+
 				// size="2xl" color="brand.gray.darkGray"
 
 				// initial={{ y: -50, opacity: 0 }}

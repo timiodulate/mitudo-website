@@ -29,7 +29,7 @@ export const config = defineConfig({
 		},
 		"section[id]": {
 			// Target any section with an ID
-			scrollMarginTop: "80px", // Adjust this value to match your header's height + desired padding
+			scrollMarginTop: "60px", // Adjust this value to match your header's height + desired padding
 		},
 	},
 	theme: {

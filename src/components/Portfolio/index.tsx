@@ -1,6 +1,7 @@
 // components/Portfolio.tsx
 import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import ProjectCard from "./ProjectCard";
+import SectionTitleWrapper from "../shared/SectionTitleWrapper";
 
 const Portfolio = () => {
 	const projects = [
@@ -56,26 +57,8 @@ const Portfolio = () => {
 
 	return (
 		<Box as="section" id={`portfolio`}>
-			<Container pb={{ base: 12, md: 20 }}>
-				<Heading
-					as="h2"
-					fontSize={{
-						base: "lg",
-						//  md: "4xl"
-					}}
-					// fontSize={{ base: "3xl", md: "4xl" }}
-					fontWeight="bold"
-					textAlign="center"
-					mb={12}
-					color={"portfolio.section-title"}
-
-					//   initial={{ y: -50, opacity: 0 }}
-					//   whileInView={{ y: 0, opacity: 1 }}
-					//   viewport={{ once: true }}
-					//   transition={{ duration: 0.6 }}
-				>
-					Our Portfolio
-				</Heading>
+			<Container py={{ base: 12, md: 20 }}>
+				<SectionTitleWrapper title="Our Portfolio" />
 
 				<SimpleGrid columns={{ base: 1, md: 2, lg: 2 }} gap={8}>
 					{projects.map((project, index) => (
