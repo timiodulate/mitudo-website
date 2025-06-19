@@ -44,7 +44,7 @@ export const ServiceCard = ({
 				// whileHover={{ y: -5, scale: 1.05 }}
 				align={"center"}
 				justify={"center"}
-				bg="services.card.bg"
+				// bg="services.card.bg"
 				w={"5rem"}
 				aspectRatio={"square"}
 				// p={8}
@@ -53,10 +53,7 @@ export const ServiceCard = ({
 				textAlign="center"
 				cursor={"pointer"}
 			>
-				{/* <Box fontSize="5xl" color={"service.card.icon"}>
-					{icon}
-				</Box> */}
-				<Image src={webDevIllustration} alt="hero illustration" />
+				<Image src={icon} alt="hero illustration" />
 			</Flex>
 
 			<Box flex={{ md: 1 }} w={"100%"}>
@@ -67,7 +64,7 @@ export const ServiceCard = ({
 					mx={{ md: "auto" }}
 					gap={2}
 					alignItems={{ base: "center" }}
-					justifyContent={{ md: "center" }}
+					justifyContent={{ md: "flex-start" }}
 					textAlign={{ base: "center" }}
 				>
 					<Heading
