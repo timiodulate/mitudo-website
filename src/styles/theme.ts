@@ -171,11 +171,12 @@ export const config = defineConfig({
 						value: {
 							_light: "{colors.black}",
 							_dark: "{colors.white}",
+							// _hover:''
 						},
 					},
 					"button-bg-hover": {
 						value: {
-							_light: "{colors.gray.700}",
+							_light: "{colors.gray.800}",
 							_dark: "{colors.gray.200}",
 						},
 					},
@@ -345,14 +346,14 @@ export const config = defineConfig({
 						},
 						text: {
 							value: {
-								_dark: "{colors.black}",
 								_light: "{colors.black}",
+								_dark: "{colors.black}",
 							},
 						},
 						"bg-hover": {
 							value: {
+								_light: "{colors.gray.300}",
 								_dark: "#edf2f7",
-								_light: "#4a5568",
 							},
 						},
 					},
