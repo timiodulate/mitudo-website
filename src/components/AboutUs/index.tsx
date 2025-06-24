@@ -39,46 +39,51 @@ export const AboutUs = () => {
 						base: "column-reverse",
 						md: "row",
 					}}
-					gap={{ mdDown: 6 }}
+					gap={{ mdDown: 6, md: "90px" }}
 				>
 					<Flex
-						position={{ base: "relative" }}
-						flex={{ base: 2, md: 4 }}
+						flex={{ base: 5 }}
 						// whileHover={{ y: -5, scale: 1.05 }}
 						align={"center"}
 						justify={"center"}
+						w={"100%"}
 						// bg="services.card.bg"
-						w={{ base: "60%", md: "100%" }}
-						aspectRatio={"square"}
-						mx={{ base: "auto", md: "initial" }}
-						// p={8}
-						// boxShadow="lg"
-						// borderRadius="xl"
-						// shadow="lg"
+						mx={{ mdDown: "auto" }}
 					>
-						<Image
-							src={aboutUsIllustration}
-							alt="hero illustration"
-							fill
-							objectFit="contain"
-						/>
+						<Box
+							flex={{ md: 1 }}
+							position={{ base: "relative" }}
+							w={{ base: "80%", md: "85%" }}
+							aspectRatio={"square"}
+							ml={{ md: "auto" }}
+						>
+							<Image
+								src={aboutUsIllustration}
+								alt="hero illustration"
+								fill
+								objectFit="contain"
+							/>
+						</Box>
 					</Flex>
 
 					<Flex
-						flex={{ base: 2, md: 6 }}
+						flex={{ base: 5 }}
 						flexDirection={{ base: "column" }}
 						justifyContent={{ base: "center" }}
+						justifySelf={"left"}
 					>
-						<SectionTitle
-							title="Our Mission & Story"
-							md={{ base: 6, md: 3 }}
-						/>
+						<Box w={{ base: "100%", md: "80%" }}>
+							<SectionTitle
+								title="Our Mission & Story"
+								md={{ base: 6, md: 3 }}
+							/>
+						</Box>
 
 						<VStack
 							// h={"100%"}
 							maxW={{ base: "100%" }}
-							w={{ base: "100%", md: "68%" }}
-							mx={{ md: "auto" }}
+							w={{ base: "100%", md: "80%" }}
+							// mx={{ md: "auto" }}
 							gap={2}
 							alignItems={{ base: "flex-start" }}
 							justifyContent={{ md: "center" }}

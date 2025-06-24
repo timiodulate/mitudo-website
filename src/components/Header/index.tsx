@@ -20,6 +20,7 @@ import { BiBraille, BiMenu, BiMoon, BiSun, BiX } from "react-icons/bi";
 import { useColorMode, useColorModeValue } from "../ui/color-mode";
 import { useState } from "react";
 import ColorThemeToggler from "./ColorThemeToggler";
+import Logo from "../shared/Logo";
 
 export const Header = () => {
 	const [isOpen, setIsOpen] = useState(false); // State for mobile menu
@@ -50,14 +51,7 @@ export const Header = () => {
 						Dev
 					</Box>
 				</Heading> */}
-						<Link
-							href="#"
-							fontSize="2xl"
-							fontWeight="bold"
-							color={"header.text"}
-						>
-							MIA
-						</Link>
+						<Logo />
 
 						<Spacer />
 

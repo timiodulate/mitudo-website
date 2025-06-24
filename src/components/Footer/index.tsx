@@ -8,6 +8,9 @@ import {
 	Container,
 	Stack,
 } from "@chakra-ui/react";
+import Logo from "../shared/Logo";
+import { BsInstagram, BsLinkedin, BsTwitterX } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export const Footer = () => {
 	return (
@@ -37,27 +40,50 @@ export const Footer = () => {
 					borderColor={"footer.border"}
 				>
 					{/* Left: Logo */}
-					<Box
+					<Flex
+						direction={"column"}
 						textAlign={{ base: "center", md: "left" }}
-						hideBelow={"md"}
+						// hideBelow={"md"}
+						gap={3}
 					>
-						<Text
-							fontSize="2xl"
-							fontWeight="bold"
-							color={"footer.text"}
-							mb={2}
+						<Logo />
+						{/* <Text
+							// color={"footer.text"}
+							// mb={2}
 						>
 							MIA
+						</Text> */}
+
+						<Text color={"footer.text"}>
+							Innovative solutions for your digital needs.
 						</Text>
-					</Box>
+
+						<Stack direction={"row"} gap={5}>
+							<Link href="#" color={"footer.link"}>
+								<FaLinkedinIn size={19} />
+							</Link>
+							<Link href="#" color={"footer.link"}>
+								<BsTwitterX size={16} />
+							</Link>
+							<Link
+								href="https://www.instagram.com/mitudo_agency/"
+								target="_blank"
+								color={"footer.link"}
+							>
+								<BsInstagram size={16} />
+							</Link>
+						</Stack>
+					</Flex>
 
 					{/* Right: Navigation Links */}
 					<Flex
-						direction={{ base: "column", md: "row" }}
+						width={{ mdDown: "100%" }}
+						direction={{ base: "row", md: "row" }}
 						gap={{ base: 4, md: 16 }}
 						textAlign={{ base: "left", md: "left" }}
+						flexWrap={"wrap"}
 					>
-						<Stack gap={2}>
+						<Stack gap={2} flex={1} flexBasis={{ mdDown: "40%" }}>
 							<Text fontWeight="bold" color={"footer.text"}>
 								Company
 							</Text>
@@ -72,7 +98,7 @@ export const Footer = () => {
 							</Link>
 						</Stack>
 
-						<Stack gap={2}>
+						<Stack gap={2} flex={1} flexBasis={{ mdDown: "40%" }}>
 							<Text fontWeight="bold" color={"footer.text"}>
 								Support
 								{/* Solutions  */}
@@ -90,18 +116,23 @@ export const Footer = () => {
 							</Link>
 						</Stack>
 
-						<Stack gap={2}>
+						<Stack gap={2} flex={1} flexBasis={{ mdDown: "100%" }}>
 							<Text fontWeight="bold" color={"footer.text"}>
 								Connect
 							</Text>
-							<Link href="#" color={"footer.link"}>
-								Linkedin
+							<Link
+								href="mailto:mitudoagency.0@gmail.com"
+								color={"footer.link"}
+								target="_blank"
+							>
+								mitudoagency.0@gmail.com
 							</Link>
-							<Link href="#" color={"footer.link"}>
-								Twitter
-							</Link>
-							<Link href="#" color={"footer.link"}>
-								Instagram
+							<Link
+								href="https://wa.me/message/ZLLYAMBC6FPBN1"
+								color={"footer.link"}
+								target="_blank"
+							>
+								WA: +2348147697225
 							</Link>
 						</Stack>
 					</Flex>
