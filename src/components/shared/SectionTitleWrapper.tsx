@@ -5,7 +5,7 @@ const SectionTitleWrapper = ({
 	md,
 }: {
 	title: string;
-	md?: string | number;
+	md?: string | number | { [x: string]: string | number };
 }) => {
 	return (
 		<Box textAlign="center" mb={md ?? 12}>

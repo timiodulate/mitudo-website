@@ -36,21 +36,21 @@ export const AboutUs = () => {
 			<Container py={{ base: 12, md: 20 }}>
 				<Flex
 					direction={{
-						base: "column",
+						base: "column-reverse",
 						md: "row",
 					}}
 					gap={{ mdDown: 6 }}
 				>
 					<Flex
 						position={{ base: "relative" }}
-						flex={{ md: 3 }}
+						flex={{ base: 2, md: 4 }}
 						// whileHover={{ y: -5, scale: 1.05 }}
 						align={"center"}
 						justify={"center"}
-						bg="services.card.bg"
-						// w={"5rem"}
+						// bg="services.card.bg"
+						w={{ base: "60%", md: "100%" }}
 						aspectRatio={"square"}
-						textAlign="center"
+						mx={{ base: "auto", md: "initial" }}
 						// p={8}
 						// boxShadow="lg"
 						// borderRadius="xl"
@@ -65,16 +65,19 @@ export const AboutUs = () => {
 					</Flex>
 
 					<Flex
-						flex={{ md: 7 }}
+						flex={{ base: 2, md: 6 }}
 						flexDirection={{ base: "column" }}
 						justifyContent={{ base: "center" }}
 					>
-						<SectionTitle title="Our Mission & Story" md={2} />
+						<SectionTitle
+							title="Our Mission & Story"
+							md={{ base: 6, md: 3 }}
+						/>
 
 						<VStack
 							// h={"100%"}
 							maxW={{ base: "100%" }}
-							w={{ base: "68%" }}
+							w={{ base: "100%", md: "68%" }}
 							mx={{ md: "auto" }}
 							gap={2}
 							alignItems={{ base: "flex-start" }}
