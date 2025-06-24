@@ -111,7 +111,9 @@ export const Header = () => {
 						<Stack as="nav" gap={4}>
 							<Navigation />
 
-							<ColorThemeToggler />
+							<Box hideBelow={"md"}>
+								<ColorThemeToggler />
+							</Box>
 						</Stack>
 					</Box>
 				</Collapsible.Content>
