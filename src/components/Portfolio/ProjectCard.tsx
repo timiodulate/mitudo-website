@@ -30,7 +30,7 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
 	return (
 		<Flex
-			bg={"portfolio.card.bg"}
+			// bg={"portfolio.card.bg"}
 			// p={6}
 			flexDirection={{ base: "column" }}
 			textAlign="left"
