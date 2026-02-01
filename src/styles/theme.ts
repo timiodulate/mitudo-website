@@ -56,6 +56,19 @@ export const config = defineConfig({
 					100: { value: "#f7fafc" }, // Lightest gray (same as white for consistency)
 					50: { value: "#f7fafc" }, // Even lighter for subtle backgrounds
 				},
+				slate: {
+					950: { value: "#020617" },
+					900: { value: "#0f172a" },
+					800: { value: "#1e293b" },
+					700: { value: "#334155" },
+					600: { value: "#475569" },
+					500: { value: "#64748b" },
+					400: { value: "#94a3b8" },
+					300: { value: "#cbd5e1" },
+					200: { value: "#e2e8f0" },
+					100: { value: "#f1f5f9" },
+					50: { value: "#f8fafc" },
+				},
 				purple: {
 					// New purple palette for the hero section
 					50: { value: "#F5EDFF" },
@@ -319,6 +332,58 @@ export const config = defineConfig({
 							value: {
 								_light: "{colors.purple.500}",
 								_dark: "{colors.purple.300}",
+							},
+						},
+					},
+				},
+
+				recentWork: {
+					"section-title": {
+						value: {
+							_light: "{colors.gray.900}",
+							_dark: "{colors.whiteAlpha.900}",
+						},
+					},
+					"section-subtitle": {
+						value: {
+							_light: "{colors.gray.600}",
+							_dark: "{colors.gray.400}",
+						},
+					},
+					"label-color": {
+						value: "#0077FF",
+					},
+					card: {
+						bg: {
+							value: {
+								_light: "{colors.white}",
+								_dark: "{colors.gray.900}",
+							},
+						},
+						border: {
+							value: {
+								_light: "{colors.gray.200}",
+								_dark: "{colors.gray.700}",
+							},
+						},
+						text: {
+							value: {
+								_light: "{colors.gray.800}",
+								_dark: "{colors.whiteAlpha.900}",
+							},
+						},
+						subtitle: {
+							value: {
+								_light: "{colors.gray.600}",
+								_dark: "{colors.gray.400}",
+							},
+						},
+					},
+					note: {
+						text: {
+							value: {
+								_light: "{colors.gray.500}",
+								_dark: "{colors.gray.400}",
 							},
 						},
 					},

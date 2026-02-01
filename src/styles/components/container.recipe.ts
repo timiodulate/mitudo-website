@@ -1,6 +1,7 @@
 import { defineRecipe } from "@chakra-ui/react";
 
 export const containerRecipe = defineRecipe({
+	className: "chakra-container",
 	base: {
 		// display: "flex",
 		// borderRadius: "xl", // add a border radius
@@ -18,6 +19,8 @@ export const containerRecipe = defineRecipe({
 		mx: "auto",
 		//
 		//// padding: var(--page-inline-spacing) !important;
+		// borderColor: "red",
+		// borderWidth: 1,
 	},
 	variants: {
 		visual: {
