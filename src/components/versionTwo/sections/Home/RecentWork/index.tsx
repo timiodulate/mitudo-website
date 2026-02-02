@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "@/components/ui/motion";
 import {
 	Box,
@@ -12,8 +13,10 @@ import {
 	Badge,
 	useToken,
 	Flex,
+	Button,
+	Link as ChakraLink,
 } from "@chakra-ui/react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Eye, ExternalLink } from "lucide-react";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 30 },
@@ -43,39 +46,43 @@ export default function RecentWork() {
 
 	const projects = [
 		{
-			title: "D'Glides",
-			type: "Business Website",
+			id: "dglides-apartments",
+			title: "D'Glides Apartments",
+			type: "Real Estate Business Website",
 			features: [
-				"Clean 5-page website",
-				"Mobile-friendly",
-				"Contact form + WhatsApp button",
-				"Clear service presentation",
+				"Professional property showcase",
+				"Trust-building design",
+				"Direct enquiry options",
+				"Mobile & desktop optimized",
 			],
-			image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-			liveLink: "https://dglidestcl.com/",
+			image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+			liveUrl: "https://dglidestcl.com",
 		},
 		{
-			title: "City Initiative",
+			id: "school-training-center",
+			title: "School / Training Center",
 			type: "Business Website",
 			features: [
 				"Homepage + About + Programs",
 				"Easy navigation for parents/students",
 				"Professional layout",
-				"Astonishing Design",
+				"Enrollment enquiry forms",
 			],
 			image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-
-			liveLink: "https://city-initiative-dev.netlify.app",
+			liveUrl: null,
 		},
 		{
+			id: "logistics-real-estate",
 			title: "Logistics / Real Estate",
 			type: "Concept Design",
 			features: [
 				"Modern business layout",
 				"Strong credibility focus",
 				"Clear call-to-action",
+				"Responsive design",
 			],
 			image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+			liveUrl: null,
 		},
 	];
 
@@ -128,12 +135,17 @@ export default function RecentWork() {
 						gap={8}
 					>
 						{projects.map((project, index) => (
-							<motion.div key={index} variants={fadeInUp}>
+							<motion.div
+								key={index}
+								variants={fadeInUp}
+								className="h-full"
+							>
 								<Box
 									bg={cardBg}
 									backgroundColor={"white"}
 									borderRadius="2xl"
 									overflow="hidden"
+									h="full"
 									// border={`1px solid`}
 									borderWidth={1}
 									borderColor={"slate.200"}
@@ -193,43 +205,131 @@ export default function RecentWork() {
 									</Box>
 
 									{/* Content */}
-									<Box p={6}>
+									<VStack
+										p={5}
+										gap={0}
+										h="full"
+										align="stretch"
+									>
 										<Heading
 											as="h3"
-											fontSize="xl"
+											fontSize="lg"
 											fontWeight="semibold"
-											color={"#0D1B2A"}
-											mb={4}
+											color="#0D1B2A"
+											mb={3}
 											fontFamily="poppins"
 										>
 											{project.title}
 										</Heading>
-
-										<Box gap={2}>
+										<VStack
+											gap={2}
+											mb={5}
+											// flex={1}
+											align="stretch"
+										>
 											{project.features.map(
 												(feature, i) => (
-													// <ListItem
 													<Flex
 														key={i}
-														alignItems="center"
-														// mb={4}
-														fontSize="sm"
-														color={"slate.600"}
+														alignItems="flex-start"
 														gap={2}
+														fontSize="sm"
+														color="slate.600"
 													>
-														<CheckCircle
-															// w={4}
-															// h={4}
-															size={4}
-															color="#00C2CB"
-															// flexShrink={0}
-														/>
-														{feature}
+														<Box
+															mt={0.5}
+															flexShrink={0}
+														>
+															<CheckCircle
+																className="w-4 h-4"
+																style={{
+																	color: "#00C2CB",
+																}}
+															/>
+														</Box>
+														<Text>{feature}</Text>
 													</Flex>
 												),
 											)}
-										</Box>
-									</Box>
+										</VStack>
+
+										<Flex
+											gap={2}
+											pt={4}
+											borderStyle={"solid"}
+											borderTop="1px"
+											borderTopColor="slate.100"
+										>
+											<Link
+												href={`/project-details/${project.id}`}
+											>
+												<Button
+													variant="outline"
+													size="sm"
+													w="full"
+													color="#0077FF"
+													borderWidth="1px"
+													borderColor="rgba(0, 119, 255, 0.3)"
+													_hover={{
+														bg: "rgba(0, 119, 255, 0.1)",
+														borderColor:
+															"rgba(0, 119, 255, 0.5)",
+													}}
+												>
+													<Eye
+														className="w-4 h-4"
+														style={{
+															marginRight:
+																"0.375rem",
+														}}
+													/>
+													View Details
+												</Button>
+											</Link>
+
+											{project.liveUrl ? (
+												<ChakraLink
+													href={project.liveUrl}
+													target="_blank"
+													rel="noopener noreferrer"
+													flex={1}
+													_hover={{
+														textDecoration: "none",
+													}}
+												>
+													<Button
+														size="sm"
+														w="full"
+														bg="#0077FF"
+														color="white"
+														_hover={{
+															bg: "#0066DD",
+														}}
+													>
+														<ExternalLink
+															className="w-4 h-4"
+															style={{
+																marginRight:
+																	"0.375rem",
+															}}
+														/>
+														Live Demo
+													</Button>
+												</ChakraLink>
+											) : (
+												<Button
+													size="sm"
+													flex={1}
+													variant="outline"
+													color="slate.400"
+													borderColor="slate.200"
+													disabled
+												>
+													Concept
+												</Button>
+											)}
+										</Flex>
+									</VStack>
 								</Box>
 							</motion.div>
 						))}

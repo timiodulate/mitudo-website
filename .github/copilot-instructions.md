@@ -168,7 +168,7 @@ npm run cypress:open # Open Cypress component test runner
 - ❌ Use `bgGradient="linear(to-br, ...)"` syntax for gradients
 - ❌ Use `isExternal` prop on ChakraLink (use explicit target and rel attributes instead)
 - ❌ Use `leftIcon`, `rightIcon` props on Button (pass icons as children instead)
-- ❌ Use `spacing` prop on Stack components (use `gap` instead)
+- ❌ Use `spacing` prop on Stack components such as VStack, HStack, Flex (use `gap` instead)
 - ❌ Use separate hover pseudo-props like `_hoverBorder`, `_hoverBg` (combine into `_hover` object)
 
 ---

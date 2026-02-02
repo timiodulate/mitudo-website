@@ -25,10 +25,10 @@ export default function Navbar() {
 	}, []);
 
 	const navLinks = [
-		{ label: "Work", href: "#work" },
-		{ label: "Services", href: "#services" },
-		{ label: "Pricing", href: "#pricing" },
-		{ label: "Contact", href: "#contact" },
+		{ label: "Work", href: "/#work" },
+		{ label: "Services", href: "/#services" },
+		{ label: "Pricing", href: "/#pricing" },
+		{ label: "Contact", href: "/#contact" },
 	];
 
 	return (
@@ -47,7 +47,7 @@ export default function Navbar() {
 			<Container maxW="6xl" py={0} mx={"auto"} px={{ base: 6 }}>
 				<Flex justify="space-between" align="center" h={20}>
 					{/* Logo */}
-					<ChakraLink href="#" _hover={{ textDecoration: "none" }}>
+					<ChakraLink href="/#" _hover={{ textDecoration: "none" }}>
 						<Box
 							fontSize="xl"
 							fontWeight="bold"
