@@ -23,8 +23,8 @@ type ProjectDetailSchema = {
 
 type ProjectsSchema = {
 	"dglides-apartments": ProjectDetailSchema;
-	"school-training-center": ProjectDetailSchema;
-	"logistics-real-estate": ProjectDetailSchema;
+	"royal-durim-press": ProjectDetailSchema;
+	"3h-foundation": ProjectDetailSchema;
 };
 type ProjectTitlesSchema = keyof ProjectsSchema;
 
@@ -34,7 +34,8 @@ const projects = {
 		type: "Real Estate Business Website",
 		shortDescription:
 			"A professional real estate website built to help D'Glides Apartments present its properties clearly, build trust with potential clients, and make it easy for interested customers to make enquiries.",
-		image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+		// image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+		image: "/assets/images/dGlides.png",
 		liveUrl: "https://dglidestcl.com",
 		objectives: [
 			"Establish a credible and professional online presence",
@@ -63,73 +64,75 @@ const projects = {
 		closingLine:
 			"This project reflects the type of professional business websites I build for real estate and service-based businesses.",
 	},
-	"school-training-center": {
-		title: "School / Training Center",
-		type: "Business Website",
+	"royal-durim-press": {
+		title: "Royal Durim Press Investment Ltd",
+		type: "Printing & Packaging Business Website",
 		shortDescription:
-			"A professional website designed for educational institutions to present their programs clearly and make it easy for parents and students to find information.",
-		image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
-		liveUrl: null,
+			"A professionally designed business website created to help Royal Durim Press Investment Ltd present its services clearly, establish credibility, and make it easy for customers to request quotes and get in touch.",
+		// image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+		image: "/assets/images/royalDurim.png",
+		liveUrl: "https://durimpress.vercel.app/?utm_source=chatgpt.com",
 		objectives: [
-			"Create a professional online presence for the institution",
-			"Showcase programs and courses clearly",
-			"Make navigation easy for parents and students",
-			"Encourage enrollment enquiries",
+			"Establish a professional and trustworthy online presence",
+			"Clearly communicate service offerings and product categories",
+			"Show business strength and experience at a glance",
+			"Make it simple for customers to contact the company and request quotes",
 		],
 		includes: [
-			"Homepage with clear value proposition",
-			"About page building trust and credibility",
-			"Programs/courses section with details",
-			"Easy-to-use contact and enquiry forms",
-			"Mobile-friendly responsive design",
+			"A clean homepage that communicates business identity immediately",
+			"Services section showing printing and packaging solutions",
+			"Contact information that’s easy to find and use",
+			"Clear navigation so visitors can explore services confidently",
+			"Layout that works well on phones and computers alike",
 		],
 		whyItWorks: [
-			"Builds trust with parents and prospective students",
-			"Presents information in an organized manner",
-			"Professional appearance reflects quality of education",
-			"Simple navigation reduces confusion",
+			"Builds trust and confidence in the brand",
+			"Clarifies what the business offers",
+			"Reduces hesitation by making contact simple",
+			"Helps convert site visitors into real enquiries and customers",
 		],
 		role: [
-			"Designed the website structure for educational context",
-			"Created a clean, trustworthy layout",
-			"Focused on ease of navigation and clarity",
+			"Structured the content to highlight business strengths",
+			"Designed the layout with a business-first mindset",
+			"Built the website focused on clarity, credibility, and customer connection",
 		],
 		closingLine:
-			"This concept demonstrates how I approach websites for schools and training centers.",
+			"This project reflects the professional business websites I create for service-oriented companies and established brands.",
 	},
-	"logistics-real-estate": {
-		title: "Logistics / Real Estate",
-		type: "Concept Design",
+	"3h-foundation": {
+		title: "HeadHeartHand (3H) Foundation",
+		type: "Nonprofit Organization Website",
 		shortDescription:
-			"A modern business website concept designed to establish credibility and drive customer action for logistics and real estate businesses.",
-		image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-		liveUrl: null,
+			"A modern nonprofit website that helps the foundation communicate its mission, showcase community programs, and make it easy for visitors to engage, support, or donate.",
+		// image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+		image: "/assets/images/hhhFoundation.png",
+		liveUrl: "https://3hfoundation.netlify.app",
 		objectives: [
-			"Create a strong first impression",
-			"Establish business credibility quickly",
-			"Guide visitors toward taking action",
-			"Present services in a clear, professional manner",
+			"Establish a credible and trustworthy online presence",
+			"Clearly communicate its mission and core focus areas",
+			"Showcase volunteer and support opportunities",
+			"Make it easy for visitors to donate, connect, or get involved",
 		],
 		includes: [
-			"Bold homepage with clear business positioning",
-			"Services section with compelling descriptions",
-			"Trust-building elements and testimonials",
-			"Strong call-to-action throughout",
-			"Responsive design for all devices",
+			"A welcoming homepage that communicates purpose immediately",
+			"Sections for program information and community impact",
+			"Clear navigation so visitors can find ways to help or connect",
+			"Prominent call‑to‑action areas for donating and volunteering",
+			"Layout optimized for both mobile and desktop experiences",
 		],
 		whyItWorks: [
-			"Modern design builds immediate trust",
-			"Clear messaging reduces confusion",
-			"Strategic CTAs increase conversions",
-			"Professional look attracts serious clients",
+			"Build trust and credibility with supporters",
+			"Share its values and programs clearly",
+			"Encourage donations and community participation",
+			"Provide a central hub for events and volunteer opportunities",
 		],
 		role: [
-			"Created the concept design and layout",
-			"Focused on credibility and conversion",
-			"Designed for modern business standards",
+			"Organized the content to highlight mission and key programs",
+			"Designed a clean layout with clear calls to action",
+			"Built the site to focus on clarity, trust, and engagement",
 		],
 		closingLine:
-			"This concept showcases the type of premium business websites I create for service-based companies.",
+			"This project reflects the professional organization websites I build for mission‑driven organizations and service‑focused businesses.",
 	},
 };
 

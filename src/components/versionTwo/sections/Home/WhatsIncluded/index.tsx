@@ -37,10 +37,10 @@ export default function WhatsIncluded() {
 	const included = [
 		{ icon: Globe, text: "4–6 page professional website" },
 		{ icon: Smartphone, text: "Mobile-friendly design" },
+		{ icon: Clock, text: "Fast loading speed" },
 		{ icon: MessageCircle, text: "WhatsApp chat button" },
 		{ icon: Mail, text: "Contact form" },
 		{ icon: Zap, text: "Basic SEO setup" },
-		{ icon: Clock, text: "Fast loading speed" },
 		{ icon: Shield, text: "7–10 days delivery" },
 	];
 
@@ -148,6 +148,21 @@ export default function WhatsIncluded() {
 						for your business.
 					</Text>
 				</motion.div>
+				{/* <motion.div
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: true }}
+				>
+					<Text
+						textAlign="center"
+						color="slate.500"
+						mt={12}
+						fontSize="sm"
+					>
+						Designed for service businesses, schools, real estate,
+						NGOs, and growing brands.
+					</Text>
+				</motion.div> */}
 			</Container>
 		</Box>
 	);

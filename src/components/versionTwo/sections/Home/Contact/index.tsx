@@ -41,7 +41,7 @@ export default function Contact() {
 							fontWeight="bold"
 							fontFamily="poppins"
 						>
-							Ready to Get Started?
+							Ready to Discuss Your Project?
 						</Heading>
 						<Text color="slate.400" fontSize="lg">
 							Let's discuss your project. Reach out via WhatsApp

@@ -21,6 +21,7 @@ export default function ProjectImage({ project }: { project: any }) {
 						objectFit="cover"
 						borderRadius="2xl"
 						shadow="2xl"
+						objectPosition={"top"}
 					/>
 				</motion.div>
 			</Box>
