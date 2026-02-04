@@ -27,18 +27,18 @@ const staggerContainer = {
 export default function Pricing() {
 	const pricing = [
 		{
-			label: "Small Businesses",
-			price: "₦150,000",
+			label: "Starter Websites",
+			price: "₦100,000",
 			description: "Perfect starting point",
 		},
 		{
-			label: "Most SMEs",
-			price: "₦200,000 – ₦250,000",
+			label: "Standard Business Website",
+			price: "₦150,000 – ₦250,000",
 			description: "Most popular choice",
 			featured: true,
 		},
 		{
-			label: "Larger Projects",
+			label: "Advanced Websites",
 			price: "₦300,000+",
 			description: "Complex requirements",
 		},
