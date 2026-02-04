@@ -8,6 +8,8 @@ import {
 	Zap,
 	Clock,
 	Shield,
+	Stars,
+	GlobeIcon,
 } from "lucide-react";
 import {
 	Box,
@@ -36,11 +38,13 @@ const staggerContainer = {
 export default function WhatsIncluded() {
 	const included = [
 		{ icon: Globe, text: "4–6 page professional website" },
+		{ icon: Stars, text: "Custom design using your brand colors & fonts" },
 		{ icon: Smartphone, text: "Mobile-friendly design" },
 		{ icon: Clock, text: "Fast loading speed" },
 		{ icon: MessageCircle, text: "WhatsApp chat button" },
 		{ icon: Mail, text: "Contact form" },
 		{ icon: Zap, text: "Basic SEO setup" },
+		{ icon: GlobeIcon, text: "Hosting setup (no custom domain)" },
 		{ icon: Shield, text: "7–10 days delivery" },
 	];
 

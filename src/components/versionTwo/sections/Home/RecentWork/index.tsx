@@ -337,7 +337,7 @@ export default function RecentWork() {
 				</motion.div>
 
 				{/* Note */}
-				<motion.div
+				{/* <motion.div
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
 					viewport={{ once: true }}
@@ -352,7 +352,7 @@ export default function RecentWork() {
 						Note: Some projects are concept redesigns created to
 						demonstrate what your business website can look like.
 					</Text>
-				</motion.div>
+				</motion.div> */}
 			</Container>
 		</Box>
 	);
