@@ -58,10 +58,10 @@ export default function Hero() {
 			</Box>
 
 			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 0.8 }}
-				//  position="relative"
+			// initial={{ opacity: 0 }}
+			// animate={{ opacity: 1 }}
+			// transition={{ duration: 0.8 }}
+			//  position="relative"
 			>
 				<Container
 					maxW="5xl"
@@ -75,7 +75,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.2 }}
+						transition={{ delay: 0.1 }}
 					>
 						<Box
 							display="inline-flex"
@@ -108,7 +108,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.3 }}
+						transition={{ delay: 0.2 }}
 					>
 						<Heading
 							as="h1"
@@ -131,7 +131,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.4 }}
+						transition={{ delay: 0.3 }}
 					>
 						<Text
 							fontSize={{ base: "lg", md: "xl" }}
@@ -154,7 +154,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.5 }}
+						transition={{ delay: 0.4 }}
 					>
 						<Text
 							// color="slate.400"
@@ -174,7 +174,7 @@ export default function Hero() {
 					<motion.div
 						initial={{ opacity: 0, y: 30 }}
 						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 0.6 }}
+						transition={{ delay: 0.5 }}
 					>
 						<Box
 							display="flex"
