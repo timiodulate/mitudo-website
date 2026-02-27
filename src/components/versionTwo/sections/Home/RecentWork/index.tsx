@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { motion } from "@/components/ui/motion";
 import {
@@ -17,6 +17,7 @@ import {
 	Link as ChakraLink,
 } from "@chakra-ui/react";
 import { CheckCircle, Eye, ExternalLink } from "lucide-react";
+import { fetchProjects } from "@/services/projects";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 30 },
@@ -44,47 +45,26 @@ export default function RecentWork() {
 		],
 	);
 
-	const projects = [
-		{
-			id: "dglides-apartments",
-			title: "D'Glides Apartments",
-			type: "Real Estate Business Website",
-			features: [
-				"Professional property showcase",
-				"Trust-building design",
-				"Direct enquiry options",
-				"Mobile & desktop optimized",
-			],
-			image: "/assets/images/dGlides.png",
-			liveUrl: "https://dglidestcl.com",
-		},
-		{
-			id: "royal-durim-press",
-			title: "Royal Durim Press",
-			type: "Printing & Packaging Business Website",
-			features: [
-				"Clear services presentation",
-				"Professional appearance",
-				"Easy enquiries",
-				"Easy to navigate",
-			],
-			image: "/assets/images/royalDurim.png",
-			liveUrl: "https://durimpress.vercel.app",
-		},
-		{
-			id: "3h-foundation",
-			title: "HeadHeartHand (3H) Foundation",
-			type: "Nonprofit Organization Website",
-			features: [
-				"Mission clarity & focus",
-				"Volunteer & donor pathways",
-				"Trustworthy online presence",
-				// "Simple site navigation",
-			],
-			image: "/assets/images/hhhFoundation.png",
-			liveUrl: "https://3hfoundation.netlify.app",
-		},
-	];
+	const [projects, setProjects] = React.useState<any[]>([]);
+	const [loading, setLoading] = React.useState(false);
+	const [error, setError] = React.useState<string | null>(null);
+
+	useEffect(() => {
+		getProjects();
+	}, []);
+
+	const getProjects = async () => {
+		setLoading(true);
+		try {
+			const fetchedProject: any = await fetchProjects();
+
+			setProjects(fetchedProject.data);
+		} catch (err) {
+			setError("Failed to fetch projects");
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	return (
 		<Box as="section" id="work" py={{ base: 20, md: 28 }} px={6}>
@@ -228,7 +208,7 @@ export default function RecentWork() {
 											align="stretch"
 										>
 											{project.features.map(
-												(feature, i) => (
+												(feature: any, i: any) => (
 													<Flex
 														key={i}
 														alignItems="flex-start"
