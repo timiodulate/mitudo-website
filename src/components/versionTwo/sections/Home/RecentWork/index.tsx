@@ -45,26 +45,44 @@ export default function RecentWork() {
 		],
 	);
 
-	const [projects, setProjects] = React.useState<any[]>([]);
+	const [projects, setProjects] = React.useState<any>([]);
 	const [loading, setLoading] = React.useState(false);
 	const [error, setError] = React.useState<string | null>(null);
 
 	useEffect(() => {
-		getProjects();
+		// getProjects();
+
+		let cancelled = false;
+
+		(async () => {
+			setLoading(true);
+			try {
+				const data = await fetchProjects();
+				if (!cancelled) setProjects(data);
+			} catch {
+				if (!cancelled) setError("Failed to fetch projects");
+			} finally {
+				if (!cancelled) setLoading(false);
+			}
+		})();
+
+		return () => {
+			cancelled = true;
+		};
 	}, []);
 
-	const getProjects = async () => {
-		setLoading(true);
-		try {
-			const fetchedProject: any = await fetchProjects();
+	// const getProjects = async () => {
+	// 	setLoading(true);
+	// 	try {
+	// 		const fetchedProject: any = await fetchProjects();
 
-			setProjects(fetchedProject.data);
-		} catch (err) {
-			setError("Failed to fetch projects");
-		} finally {
-			setLoading(false);
-		}
-	};
+	// 		setProjects(fetchedProject.data);
+	// 	} catch (err) {
+	// 		setError("Failed to fetch projects");
+	// 	} finally {
+	// 		setLoading(false);
+	// 	}
+	// };
 
 	return (
 		<Box as="section" id="work" py={{ base: 20, md: 28 }} px={6}>
@@ -114,7 +132,7 @@ export default function RecentWork() {
 						templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
 						gap={8}
 					>
-						{projects.map((project, index) => (
+						{projects.map((project: any, index: number) => (
 							<motion.div
 								key={index}
 								variants={fadeInUp}
