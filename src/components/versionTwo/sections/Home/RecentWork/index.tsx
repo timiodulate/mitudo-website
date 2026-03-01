@@ -148,8 +148,8 @@ export default function RecentWork() {
 										overflow="hidden"
 									>
 										<Image
-											src={project.image}
-											alt={project.title}
+											src={project?.image}
+											alt={project?.title}
 											w="full"
 											h="full"
 											objectFit="cover"
@@ -180,7 +180,7 @@ export default function RecentWork() {
 											px={3}
 											py={1}
 										>
-											{project.type}
+											{project?.type}
 										</Badge>
 									</Box>
 
@@ -199,7 +199,7 @@ export default function RecentWork() {
 											mb={3}
 											fontFamily="poppins"
 										>
-											{project.title}
+											{project?.title}
 										</Heading>
 										<VStack
 											gap={2}
@@ -207,7 +207,7 @@ export default function RecentWork() {
 											// flex={1}
 											align="stretch"
 										>
-											{project.features.map(
+											{project?.features?.map(
 												(feature: any, i: any) => (
 													<Flex
 														key={i}
@@ -269,7 +269,7 @@ export default function RecentWork() {
 
 											{project.liveUrl ? (
 												<ChakraLink
-													href={project.liveUrl}
+													href={project?.liveUrl}
 													target="_blank"
 													rel="noopener noreferrer"
 													flex={1}
