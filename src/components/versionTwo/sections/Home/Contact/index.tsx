@@ -1,7 +1,14 @@
 "use client";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Mail, CheckCircle, RefreshCw } from "lucide-react";
+import {
+	MessageCircle,
+	Mail,
+	CheckCircle,
+	RefreshCw,
+	Phone,
+	MapPin,
+} from "lucide-react";
 import {
 	Box,
 	Button,
@@ -112,6 +119,24 @@ export default function Contact() {
 								<Mail className="w-4 h-4 text-[#00C2CB]" />
 								<Text>mitudoagency0@gmail.com</Text>
 							</Flex>
+
+							<Text className="flex items-center justify-center gap-2">
+								<Phone className="w-4 h-4 text-[#00C2CB]" />
+								+234 814 769 7225
+							</Text>
+
+							{/* <Text className="flex items-center justify-center gap-2">
+								<MapPin className="w-4 h-4 text-[#00C2CB]" />
+								<a
+									href="https://maps.google.com/?q=Lagos,Nigeria"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="hover:text-[#00C2CB] transition-colors"
+								>
+									Ogun, Nigeria
+								</a>
+							</Text> */}
+
 							<Text fontSize="sm">
 								I respond within 24 hours.
 							</Text>

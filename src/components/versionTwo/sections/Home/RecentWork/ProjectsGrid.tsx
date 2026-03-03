@@ -56,17 +56,20 @@ export const ProjectsGrid = ({
 			whileInView="animate"
 			viewport={{ once: true }}
 		>
-			<Grid
-				templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+			<Flex
+				// templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+				// border={"solid red 1px"}
 				gap={8}
+				flexWrap={"wrap"}
 			>
 				{projectsData.map((project: any, index: number) => (
 					<motion.div
 						key={index}
 						variants={fadeInUp}
-						className="h-full"
+						className="h-full flex-1"
 					>
 						<Box
+							// flex={1}
 							bg={cardBg}
 							backgroundColor={"white"}
 							borderRadius="2xl"
@@ -92,7 +95,7 @@ export const ProjectsGrid = ({
 								<Image
 									src={project?.image}
 									alt={project?.title}
-									// w="full"
+									w="full"
 									h="full"
 									objectFit="cover"
 									transition="transform 0.7s"
@@ -243,7 +246,7 @@ export const ProjectsGrid = ({
 						</Box>
 					</motion.div>
 				))}
-			</Grid>
+			</Flex>
 		</motion.div>
 	);
 };
