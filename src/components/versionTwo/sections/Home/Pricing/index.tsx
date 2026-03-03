@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/components/ui/motion";
 import {
 	Box,
 	Container,

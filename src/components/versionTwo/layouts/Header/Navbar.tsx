@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
 
-export default function Navbar() {
+export default function Navbar({ bold }: { bold?: boolean }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const whatsappLink =
@@ -40,8 +40,8 @@ export default function Navbar() {
 			right={0}
 			zIndex={50}
 			transition="all 0.3s"
-			bg={scrolled ? "rgba(13, 27, 42, 0.95)" : "transparent"}
-			backdropFilter={scrolled ? "blur(10px)" : "none"}
+			bg={scrolled || bold ? "rgba(13, 27, 42, 0.95)" : "transparent"}
+			backdropFilter={scrolled || bold ? "blur(10px)" : "none"}
 			boxShadow={scrolled ? "lg" : "none"}
 		>
 			<Container maxW="6xl" py={0} mx={"auto"} px={{ base: 6 }}>
