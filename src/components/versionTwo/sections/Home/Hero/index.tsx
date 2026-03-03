@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { motion } from "@/components/ui/motion";
 import { MessageCircle, CheckCircle, ArrowRight } from "lucide-react";

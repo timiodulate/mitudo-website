@@ -20,7 +20,7 @@ export async function fetchProjects(
 		process.env.NEXT_PUBLIC_PROJECTS_API_URL,
 	);
 	url.searchParams.set("audience", "mitudo");
-	url.searchParams.set("format", "arr");
+	url.searchParams.set("format", format ?? "arr");
 
 	const res = await fetch(url.toString(), { cache: "no-store" });
 	if (!res.ok) throw new Error(`Failed: ${res.status}`);
@@ -28,8 +28,10 @@ export async function fetchProjects(
 	const payload = await res.json();
 
 	if (Array.isArray(payload?.data)) return payload.data;
-	if (payload?.data && typeof payload.data === "object")
+	if (payload?.data && typeof payload.data === "object") {
+		if (format === "obj") return payload.data;
 		return Object.values(payload.data);
+	}
 
 	return [];
 }

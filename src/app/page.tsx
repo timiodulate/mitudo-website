@@ -1,3 +1,4 @@
+// "use client";
 import React from "react";
 import VersionTwoHome from "@/components/versionTwo/sections/Home";
 

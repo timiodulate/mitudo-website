@@ -1,14 +1,10 @@
-"use client";
-
-import React, { useEffect } from "react";
-import NoProject from "@/components/versionTwo/sections/projectDetails/NoProject";
-import ProjectDetails from "@/components/versionTwo/sections/projectDetails/ProjectDetail";
-import { useParams } from "next/navigation";
+import React, { Suspense } from "react";
 import Navbar from "@/components/versionTwo/layouts/Header/Navbar";
 import Footer from "@/components/versionTwo/layouts/Footer";
 import { Box } from "@chakra-ui/react";
 import { fetchProjects } from "@/services/projects";
-import LoadingDetail from "@/components/versionTwo/sections/projectDetails/Loading";
+import { ProjectDetailsPage as ProjectDetailsSection } from "@/components/versionTwo/sections/projectDetails";
+import HydrateFallback from "./loading";
 
 type ProjectDetailSchema = {
 	title: string;
@@ -31,46 +27,31 @@ type ProjectsSchema = {
 type ProjectTitlesSchema = keyof ProjectsSchema;
 
 export default function ProjectDetailsPage() {
-	const urlParams: any = useParams();
-	const projectId: ProjectTitlesSchema =
-		urlParams["id"] || "dglides-apartments";
+	const projects = fetchProjects("obj");
 
-	const [project, setProject] = React.useState<any>(null);
-	const [isLoading, setLoading] = React.useState(true);
-	const [error, setError] = React.useState<string | null>(null);
+	// console.log(projects);
 
-	useEffect(() => {
-		getProjects();
-	}, []);
-
-	const getProjects = async () => {
-		setLoading(true);
-		try {
-			const fetchedProjects: any = await fetchProjects("obj");
-
-			const project: any = fetchedProjects?.data[projectId];
-			setProject(project);
-		} catch (err) {
-			setError("Failed to fetch projects");
-		} finally {
-			setLoading(false);
-		}
-	};
-
-	if (isLoading) {
-		return <LoadingDetail />;
-	}
+	// useEffect(() => {
+	// 	projects.then((data) => {
+	// 		// setProject(data?.[projectId]);
+	// 		console.log(data);
+	// 		setLoading(false);
+	// 	});
+	// }, [projectId]);
 
 	return (
 		<Box className="min-h-screen bg-[#F5F7FA] font-inter">
-			<Navbar />
+			<Navbar bold />
+			{/* 
+			<div className="flex">
+				<p className="text-black flex justify-center items-center bg-amber-500">
+					Brosososososososso
+				</p> */}
 
-			{!project || error ? (
-				<NoProject project={project} />
-			) : (
-				<ProjectDetails project={project} />
-			)}
-
+			<Suspense fallback={<HydrateFallback />}>
+				<ProjectDetailsSection projects={projects} />
+			</Suspense>
+			{/* </div> */}
 			{/* Footer */}
 			<Footer />
 		</Box>

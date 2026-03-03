@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "@/components/ui/motion";
 import { CheckCircle } from "lucide-react";
 import { Box, Container, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
