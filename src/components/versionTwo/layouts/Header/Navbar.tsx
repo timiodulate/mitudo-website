@@ -7,8 +7,10 @@ import {
 	Flex,
 	Container,
 	Link as ChakraLink,
+	Image,
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
+// import logoWhiteOnDark from "./logoWhiteOnDark.png";
 
 export default function Navbar({ bold }: { bold?: boolean }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +50,7 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 				<Flex justify="space-between" align="center" h={20}>
 					{/* Logo */}
 					<ChakraLink href="/#" _hover={{ textDecoration: "none" }}>
-						<Box
+						{/* <Box
 							fontSize="xl"
 							fontWeight="bold"
 							color="white"
@@ -58,7 +60,20 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 							<Box as="span" color="#00C2CB">
 								.
 							</Box>
-						</Box>
+						</Box> */}
+
+						<Image
+							src={"/assets/images/logoWhiteOnDark.png"}
+							alt="Mitudo Agency Logo"
+							w="120px"
+							// h="30"
+							objectFit="cover"
+							transition="transform 0.7s"
+							_groupHover={{
+								transform: "scale(1.1)",
+							}}
+							fetchPriority="high"
+						/>
 					</ChakraLink>
 
 					{/* Desktop Navigation */}
