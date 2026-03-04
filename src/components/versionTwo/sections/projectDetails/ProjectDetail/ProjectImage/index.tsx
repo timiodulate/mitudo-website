@@ -14,7 +14,7 @@ export default function ProjectImage({ project }: { project: any }) {
 					transition={{ duration: 0.6, delay: 0.2 }}
 				>
 					<Image
-						src={project.image}
+						src={project.imageUrl}
 						alt={project.title}
 						w="full"
 						h={{ base: "16rem", md: "24rem" }}

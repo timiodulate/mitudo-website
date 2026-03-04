@@ -93,7 +93,7 @@ export const ProjectsGrid = ({
 							{/* Image Container */}
 							<Box position="relative" h={48} overflow="hidden">
 								<Image
-									src={project?.image}
+									src={project?.imageUrl}
 									alt={project?.title}
 									w="full"
 									h="full"
