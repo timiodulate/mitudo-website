@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mitudoagency.com
+
+# Sitemaps
+Sitemap: https://mitudoagency.com/sitemap.xml
