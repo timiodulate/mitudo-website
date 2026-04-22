@@ -81,6 +81,7 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 							src="/assets/images/logo-primary-dark-nude.png"
 							alt="Mitudo Agency logo"
 							h={20}
+							w={100}
 							objectFit="contain"
 							transition="transform 0.2s"
 						/>

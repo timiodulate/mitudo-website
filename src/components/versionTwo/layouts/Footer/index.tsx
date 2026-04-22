@@ -78,7 +78,7 @@ const socialLinks = [
 export default function Footer() {
 	return (
 		<Box as="footer" bg="#0D1B2A" color="white">
-			<Container maxW="6xl" py={16} px={{ base: 6, md: 0 }}>
+			<Container maxW="6xl" py={16} px={{ base: 6, md: 8 }}>
 				<SimpleGrid columns={{ base: 1, md: 3 }} gap={10} mb={12}>
 					<Box>
 						{/* <Heading size="lg" mb={4} fontFamily="poppins">
@@ -149,6 +149,7 @@ export default function Footer() {
 										color: "#00C2CB",
 										textDecoration: "none",
 									}}
+									fontSize="sm"
 								>
 									{link.label}
 								</ChakraLink>
@@ -182,6 +183,7 @@ export default function Footer() {
 											: undefined
 									}
 									color="whiteAlpha.800"
+									fontSize="sm"
 									_hover={{
 										color: "#00C2CB",
 										textDecoration: "none",

@@ -65,7 +65,7 @@ export default function Hero() {
 						borderColor="rgba(0, 119, 255, 0.15)"
 						borderRadius="full"
 						fontSize="sm"
-						color="#0077FF"
+						color="#0D1B2A"
 						mb={8}
 					>
 						<Box
@@ -92,6 +92,7 @@ export default function Hero() {
 						mb={6}
 						letterSpacing="tight"
 						fontFamily="poppins"
+						color={"#0D1B2A"}
 					>
 						Set up right.
 						<br />
