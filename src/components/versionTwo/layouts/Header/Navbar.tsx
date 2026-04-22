@@ -1,37 +1,58 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import NextLink from "next/link";
 import { Menu, X, MessageCircle } from "lucide-react";
 import {
-	Button,
 	Box,
-	Flex,
+	Button,
 	Container,
+	Flex,
 	Link as ChakraLink,
 	Image,
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
-// import logoWhiteOnDark from "./logoWhiteOnDark.png";
+
+const navLinks = [
+	{ label: "Home", href: "/" },
+	{ label: "Work", href: "#work" },
+	{ label: "Services", href: "#services" },
+	{ label: "Pricing", href: "#pricing" },
+	{ label: "Contact", href: "#contact" },
+];
 
 export default function Navbar({ bold }: { bold?: boolean }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
+	const [activeHash, setActiveHash] = useState("");
+	const [pathname, setPathname] = useState("");
+
 	const whatsappLink =
 		"https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.";
 
 	useEffect(() => {
-		const handleScroll = () => {
+		const updateState = () => {
 			setScrolled(window.scrollY > 20);
+			setActiveHash(window.location.hash);
+			setPathname(window.location.pathname);
 		};
-		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+
+		updateState();
+		window.addEventListener("scroll", updateState);
+		window.addEventListener("hashchange", updateState);
+
+		return () => {
+			window.removeEventListener("scroll", updateState);
+			window.removeEventListener("hashchange", updateState);
+		};
 	}, []);
 
-	const navLinks = [
-		{ label: "Work", href: "/#work" },
-		{ label: "Services", href: "/#services" },
-		{ label: "Pricing", href: "/#pricing" },
-		{ label: "Contact", href: "/#contact" },
-	];
+	const isActive = (href: string) => {
+		if (href === "/") {
+			return pathname === "/" && !activeHash;
+		}
+
+		return activeHash === href;
+	};
 
 	return (
 		<Box
@@ -42,41 +63,29 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 			right={0}
 			zIndex={50}
 			transition="all 0.3s"
-			bg={scrolled || bold ? "rgba(13, 27, 42, 0.95)" : "transparent"}
-			backdropFilter={scrolled || bold ? "blur(10px)" : "none"}
-			boxShadow={scrolled ? "lg" : "none"}
+			bg={scrolled || bold ? "whiteAlpha.950" : "whiteAlpha.850"}
+			backdropFilter="blur(12px)"
+			borderBottom={
+				scrolled || bold ? "1px solid rgba(15, 23, 42, 0.08)" : "none"
+			}
+			boxShadow={scrolled ? "sm" : "none"}
 		>
-			<Container maxW="6xl" py={0} mx={"auto"} px={{ base: 6 }}>
+			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<Flex justify="space-between" align="center" h={20}>
-					{/* Logo */}
-					<ChakraLink href="/#" _hover={{ textDecoration: "none" }}>
-						{/* <Box
-							fontSize="xl"
-							fontWeight="bold"
-							color="white"
-							fontFamily="poppins"
-						>
-							MitudoA
-							<Box as="span" color="#00C2CB">
-								.
-							</Box>
-						</Box> */}
-
+					<ChakraLink
+						as={NextLink}
+						href="/"
+						_hover={{ textDecoration: "none" }}
+					>
 						<Image
-							src={"/assets/images/logoWhiteOnDark.png"}
-							alt="Mitudo Agency Logo"
-							w="120px"
-							// h="30"
-							objectFit="cover"
-							transition="transform 0.7s"
-							_groupHover={{
-								transform: "scale(1.1)",
-							}}
-							fetchPriority="high"
+							src="/assets/images/logo-primary-dark-nude.png"
+							alt="Mitudo Agency logo"
+							h={20}
+							objectFit="contain"
+							transition="transform 0.2s"
 						/>
 					</ChakraLink>
 
-					{/* Desktop Navigation */}
 					<Flex
 						align="center"
 						gap={8}
@@ -85,16 +94,18 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 						{navLinks.map((link) => (
 							<ChakraLink
 								key={link.label}
+								as={NextLink}
 								href={link.href}
 								fontSize="sm"
 								fontWeight="medium"
-								color="slate.300"
+								color={
+									isActive(link.href) ? "#0077FF" : "#4A5568"
+								}
 								_hover={{
-									color: "#00C2CB",
+									color: "#0077FF",
 									textDecoration: "none",
 								}}
-								fontFamily="inter"
-								transition="colors 0.3s"
+								transition="color 0.3s"
 							>
 								{link.label}
 							</ChakraLink>
@@ -107,11 +118,10 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 						>
 							<Button
 								bg="#0077FF"
-								_hover={{ bg: "#0066DD" }}
 								color="white"
-								px={6}
+								_hover={{ bg: "#0066DD" }}
 								borderRadius="full"
-								fontFamily="inter"
+								px={6}
 							>
 								<MessageCircle className="w-4 h-4" />
 								Let's Talk
@@ -119,11 +129,9 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 						</ChakraLink>
 					</Flex>
 
-					{/* Mobile Menu Button */}
 					<Box
 						as="button"
 						display={{ base: "block", md: "none" }}
-						color="white"
 						p={2}
 						onClick={() => setIsOpen(!isOpen)}
 						_hover={{ cursor: "pointer" }}
@@ -137,7 +145,6 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 				</Flex>
 			</Container>
 
-			{/* Mobile Navigation */}
 			<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
 		</Box>
 	);

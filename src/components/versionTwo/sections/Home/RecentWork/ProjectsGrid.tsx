@@ -145,27 +145,29 @@ export const ProjectsGrid = ({
 									// flex={1}
 									align="stretch"
 								>
-									{project?.features?.map(
-										(feature: any, i: any) => (
-											<Flex
-												key={i}
-												alignItems="flex-start"
-												gap={2}
-												fontSize="sm"
-												color="slate.600"
-											>
-												<Box mt={0.5} flexShrink={0}>
-													<CheckCircle
-														className="w-4 h-4"
-														style={{
-															color: "#00C2CB",
-														}}
-													/>
-												</Box>
-												<Text>{feature}</Text>
-											</Flex>
-										),
-									)}
+									{(
+										project?.features ??
+										project?.highlights ??
+										[]
+									).map((feature: any, i: any) => (
+										<Flex
+											key={i}
+											alignItems="flex-start"
+											gap={2}
+											fontSize="sm"
+											color="slate.600"
+										>
+											<Box mt={0.5} flexShrink={0}>
+												<CheckCircle
+													className="w-4 h-4"
+													style={{
+														color: "#00C2CB",
+													}}
+												/>
+											</Box>
+											<Text>{feature}</Text>
+										</Flex>
+									))}
 								</VStack>
 
 								<Flex
