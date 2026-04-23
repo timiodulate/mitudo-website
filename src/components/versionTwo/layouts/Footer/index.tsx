@@ -22,10 +22,12 @@ import {
 	X,
 } from "lucide-react";
 import {
+	businessAddress,
 	businessEmail,
 	businessWABaseLink,
 	businessWANumber,
 	businessWANumberSpread,
+	socialLinks,
 } from "@/data";
 import { BsTwitterX } from "react-icons/bs";
 
@@ -50,35 +52,8 @@ const contactLinks = [
 	},
 	{
 		icon: MapPin,
-		label: "Ogun, Nigeria",
-		href: "https://maps.google.com/?q=Ogun,Nigeria",
-	},
-];
-
-const socialLinks = [
-	{
-		label: "Instagram",
-		href: "https://instagram.com/mitudoagency",
-		icon: Instagram,
-		color: "#E1306C",
-	},
-	{
-		label: "LinkedIn",
-		href: "https://linkedin.com/in/mitudoagency",
-		icon: Linkedin,
-		color: "#0077B5",
-	},
-	{
-		label: "X",
-		href: "https://x.com/mitudoagency",
-		icon: BsTwitterX,
-		color: "#FFFFFF",
-	},
-	{
-		label: "Facebook",
-		href: "https://facebook.com/mitudoagency",
-		icon: Facebook,
-		color: "#1877F2",
+		label: businessAddress,
+		href: `https://maps.google.com/?q=${businessAddress}`,
 	},
 ];
 
