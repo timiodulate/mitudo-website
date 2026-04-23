@@ -98,8 +98,8 @@ export default function RecentWork() {
 	// };
 
 	return (
-		<Box as="section" id="work" py={{ base: 20, md: 28 }} px={6}>
-			<Container maxW="6xl">
+		<Box as="section" id="work" py={{ base: 20, md: 28 }}>
+			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				{/* Header Section */}
 				<RecentWorkHeader />
 

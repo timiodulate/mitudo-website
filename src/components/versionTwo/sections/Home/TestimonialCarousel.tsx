@@ -50,10 +50,11 @@ export default function TestimonialCarousel() {
 			as="section"
 			id="testimonials"
 			py={{ base: 20, md: 28 }}
-			bg="#F5F7FA"
-			px={6}
+			// bg="#F5F7FA"
+			bg="#ffffff"
+			// px={6}
 		>
-			<Container maxW="5xl">
+			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<Box textAlign="center" mb={14}>
 					<Text
 						fontSize="sm"
@@ -116,24 +117,24 @@ export default function TestimonialCarousel() {
 									}).map((_, index) => (
 										<Star
 											key={index}
-											className="w-5 h-5 text-[#00C2CB]"
+											className="w-5 h-5 text-[#00C2CB] fill-[#00C2CB]"
 										/>
 									))}
 								</Flex>
 
 								<Text
-									fontSize={{ base: "lg", md: "xl" }}
+									fontSize={{ md: "md" }}
 									color="#4A5568"
 									lineHeight="tall"
-									mb={8}
+									mb={6}
 								>
 									“{testimonials[current].text}”
 								</Text>
 
 								<Flex align="center" gap={4}>
 									<Box
-										w={12}
-										h={12}
+										w={10}
+										h={10}
 										borderRadius="full"
 										bgGradient="to-br"
 										gradientFrom="#0077FF"
@@ -147,11 +148,13 @@ export default function TestimonialCarousel() {
 									>
 										{testimonials[current].name.charAt(0)}
 									</Box>
+
 									<Box>
 										<Text
 											fontWeight="semibold"
 											color="#0D1B2A"
 											fontFamily="poppins"
+											fontSize="sm"
 										>
 											{testimonials[current].name}
 										</Text>
@@ -174,8 +177,10 @@ export default function TestimonialCarousel() {
 						borderColor="slate.300"
 						color="#0D1B2A"
 						_hover={{ borderColor: "#0077FF", color: "#0077FF" }}
+						w="10"
+						h="10"
 					>
-						<ChevronLeft className="w-5 h-5" />
+						<ChevronLeft className="!w-4 h-4" />
 					</Button>
 
 					<Flex gap={2}>
@@ -210,8 +215,10 @@ export default function TestimonialCarousel() {
 						borderColor="slate.300"
 						color="#0D1B2A"
 						_hover={{ borderColor: "#0077FF", color: "#0077FF" }}
+						w="10"
+						h="10"
 					>
-						<ChevronRight className="w-5 h-5" />
+						<ChevronRight className="!w-4 h-4" />
 					</Button>
 				</Flex>
 			</Container>

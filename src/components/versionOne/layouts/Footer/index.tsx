@@ -1,5 +1,6 @@
 // src/components/Footer.tsx
 import Logo from "@/components/shared/Logo";
+import { businessEmail, businessWANumber } from "@/data";
 import {
 	Box,
 	Flex,
@@ -121,18 +122,18 @@ export const Footer = () => {
 								Connect
 							</Text>
 							<Link
-								href="mailto:mitudoagency.0@gmail.com"
+								href={`mailto:${businessEmail}`}
 								color={"footer.link"}
 								target="_blank"
 							>
-								mitudoagency.0@gmail.com
+								{businessEmail}
 							</Link>
 							<Link
 								href="https://wa.me/message/ZLLYAMBC6FPBN1"
 								color={"footer.link"}
 								target="_blank"
 							>
-								WA: +2348147697225
+								WA: +{businessWANumber}
 							</Link>
 						</Stack>
 					</Flex>

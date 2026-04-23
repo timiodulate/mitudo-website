@@ -9,11 +9,12 @@ import {
 	Text,
 	Button,
 	Link as ChakraLink,
+	Flex,
 } from "@chakra-ui/react";
+import { businessWABaseLink } from "@/data";
 
 export default function Hero() {
-	const whatsappLink =
-		"https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.";
+	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
 
 	return (
 		<Box as="section" position="relative" overflow="hidden" bg="white">
@@ -22,8 +23,8 @@ export default function Hero() {
 					position="absolute"
 					top="5rem"
 					right={0}
-					w="500px"
-					h="500px"
+					w={{ md: "500px", sm: "50px" }}
+					h={{ md: "500px", sm: "50px" }}
 					// bg="#0077FF"
 					bg="#00C2CB"
 					borderRadius="full"
@@ -33,8 +34,8 @@ export default function Hero() {
 					position="absolute"
 					bottom={0}
 					left={0}
-					w="320px"
-					h="320px"
+					w={{ md: "320px", sm: "0px" }}
+					h={{ md: "320px", sm: "0px" }}
 					bg="#00C2CB"
 					borderRadius="full"
 					filter="blur(120px)"
@@ -112,7 +113,8 @@ export default function Hero() {
 				>
 					<Text
 						fontSize={{ base: "lg", md: "xl" }}
-						color="gray.600"
+						// color="gray.600"
+						color="#4A5568"
 						maxW="2xl"
 						mb={10}
 						lineHeight="relaxed"
@@ -128,11 +130,7 @@ export default function Hero() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.4 }}
 				>
-					<Box
-						display="flex"
-						flexDirection={{ base: "column", sm: "row" }}
-						gap={4}
-					>
+					<Flex flexDirection={{ base: "column", md: "row" }} gap={4}>
 						<ChakraLink
 							href={whatsappLink}
 							target="_blank"
@@ -145,18 +143,19 @@ export default function Hero() {
 								color="white"
 								px={8}
 								py={6}
-								fontSize="lg"
+								fontSize="base"
 								borderRadius="full"
-								boxShadow="0 10px 25px -5px rgba(0, 119, 255, 0.25)"
+								// boxShadow="0 10px 25px -5px rgba(0, 119, 255, 0.25)"
 								transition="all 0.3s"
 								_hover={{
 									bg: "#0066DD",
-									boxShadow:
-										"0 20px 40px -10px rgba(0, 119, 255, 0.3)",
+									// boxShadow:
+									// "0 20px 40px -10px rgba(0, 119, 255, 0.3)",
 									transform: "translateY(-2px)",
 								}}
+								className=" !shadow-lg !shadow-[#0077FF]/25 hover:-translate-y-0.5"
 							>
-								<MessageCircle className="w-5 h-5" />
+								<MessageCircle className="!w-4" />
 								Start a Conversation
 							</Button>
 						</ChakraLink>
@@ -166,22 +165,22 @@ export default function Hero() {
 							_hover={{ textDecoration: "none" }}
 						>
 							<Button
-								size="lg"
+								// size="lg"
 								variant="outline"
 								borderWidth={1}
-								borderColor="rgba(13, 27, 42, 0.15)"
 								color="#0D1B2A"
 								_hover={{ bg: "rgba(0, 119, 255, 0.08)" }}
 								px={8}
 								py={6}
-								fontSize="lg"
+								fontSize="base"
 								borderRadius="full"
+								className="lgprops: !h-10 rounded-md px-8  !border-[#0D1B2A]/20 !hover:bg-[#0D1B2A]/5  "
 							>
 								View My Work
-								<ArrowRight className="w-5 h-5 ml-2" />
+								<ArrowRight className="!w-4 ml-2" />
 							</Button>
 						</ChakraLink>
-					</Box>
+					</Flex>
 				</motion.div>
 			</Container>
 		</Box>

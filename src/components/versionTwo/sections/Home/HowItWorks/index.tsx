@@ -40,10 +40,9 @@ export default function HowItWorks() {
 			as="section"
 			id="how-it-works"
 			py={{ base: 20, md: 28 }}
-			px={6}
 			bg="#F5F7FA"
 		>
-			<Container maxW="5xl">
+			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -78,26 +77,29 @@ export default function HowItWorks() {
 
 				<Grid
 					templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
-					gap={6}
+					gap={8}
 				>
 					{steps.map((item) => (
 						<motion.div key={item.step} variants={fadeInUp}>
 							<Box
 								bg="white"
-								borderRadius="3xl"
+								borderRadius="2xl"
 								p={8}
 								border="1px solid"
 								borderColor="slate.200"
 								boxShadow="sm"
 								transition="all 0.3s"
-								_hover={{ boxShadow: "xl" }}
+								_hover={{ boxShadow: "lg" }}
+
+								// className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow"
 							>
 								<Text
 									fontSize="5xl"
 									fontWeight="bold"
 									fontFamily="poppins"
 									color={item.color}
-									opacity={0.15}
+									opacity={0.3}
+									className={`text-${item.color}`}
 								>
 									{item.step}
 								</Text>
@@ -106,12 +108,16 @@ export default function HowItWorks() {
 									fontSize={{ base: "xl", md: "2xl" }}
 									mt={4}
 									mb={4}
-									color="#0D1B2A"
+									color={item.color}
 									fontFamily="poppins"
 								>
 									{item.title}
 								</Heading>
-								<Text color="slate.600" lineHeight="tall">
+								<Text
+									color="#4A5568"
+									fontSize={"sm"}
+									lineHeight="tall"
+								>
 									{item.description}
 								</Text>
 							</Box>

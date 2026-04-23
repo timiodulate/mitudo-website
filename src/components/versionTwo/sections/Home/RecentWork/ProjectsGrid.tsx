@@ -56,11 +56,12 @@ export const ProjectsGrid = ({
 			whileInView="animate"
 			viewport={{ once: true }}
 		>
-			<Flex
-				// templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+			<Grid
+				templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
 				// border={"solid red 1px"}
-				gap={8}
-				flexWrap={"wrap"}
+				gap={6}
+				// gap={8}
+				// flexWrap={"wrap"}
 			>
 				{projectsData.map((project: any, index: number) => (
 					<motion.div
@@ -82,7 +83,7 @@ export const ProjectsGrid = ({
 							_hover={{
 								boxShadow: "xl",
 							}}
-							transition="all 0.5s"
+							transition="all 0.3s"
 							_groupHover={{
 								"& img": {
 									transform: "scale(1.1)",
@@ -110,21 +111,27 @@ export const ProjectsGrid = ({
 									gradientFrom={"rgba(13, 27, 42, 0.7)"}
 									gradientTo={"transparent"}
 								/>
-								<Badge
+
+								<Box
 									position="absolute"
-									bottom={4}
+									// bottom={4}
+									top={4}
 									left={4}
-									fontSize="xs"
-									fontWeight="medium"
-									color="rgba(white,0.9)"
-									bg="rgba(0, 119, 255, 0.8)"
-									backdropFilter="blur(4px)"
-									borderRadius="full"
-									px={3}
-									py={1}
 								>
-									{project?.type}
-								</Badge>
+									<Badge
+										fontSize="xs"
+										fontWeight="medium"
+										color="white"
+										bg="rgba(0, 119, 255, 0.8)"
+										backdropFilter="blur(4px)"
+										borderRadius="full"
+										px={3}
+										py={1}
+										className=""
+									>
+										{project?.type}
+									</Badge>
+								</Box>
 							</Box>
 
 							{/* Content */}
@@ -192,9 +199,10 @@ export const ProjectsGrid = ({
 												borderColor:
 													"rgba(0, 119, 255, 0.5)",
 											}}
+											className="!h-8 !rounded-md !px-3 !text-xs"
 										>
 											<Eye
-												className="w-4 h-4"
+												className="!w-4 h-4"
 												style={{
 													marginRight: "0.375rem",
 												}}
@@ -221,9 +229,10 @@ export const ProjectsGrid = ({
 												_hover={{
 													bg: "#0066DD",
 												}}
+												className="!h-8 !rounded-md !px-3 !text-xs"
 											>
 												<ExternalLink
-													className="w-4 h-4"
+													className="!w-4 !h-4"
 													style={{
 														marginRight: "0.375rem",
 													}}
@@ -248,7 +257,7 @@ export const ProjectsGrid = ({
 						</Box>
 					</motion.div>
 				))}
-			</Flex>
+			</Grid>
 		</motion.div>
 	);
 };

@@ -2,8 +2,25 @@
 
 import React from "react";
 import { motion } from "@/components/ui/motion";
-import { Box, Container, Grid, Heading, Text, Flex } from "@chakra-ui/react";
-import { Globe, Search, Award, Mail, Users, Shield } from "lucide-react";
+import {
+	Box,
+	Container,
+	Grid,
+	Heading,
+	Text,
+	Flex,
+	Button,
+} from "@chakra-ui/react";
+import {
+	Globe,
+	Search,
+	Award,
+	Mail,
+	Users,
+	Shield,
+	ArrowRight,
+} from "lucide-react";
+import Link from "next/link";
 
 const services = [
 	{
@@ -74,14 +91,8 @@ const staggerContainer = {
 
 export default function Services() {
 	return (
-		<Box
-			as="section"
-			id="services"
-			py={{ base: 20, md: 28 }}
-			px={6}
-			bg="white"
-		>
-			<Container maxW="6xl">
+		<Box as="section" id="services" py={{ base: 20, md: 28 }} bg="white">
+			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -166,14 +177,14 @@ export default function Services() {
 									>
 										{service.title}
 									</Heading>
-									<Text
+									{/* <Text
 										fontSize="sm"
 										fontWeight="semibold"
 										mb={3}
 										color={service.iconColor}
 									>
 										{service.price}
-									</Text>
+									</Text> */}
 									<Text
 										color="slate.600"
 										fontSize="sm"

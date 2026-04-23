@@ -21,6 +21,13 @@ import {
 	Phone,
 	X,
 } from "lucide-react";
+import {
+	businessEmail,
+	businessWABaseLink,
+	businessWANumber,
+	businessWANumberSpread,
+} from "@/data";
+import { BsTwitterX } from "react-icons/bs";
 
 const navLinks = [
 	{ label: "Home", href: "/" },
@@ -33,18 +40,18 @@ const navLinks = [
 const contactLinks = [
 	{
 		icon: Mail,
-		label: "contact@mitudoagency.com",
-		href: "mailto:contact@mitudoagency.com",
+		label: businessEmail,
+		href: `mailto:${businessEmail}`,
 	},
 	{
 		icon: Phone,
-		label: "+234 814 769 7225",
-		href: "tel:+2348147697225",
+		label: businessWANumberSpread,
+		href: `tel:+${businessWANumber}`,
 	},
 	{
 		icon: MapPin,
-		label: "Lagos, Nigeria",
-		href: "https://maps.google.com/?q=Lagos,Nigeria",
+		label: "Ogun, Nigeria",
+		href: "https://maps.google.com/?q=Ogun,Nigeria",
 	},
 ];
 
@@ -64,7 +71,7 @@ const socialLinks = [
 	{
 		label: "X",
 		href: "https://x.com/mitudoagency",
-		icon: X,
+		icon: BsTwitterX,
 		color: "#FFFFFF",
 	},
 	{
@@ -102,16 +109,18 @@ export default function Footer() {
 						</ChakraLink>
 
 						<Text
-							color="whiteAlpha.800"
+							color="slate.400"
 							fontSize="sm"
 							lineHeight="tall"
+							mt={4}
 						>
 							We help businesses look credible and get found
 							online — from brand identity and registration to
 							websites, SEO, and professional social media
 							presence.
 						</Text>
-						<Flex gap={4} mt={6}>
+
+						<Flex gap={3} mt={6}>
 							{socialLinks.map((link) => (
 								<ChakraLink
 									key={link.label}
@@ -119,10 +128,11 @@ export default function Footer() {
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label={link.label}
-									color={link.color}
+									// color={link.color}
+									color={"slate.300"}
 									_hover={{ opacity: 0.8 }}
 								>
-									<Box as={link.icon} boxSize={5} />
+									<Box as={link.icon} boxSize={4} />
 								</ChakraLink>
 							))}
 						</Flex>
@@ -144,7 +154,8 @@ export default function Footer() {
 									key={link.label}
 									as={NextLink}
 									href={link.href}
-									color="whiteAlpha.800"
+									// color="whiteAlpha.800"
+									color="slate.400"
 									_hover={{
 										color: "#00C2CB",
 										textDecoration: "none",
@@ -182,7 +193,8 @@ export default function Footer() {
 											? "noopener noreferrer"
 											: undefined
 									}
-									color="whiteAlpha.800"
+									// color="whiteAlpha.800"
+									color="slate.400"
 									fontSize="sm"
 									_hover={{
 										color: "#00C2CB",
@@ -213,7 +225,7 @@ export default function Footer() {
 						reserved.
 					</Text>
 					<ChakraLink
-						href="https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20your%20business."
+						href={`${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20your%20business.`}
 						target="_blank"
 						rel="noopener noreferrer"
 						fontSize="sm"

@@ -11,12 +11,13 @@ import {
 	Image,
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
+import { businessWABaseLink } from "@/data";
 
 const navLinks = [
 	{ label: "Home", href: "/" },
-	{ label: "Work", href: "#work" },
+	{ label: "Portfolio", href: "#work" },
 	{ label: "Services", href: "#services" },
-	{ label: "Pricing", href: "#pricing" },
+	// { label: "Pricing", href: "#pricing" },
 	{ label: "Contact", href: "#contact" },
 ];
 
@@ -26,8 +27,7 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 	const [activeHash, setActiveHash] = useState("");
 	const [pathname, setPathname] = useState("");
 
-	const whatsappLink =
-		"https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.";
+	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
 
 	useEffect(() => {
 		const updateState = () => {
@@ -64,11 +64,16 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 			zIndex={50}
 			transition="all 0.3s"
 			bg={scrolled || bold ? "whiteAlpha.950" : "whiteAlpha.850"}
-			backdropFilter="blur(12px)"
+			// backdropFilter="blur(12px)"
 			borderBottom={
 				scrolled || bold ? "1px solid rgba(15, 23, 42, 0.08)" : "none"
 			}
 			boxShadow={scrolled ? "sm" : "none"}
+			className={
+				scrolled
+					? " backdrop-blur-md  border-b border-slate-100"
+					: " backdrop-blur-sm"
+			}
 		>
 			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<Flex justify="space-between" align="center" h={20}>
@@ -111,6 +116,7 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 								{link.label}
 							</ChakraLink>
 						))}
+
 						<ChakraLink
 							href={whatsappLink}
 							target="_blank"
@@ -123,8 +129,9 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 								_hover={{ bg: "#0066DD" }}
 								borderRadius="full"
 								px={6}
+								className="!font-inter"
 							>
-								<MessageCircle className="w-4 h-4" />
+								<MessageCircle className="!w-4 !h-4" />
 								Let's Talk
 							</Button>
 						</ChakraLink>
