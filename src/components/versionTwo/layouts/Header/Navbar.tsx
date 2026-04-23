@@ -18,7 +18,7 @@ const navLinks = [
 	{ label: "Portfolio", href: "#work" },
 	{ label: "Services", href: "#services" },
 	// { label: "Pricing", href: "#pricing" },
-	{ label: "Contact", href: "#contact" },
+	{ label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar({ bold }: { bold?: boolean }) {

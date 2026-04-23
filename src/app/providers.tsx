@@ -1,6 +1,7 @@
 "use client";
 
 import { Provider } from "@/components/ui/provider";
+import { StoreProvider } from "@/store/provider";
 import React from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -8,7 +9,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 		<Provider
 		//  theme={theme}
 		>
-			{children}
+			<StoreProvider>{children}</StoreProvider>
 		</Provider>
 	);
 }

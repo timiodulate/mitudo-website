@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { Toaster } from "sonner";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -43,6 +44,8 @@ export default function RootLayout({
 				className={`${inter.variable} ${roboto.variable} ${poppings.variable} antialiased`}
 			>
 				<Providers>{children}</Providers>
+
+				<Toaster position="bottom-right" richColors />
 			</body>
 		</html>
 	);

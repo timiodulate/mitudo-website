@@ -15,7 +15,7 @@ export default function MobileNav({
 		{ label: "Portfolio", href: "#work" },
 		{ label: "Services", href: "#services" },
 		// { label: "Pricing", href: "#pricing" },
-		{ label: "Contact", href: "#contact" },
+		{ label: "Contact", href: "/contact" },
 	];
 
 	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
