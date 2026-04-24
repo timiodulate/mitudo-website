@@ -11,23 +11,14 @@ import {
 	Image,
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
-import { businessWABaseLink } from "@/data";
-
-const navLinks = [
-	{ label: "Home", href: "/" },
-	{ label: "Portfolio", href: "#work" },
-	{ label: "Services", href: "#services" },
-	// { label: "Pricing", href: "#pricing" },
-	{ label: "Contact", href: "/contact" },
-];
+import { whatsappLink } from "@/data";
+import { navLinks } from "@/data/routes";
 
 export default function Navbar({ bold }: { bold?: boolean }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const [activeHash, setActiveHash] = useState("");
 	const [pathname, setPathname] = useState("");
-
-	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
 
 	useEffect(() => {
 		const updateState = () => {

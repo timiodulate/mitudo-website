@@ -1,4 +1,4 @@
-import Home from "@/app/page";
+import Home from "@/app/(site)/page";
 
 describe("<Page />", () => {
 	it("should render and display expected content", () => {
@@ -15,7 +15,7 @@ describe("<Page />", () => {
 		// Validate that a link with the expected URL is present
 		// Following the link is better suited to an E2E test
 		cy.get(
-			'a[href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"]'
+			'a[href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"]',
 		).should("be.visible");
 		cy.get("img").should("be.visible");
 

@@ -124,6 +124,17 @@ npm run cypress:open # Open Cypress component test runner
 3. Import in `theme.ts` and add to `defineConfig`
 4. Use variants via Chakra UI `variant` prop in component
 
+### Navigation & Routes
+
+- **Route strings**: All navigation links to `/<page>` routes must use URLs from `/src/data/routes.ts` (or similar centralized routes file)
+- **Never hardcode routes**: Do not hardcode path strings like `/portfolio` or `/contact` directly in components
+- **Pattern**: Import routes object from `@/data` and reference via dot notation or as function returns
+    - ✅ `<ChakraLink href={ROUTES.portfolio}>Portfolio</ChakraLink>`
+    - ✅ `href={getRoute("contact")}`
+    - ❌ `<ChakraLink href="/portfolio">Portfolio</ChakraLink>`
+- **Benefit**: Centralized route management ensures consistency and simplifies refactoring if paths change
+- **Implementation**: When adding a new page/route, first add it to the routes file, then use the exported constant in navigation
+
 ### Ensuring Dark Mode Support
 
 - Use `useColorModeValue()` for conditional values or `_dark:` in Chakra props
@@ -158,6 +169,7 @@ npm run cypress:open # Open Cypress component test runner
 - ✅ Add icons to Button as children elements, not as props
 - ✅ Use `gap` prop on Stack components (VStack, HStack, Flex)
 - ✅ Combine all hover styles into single `_hover` object
+- ✅ Import route strings from `/src/data/routes.ts` for all internal navigation links
 
 ### DON'T
 
@@ -170,6 +182,7 @@ npm run cypress:open # Open Cypress component test runner
 - ❌ Use `leftIcon`, `rightIcon` props on Button (pass icons as children instead)
 - ❌ Use `spacing` prop on Stack components such as VStack, HStack, Flex (use `gap` instead)
 - ❌ Use separate hover pseudo-props like `_hoverBorder`, `_hoverBg` (combine into `_hover` object)
+- ❌ Hardcode route strings like `/portfolio` or `/contact` in components (import from `@/data/routes.ts` instead)
 
 ---
 

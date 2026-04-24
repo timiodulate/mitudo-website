@@ -2,7 +2,8 @@ import React from "react";
 import { MessageCircle } from "lucide-react";
 import { Button, Box, Link as ChakraLink, VStack } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "@/components/ui/motion";
-import { businessWABaseLink } from "@/data";
+import { whatsappLink } from "@/data";
+import { navLinks } from "@/data/routes";
 
 export default function MobileNav({
 	isOpen,
@@ -11,15 +12,6 @@ export default function MobileNav({
 	isOpen: boolean;
 	setIsOpen: (value: boolean) => void;
 }) {
-	const navLinks = [
-		{ label: "Portfolio", href: "#work" },
-		{ label: "Services", href: "#services" },
-		// { label: "Pricing", href: "#pricing" },
-		{ label: "Contact", href: "/contact" },
-	];
-
-	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
-
 	return (
 		<AnimatePresence>
 			{isOpen && (
@@ -37,7 +29,7 @@ export default function MobileNav({
 						py={6}
 					>
 						<VStack gap={4} align="stretch">
-							{navLinks.map((link) => (
+							{navLinks.splice(1).map((link) => (
 								<ChakraLink
 									key={link.label}
 									href={link.href}
@@ -55,6 +47,7 @@ export default function MobileNav({
 									{link.label}
 								</ChakraLink>
 							))}
+
 							<Box pt={4}>
 								<ChakraLink
 									href={whatsappLink}

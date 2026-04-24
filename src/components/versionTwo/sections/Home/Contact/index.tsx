@@ -16,9 +16,8 @@ import {
 	businessEmail,
 	businessWABaseLink,
 	businessWANumberSpread,
+	whatsappLink,
 } from "@/data";
-
-const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
 
 const emailLink = `mailto:${businessEmail}`;
 const mapsLink = "https://maps.google.com/?q=Ogun,Nigeria";

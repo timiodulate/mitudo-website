@@ -30,7 +30,7 @@ import {
 } from "lucide-react";
 import Navbar from "@/components/versionTwo/layouts/Header/Navbar";
 import Footer from "@/components/versionTwo/layouts/Footer";
-import { businessAddress, socialLinks } from "@/data";
+import { businessAddress, socialLinks, whatsappLink } from "@/data";
 import { toast } from "sonner";
 import { useSubmitContactMutation } from "@/services/mitudoApi";
 
@@ -55,9 +55,6 @@ const EMPTY_FORM: FormState = {
 };
 
 export default function ContactPage() {
-	const whatsappLink =
-		"https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20your%20services.";
-
 	const [form, setForm] = useState<FormState>(EMPTY_FORM);
 	const [submitted, setSubmitted] = useState(false);
 	const [submitContact, { isLoading }] = useSubmitContactMutation();

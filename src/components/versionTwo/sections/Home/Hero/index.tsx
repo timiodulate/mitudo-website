@@ -11,11 +11,9 @@ import {
 	Link as ChakraLink,
 	Flex,
 } from "@chakra-ui/react";
-import { businessWABaseLink } from "@/data";
+import { businessWABaseLink, whatsappLink } from "@/data";
 
 export default function Hero() {
-	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
-
 	return (
 		<Box as="section" position="relative" overflow="hidden" bg="white">
 			<Box position="absolute" inset={0} pointerEvents="none">

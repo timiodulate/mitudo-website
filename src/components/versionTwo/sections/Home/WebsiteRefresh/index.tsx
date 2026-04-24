@@ -12,11 +12,9 @@ import {
 	Link as ChakraLink,
 	Text,
 } from "@chakra-ui/react";
-import { businessWABaseLink } from "@/data";
+import { whatsappLink } from "@/data";
 
 export default function WebsiteRefresh() {
-	const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
-
 	return (
 		<Box as="section" py={{ base: 20, md: 28 }} px={6} bg="white">
 			<Container maxW="4xl">
