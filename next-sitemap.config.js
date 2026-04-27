@@ -7,7 +7,7 @@ module.exports = {
 	changefreq: "weekly",
 	priority: 0.7,
 
-	sitemapSize: 5000,
+	sitemapSize: 7000,
 
 	robotsTxtOptions: {
 		policies: [
@@ -30,9 +30,9 @@ module.exports = {
 
 	additionalPaths: async (config) => [
 		await config.transform(config, "/"),
-		await config.transform(config, "/about"),
+		// await config.transform(config, "/about"),
 		await config.transform(config, "/contact"),
-		await config.transform(config, "/projects"),
-		await config.transform(config, "/project-details"),
+		await config.transform(config, "/portfolio"),
+		// await config.transform(config, "/portfolio/"),
 	],
 };

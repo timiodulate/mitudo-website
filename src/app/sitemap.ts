@@ -16,9 +16,9 @@ export default function sitemap() {
 			url: "https://mitudoagency.com/portfolio",
 			lastModified: new Date(),
 		},
-		{
-			url: "https://mitudoagency.com/projects-details",
-			lastModified: new Date(),
-		},
+		// {
+		// 	url: "https://mitudoagency.com/portfolio",
+		// 	lastModified: new Date(),
+		// },
 	];
 }
