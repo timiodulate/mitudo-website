@@ -3,12 +3,12 @@ import React from "react";
 import {
 	Box,
 	Button,
-	Container,
 	Link as ChakraLink,
 	Stack,
 	Text,
 } from "@chakra-ui/react";
 import { ProjectsGrid2 } from "../Home/RecentWork/ProjectsGrid";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function ProjectsSection({
 	projects,
@@ -17,8 +17,8 @@ export default function ProjectsSection({
 }) {
 	return (
 		<Box minH="100vh" bg="#F5F7FA" fontFamily="inter">
-			<Box as="section" py={{ base: 16, md: 24 }} px={6}>
-				<Container maxW="7xl">
+			<Box as="section" py={{ base: 16, md: 24 }}>
+				<SectionContainer>
 					<ProjectsGrid2 projects={projects} />
 
 					{/* <motion.p
@@ -38,7 +38,7 @@ export default function ProjectsSection({
 							coming soon.
 						</Text>
 					</motion.p> */}
-				</Container>
+				</SectionContainer>
 			</Box>
 		</Box>
 	);

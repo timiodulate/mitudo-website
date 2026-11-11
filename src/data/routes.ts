@@ -4,6 +4,8 @@ export const ROUTES = {
 	services: "/services",
 	contact: "/contact",
 	portfolio: "/portfolio",
+	// Public but not in the menus: shared with clients after a project.
+	testimonial: "/testimonial",
 } as const;
 
 export const getServiceRoute = (slug: string) => `${ROUTES.services}/${slug}`;

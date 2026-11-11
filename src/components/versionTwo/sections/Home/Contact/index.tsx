@@ -5,7 +5,6 @@ import { MessageCircle, Mail, Phone, MapPin, Clock } from "lucide-react";
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Grid,
 	Heading,
@@ -18,6 +17,7 @@ import {
 	businessWANumberSpread,
 	whatsappLink,
 } from "@/data";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const emailLink = `mailto:${businessEmail}`;
 const mapsLink = "https://maps.google.com/?q=Ogun,Nigeria";
@@ -31,7 +31,7 @@ export default function Contact() {
 			// px={6}
 			bg="#F5F7FA"
 		>
-			<Container maxW="3xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer narrow center>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -231,7 +231,7 @@ export default function Contact() {
 						</Box>
 					</Flex>
 				</motion.div>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

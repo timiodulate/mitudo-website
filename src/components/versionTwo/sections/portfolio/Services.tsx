@@ -3,12 +3,12 @@ import React from "react";
 import { motion } from "@/components/ui/motion";
 import {
 	Box,
-	Container,
 	Flex,
 	Heading,
 	Link as ChakraLink,
 	Text,
 } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const services = [
 	{ label: "Brand Identity" },
@@ -21,8 +21,8 @@ const services = [
 
 export default function ServicesSection() {
 	return (
-		<Box as="section" py={{ base: 16, md: 20 }} px={6} bg="white">
-			<Container maxW="4xl" textAlign="center">
+		<Box as="section" py={{ base: 16, md: 20 }} bg="white">
+			<SectionContainer narrow="4xl" center>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function ServicesSection() {
 						))}
 					</Flex>
 				</motion.div>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

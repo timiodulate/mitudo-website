@@ -9,6 +9,9 @@ module.exports = {
 
 	sitemapSize: 7000,
 
+	// Shared directly with clients, not for search engines.
+	exclude: ["/testimonial"],
+
 	robotsTxtOptions: {
 		policies: [
 			{

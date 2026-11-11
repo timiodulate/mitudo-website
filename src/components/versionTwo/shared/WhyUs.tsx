@@ -2,9 +2,10 @@
 import React from "react";
 import NextLink from "next/link";
 import { motion } from "@/components/ui/motion";
-import { Box, Container, Grid, Heading, Text, Flex, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text, Flex, Link as ChakraLink } from "@chakra-ui/react";
 import { Clock, RefreshCcw, BadgeCheck, Layers, ArrowRight } from "lucide-react";
 import { ROUTES } from "@/data/routes";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const reasons = [
 	{
@@ -38,7 +39,7 @@ export default function WhyUs({
 }) {
 	return (
 		<Box as="section" id="why-us" py={{ base: 20, md: 28 }} bg={bg}>
-			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -134,7 +135,7 @@ export default function WhyUs({
 						</ChakraLink>
 					</Flex>
 				)}
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

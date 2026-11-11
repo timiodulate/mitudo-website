@@ -2,31 +2,9 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "@/components/ui/motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
-import { Box, Button, Container, Flex, Heading, Text } from "@chakra-ui/react";
-
-const testimonials = [
-	{
-		name: "Emeka Okafor",
-		business: "D'Glides Apartments",
-		role: "CEO",
-		text: "Mitudo Agency transformed how my real estate business looks online. Within weeks of launching, I started getting serious enquiries from people who found us on Google. The website looks exactly like what I imagined: professional and trustworthy.",
-		rating: 5,
-	},
-	{
-		name: "Chidinma Adeyemi",
-		business: "Bright Minds Academy",
-		role: "Director",
-		text: "We had no online presence before Mitudo stepped in. Now we have a website, a professional email, and a Google Business listing. Parents tell us they found us online and felt confident reaching out because we looked established.",
-		rating: 5,
-	},
-	{
-		name: "Tunde Balogun",
-		business: "SwiftMove Logistics",
-		role: "Founder",
-		text: "I was skeptical at first, but the results speak for themselves. Our brand identity is sharp, our website is clean, and clients treat us more seriously now. Mitudo helped us look like the company we always knew we were.",
-		rating: 5,
-	},
-];
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
+import { type Testimonial, testimonialByline } from "@/data/testimonials";
 
 const variants = {
 	enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 60 : -60 }),
@@ -34,7 +12,11 @@ const variants = {
 	exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -60 : 60 }),
 };
 
-export default function TestimonialCarousel() {
+export default function TestimonialCarousel({
+	testimonials,
+}: {
+	testimonials: Testimonial[];
+}) {
 	const [current, setCurrent] = useState(0);
 	const [direction, setDirection] = useState(1);
 
@@ -45,6 +27,8 @@ export default function TestimonialCarousel() {
 		);
 	};
 
+	if (testimonials.length === 0) return null;
+
 	return (
 		<Box
 			as="section"
@@ -54,7 +38,7 @@ export default function TestimonialCarousel() {
 			bg="#ffffff"
 			// px={6}
 		>
-			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer narrow="4xl" center>
 				<Box textAlign="center" mb={14}>
 					<Text
 						fontSize="sm"
@@ -113,7 +97,7 @@ export default function TestimonialCarousel() {
 							<Box pl={4}>
 								<Flex gap={1} mb={5}>
 									{Array.from({
-										length: testimonials[current].rating,
+										length: testimonials[current].rating ?? 5,
 									}).map((_, index) => (
 										<Star
 											key={index}
@@ -159,8 +143,7 @@ export default function TestimonialCarousel() {
 											{testimonials[current].name}
 										</Text>
 										<Text color="slate.500" fontSize="sm">
-											{testimonials[current].role},{" "}
-											{testimonials[current].business}
+											{testimonialByline(testimonials[current])}
 										</Text>
 									</Box>
 								</Flex>
@@ -169,6 +152,7 @@ export default function TestimonialCarousel() {
 					</AnimatePresence>
 				</Box>
 
+				{testimonials.length > 1 && (
 				<Flex align="center" justify="center" gap={6} mt={8}>
 					<Button
 						onClick={() => go(-1)}
@@ -221,7 +205,8 @@ export default function TestimonialCarousel() {
 						<ChevronRight className="!w-4 h-4" />
 					</Button>
 				</Flex>
-			</Container>
+				)}
+			</SectionContainer>
 		</Box>
 	);
 }

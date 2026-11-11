@@ -5,7 +5,6 @@ import NextLink from "next/link";
 import { motion } from "@/components/ui/motion";
 import {
 	Box,
-	Container,
 	Grid,
 	Heading,
 	Text,
@@ -15,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { Globe, Search, Award, Mail, Users, Shield, ArrowRight } from "lucide-react";
 import { getServiceRoute, ROUTES } from "@/data/routes";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const featured = [
 	{
@@ -76,7 +76,7 @@ const featured = [
 export default function Services() {
 	return (
 		<Box as="section" id="services" py={{ base: 20, md: 28 }} bg="white">
-			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +218,7 @@ export default function Services() {
 						Registrations and filings are paid in full upfront.
 					</Text>
 				</Box>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

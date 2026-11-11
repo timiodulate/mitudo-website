@@ -11,8 +11,11 @@ import Pricing from "./Pricing";
 import WebsiteRefresh from "./WebsiteRefresh";
 import Maintenance from "./Maintenance";
 import Contact from "./Contact";
+import { getTestimonials } from "@/services/testimonials";
 
-export default function VersionTwoHome() {
+export default async function VersionTwoHome() {
+	const testimonials = await getTestimonials();
+
 	return (
 		<Box minH="screen" bg="#F5F7FA" fontFamily="inter">
 			<Navbar />
@@ -39,7 +42,7 @@ export default function VersionTwoHome() {
 			{/* <Maintenance /> */}
 
 			{/* Testimonials Section */}
-			<TestimonialCarousel />
+			<TestimonialCarousel testimonials={testimonials} />
 
 			{/* Contact Section */}
 			<Contact />

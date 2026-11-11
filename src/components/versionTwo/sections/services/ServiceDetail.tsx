@@ -5,7 +5,6 @@ import { ArrowLeft, CheckCircle2, ChevronDown, MessageCircle, Star } from "lucid
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Grid,
 	Heading,
@@ -19,8 +18,9 @@ import ContactCTA from "../../shared/ContactCTA";
 import ServiceCard, { KindBadge } from "./ServiceCard";
 import { getService, getSharedFaqs, Service, FAQ } from "@/data/services";
 import { getServiceRoute, ROUTES } from "@/data/routes";
-import { getTestimonialsForService, testimonials } from "@/data/testimonials";
+import { type Testimonial, testimonialByline } from "@/data/testimonials";
 import { businessWABaseLink } from "@/data";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const sectionHeading = (text: string) => (
 	<Heading
@@ -75,15 +75,21 @@ function FaqItem({ faq }: { faq: FAQ }) {
 const toServices = (slugs?: string[]) =>
 	(slugs ?? []).map((slug) => getService(slug)).filter((s): s is Service => Boolean(s));
 
-export default function ServiceDetailView({ slug }: { slug: string }) {
+export default function ServiceDetailView({
+	slug,
+	testimonials,
+}: {
+	slug: string;
+	testimonials: Testimonial[];
+}) {
 	const service = getService(slug);
 	if (!service) return null;
 
 	const contains = toServices(service.contains);
 	const partOf = toServices(service.partOf);
 	const related = toServices(service.related);
-	const own = getTestimonialsForService(service.slug);
-	const shownTestimonials = own.length > 0 ? own : testimonials;
+	const own = testimonials.filter((t) => t.service_slug === service.slug);
+	const shownTestimonials = (own.length > 0 ? own : testimonials).slice(0, 3);
 	const faqs = [...(service.faqs ?? []), ...getSharedFaqs(service)];
 	const waLink = `${businessWABaseLink}?text=${encodeURIComponent(
 		`Hello Mitudo Agency, I'm interested in ${service.name}.`,
@@ -102,7 +108,7 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 				pt={{ base: 28, md: 36 }}
 				pb={{ base: 12, md: 16 }}
 			>
-				<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer narrow="4xl">
 					<ChakraLink
 						as={NextLink}
 						href={ROUTES.services}
@@ -163,12 +169,12 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 							</Button>
 						</ChakraLink>
 					</Flex>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* Service description */}
 			<Box as="section" id="description" py={{ base: 14, md: 20 }} bg="#F5F7FA">
-				<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer narrow="4xl">
 					{sectionHeading("About this service")}
 					<VStack align="stretch" gap={4} mb={10}>
 						{service.description.map((paragraph) => (
@@ -247,17 +253,18 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 							</Text>
 						</Box>
 					)}
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* Testimonials */}
+			{shownTestimonials.length > 0 && (
 			<Box as="section" id="testimonials" py={{ base: 14, md: 20 }} bg="white">
-				<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer narrow="4xl">
 					{sectionHeading(own.length > 0 ? "What clients say" : "What clients say about working with us")}
 					<VStack align="stretch" gap={5}>
 						{shownTestimonials.map((testimonial) => (
 							<Box
-								key={testimonial.name}
+								key={testimonial.id ?? testimonial.name}
 								bg="#F5F7FA"
 								borderRadius="2xl"
 								p={{ base: 6, md: 8 }}
@@ -265,7 +272,7 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 								borderColor="slate.200"
 							>
 								<Flex gap={1} mb={4} color="#00C2CB">
-									{Array.from({ length: 5 }).map((_, index) => (
+									{Array.from({ length: testimonial.rating ?? 5 }).map((_, index) => (
 										<Star key={index} size={16} fill="currentColor" />
 									))}
 								</Flex>
@@ -276,24 +283,26 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 									{testimonial.name}
 								</Text>
 								<Text color="#4A5568" fontSize="sm">
-									{testimonial.role}, {testimonial.business}
+									{testimonialByline(testimonial)}
 								</Text>
 							</Box>
 						))}
 					</VStack>
-				</Container>
+				</SectionContainer>
 			</Box>
+
+			)}
 
 			{/* FAQ */}
 			<Box as="section" id="faq" scrollMarginTop="6rem" py={{ base: 14, md: 20 }} bg="#F5F7FA">
-				<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer narrow="4xl">
 					{sectionHeading("Frequently asked questions")}
 					<VStack align="stretch" gap={3}>
 						{faqs.map((faq) => (
 							<FaqItem key={faq.q} faq={faq} />
 						))}
 					</VStack>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* Contact */}
@@ -305,14 +314,14 @@ export default function ServiceDetailView({ slug }: { slug: string }) {
 
 			{related.length > 0 && (
 				<Box as="section" py={{ base: 14, md: 20 }} bg="white">
-					<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+					<SectionContainer>
 						{sectionHeading("Goes well with")}
 						<Grid templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" }} gap={5}>
 							{related.slice(0, 3).map((item) => (
 								<ServiceCard key={item.slug} service={item} bg="#F5F7FA" />
 							))}
 						</Grid>
-					</Container>
+					</SectionContainer>
 				</Box>
 			)}
 

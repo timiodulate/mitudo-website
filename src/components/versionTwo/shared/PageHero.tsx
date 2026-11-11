@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { motion } from "@/components/ui/motion";
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function PageHero({
 	eyebrow,
@@ -23,7 +24,7 @@ export default function PageHero({
 			pt={{ base: 28, md: 36 }}
 			pb={{ base: 12, md: 16 }}
 		>
-			<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer narrow="4xl">
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -57,7 +58,7 @@ export default function PageHero({
 					)}
 					{children}
 				</motion.div>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "@/components/ui/motion";
-import { Box, Container, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const steps = [
 	{
@@ -42,7 +43,7 @@ export default function HowItWorks() {
 			py={{ base: 20, md: 28 }}
 			bg="#F5F7FA"
 		>
-			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +125,7 @@ export default function HowItWorks() {
 						</motion.div>
 					))}
 				</Grid>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

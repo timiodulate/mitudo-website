@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ServiceDetailView from "@/components/versionTwo/sections/services/ServiceDetail";
 import { getService, services } from "@/data/services";
+import { getTestimonials } from "@/services/testimonials";
 
 type Params = Promise<{ slug: string }>;
 
@@ -22,5 +23,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function ServicePage({ params }: { params: Params }) {
 	const { slug } = await params;
 	if (!getService(slug)) notFound();
-	return <ServiceDetailView slug={slug} />;
+	const testimonials = await getTestimonials();
+	return <ServiceDetailView slug={slug} testimonials={testimonials} />;
 }

@@ -5,7 +5,6 @@ import { MessageCircle, Mail, ArrowRight } from "lucide-react";
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Heading,
 	Link as ChakraLink,
@@ -13,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { businessEmail, businessWABaseLink } from "@/data";
 import { ROUTES } from "@/data/routes";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function ContactCTA({
 	serviceName,
@@ -35,7 +35,7 @@ export default function ContactCTA({
 
 	return (
 		<Box as="section" id={id} py={{ base: 16, md: 24 }} bg="#F5F7FA">
-			<Container maxW="3xl" px={{ base: 6, md: 8 }}>
+			<SectionContainer narrow="4xl" center>
 				<Box
 					bg="#0D1B2A"
 					color="white"
@@ -121,7 +121,7 @@ export default function ContactCTA({
 						Or send us an enquiry form <ArrowRight size={14} />
 					</ChakraLink>
 				</Box>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

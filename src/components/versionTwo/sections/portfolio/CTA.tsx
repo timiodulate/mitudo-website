@@ -5,7 +5,6 @@ import { motion } from "@/components/ui/motion";
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Grid,
 	Heading,
@@ -15,11 +14,12 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function CTA() {
 	return (
-		<Box as="section" py={{ base: 16, md: 24 }} px={6} bg="#F5F7FA">
-			<Container maxW="3xl" textAlign="center">
+		<Box as="section" py={{ base: 16, md: 24 }} bg="#F5F7FA">
+			<SectionContainer narrow center>
 				<motion.div
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -87,7 +87,7 @@ export default function CTA() {
 						</ChakraLink>
 					</Flex>
 				</motion.div>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

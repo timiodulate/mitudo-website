@@ -43,12 +43,12 @@ export default function Hero() {
 			</Box>
 
 			<Container
-				maxW="5xl"
+				maxW="6xl"
 				mx="auto"
 				position="relative"
 				pt={{ base: 32, md: 40 }}
 				pb={{ base: 24, md: 32 }}
-				px={{ base: 6 }}
+				px={{ base: 6, md: 8 }}
 			>
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
@@ -119,11 +119,12 @@ export default function Hero() {
 						mb={10}
 						lineHeight="relaxed"
 					>
-						With AI, you could learn to do most of this yourself.
-						We do it for you, properly: registration, brand,
-						website, Google and social media, set up right the
-						first time, so you save the hours and get back to
-						your business.
+						You could learn to register your business, design your
+						brand, build a website and set up Google and social
+						media yourself, with AI. Or we do it for you: set up
+						properly the first time and kept running after, so
+						you save the hours and focus on serving customers and
+						growing.
 					</Text>
 				</motion.div>
 

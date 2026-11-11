@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import NextLink from "next/link";
-import { Box, Container, Flex, Grid, Heading, Link as ChakraLink, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid, Heading, Link as ChakraLink, Text } from "@chakra-ui/react";
 import Navbar from "../../layouts/Header/Navbar";
 import Footer from "../../layouts/Footer";
 import PageHero from "../../shared/PageHero";
 import ContactCTA from "../../shared/ContactCTA";
 import ServiceCard from "./ServiceCard";
 import { serviceCategories, getServicesByCategory } from "@/data/services";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function ServicesView() {
 	return (
@@ -50,7 +51,7 @@ export default function ServicesView() {
 					py={{ base: 12, md: 16 }}
 					bg={index % 2 === 0 ? "#F5F7FA" : "white"}
 				>
-					<Container maxW="6xl" px={{ base: 6, md: 8 }}>
+					<SectionContainer>
 						<Heading
 							as="h2"
 							fontSize={{ base: "xl", md: "2xl" }}
@@ -74,12 +75,12 @@ export default function ServicesView() {
 								/>
 							))}
 						</Grid>
-					</Container>
+					</SectionContainer>
 				</Box>
 			))}
 
 			<Box as="section" py={10} bg="white" borderTop="1px solid" borderColor="slate.100">
-				<Container maxW="4xl" px={{ base: 6, md: 8 }} textAlign="center">
+				<SectionContainer narrow="4xl" center>
 					<Text color="#4A5568" fontSize="sm">
 						<Text as="span" fontWeight="semibold" color="#0D1B2A">
 							Bundle & Save:
@@ -87,7 +88,7 @@ export default function ServicesView() {
 						Buy 3 or more services together and get 10 to 15% off the
 						total. A package counts as one service.
 					</Text>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			<ContactCTA title="Not sure what you need?" intro="Tell us about your business and we'll recommend the right starting point, or start with an Online Presence Audit." />

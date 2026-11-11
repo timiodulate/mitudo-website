@@ -4,7 +4,6 @@ import NextLink from "next/link";
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Grid,
 	Heading,
@@ -19,6 +18,7 @@ import WhyUs from "../../shared/WhyUs";
 import ContactCTA from "../../shared/ContactCTA";
 import { getServiceRoute, ROUTES } from "@/data/routes";
 import { serviceCategories, getServicesByCategory } from "@/data/services";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const questions = [
 	{
@@ -71,7 +71,7 @@ export default function AboutView() {
 
 			{/* Story */}
 			<Box as="section" py={{ base: 16, md: 24 }} bg="white">
-				<Container maxW="4xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer narrow>
 					<Heading
 						as="h2"
 						fontSize={{ base: "2xl", md: "3xl" }}
@@ -103,12 +103,12 @@ export default function AboutView() {
 						8447100), and we built our own brand the same way we
 						build yours.
 					</Text>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* What we believe */}
 			<Box as="section" py={{ base: 16, md: 24 }} bg="#F5F7FA">
-				<Container maxW="5xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer>
 					<Heading
 						as="h2"
 						fontSize={{ base: "2xl", md: "3xl" }}
@@ -160,7 +160,7 @@ export default function AboutView() {
 							</Box>
 						))}
 					</Grid>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* The AI angle */}
@@ -168,7 +168,7 @@ export default function AboutView() {
 
 			{/* How we work */}
 			<Box as="section" py={{ base: 16, md: 24 }} bg="#F5F7FA">
-				<Container maxW="5xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer>
 					<Heading
 						as="h2"
 						fontSize={{ base: "2xl", md: "3xl" }}
@@ -210,12 +210,12 @@ export default function AboutView() {
 							</Box>
 						))}
 					</Grid>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			{/* Services */}
 			<Box as="section" id="services" py={{ base: 16, md: 24 }} bg="white">
-				<Container maxW="5xl" px={{ base: 6, md: 8 }}>
+				<SectionContainer>
 					<Text
 						fontSize="sm"
 						fontWeight="medium"
@@ -313,7 +313,7 @@ export default function AboutView() {
 						</ChakraLink>
 						.
 					</Text>
-				</Container>
+				</SectionContainer>
 			</Box>
 
 			<ContactCTA />

@@ -4,7 +4,6 @@ import { motion } from "@/components/ui/motion";
 import {
 	Box,
 	Button,
-	Container,
 	Flex,
 	Grid,
 	Heading,
@@ -14,6 +13,7 @@ import {
 	Stack,
 	Text,
 } from "@chakra-ui/react";
+import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 30 },
@@ -30,9 +30,8 @@ export default function HeroSection() {
 			borderColor="slate.100"
 			pt={{ base: 28, md: 36 }}
 			pb={16}
-			px={6}
 		>
-			<Container maxW="4xl" centerContent>
+			<SectionContainer narrow="4xl" center>
 				<motion.div {...fadeInUp}>
 					<Text
 						fontSize="sm"
@@ -62,7 +61,7 @@ export default function HeroSection() {
 						online.
 					</Text>
 				</motion.div>
-			</Container>
+			</SectionContainer>
 		</Box>
 	);
 }

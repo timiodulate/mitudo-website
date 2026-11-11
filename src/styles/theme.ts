@@ -27,6 +27,11 @@ export const config = defineConfig({
 			},
 			scrollBehavior: "smooth",
 		},
+		// Chakra's default selection is a dark grey; use a light brand cyan instead.
+		"*::selection": {
+			bg: "rgba(0, 194, 203, 0.25)",
+			color: "#0D1B2A",
+		},
 		"section[id]": {
 			// Target any section with an ID
 			scrollMarginTop: "60px", // Adjust this value to match your header's height + desired padding
