@@ -93,7 +93,7 @@ export default function WebsiteRefresh() {
 							</Heading>
 							<Text color="slate.300" mb={6} maxW="2xl">
 								Redesigning, updating, or improving an existing
-								website — content, design, and layout — to make
+								website (content, design, and layout) to make
 								it look modern and professional.
 							</Text>
 

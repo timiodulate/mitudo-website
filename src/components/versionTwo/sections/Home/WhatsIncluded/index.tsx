@@ -149,7 +149,7 @@ export default function WhatsIncluded() {
 						mt={12}
 						fontSize="lg"
 					>
-						No unnecessary complexity — just a website that works
+						No unnecessary complexity, just a website that works
 						for your business.
 					</Text>
 				</motion.div>

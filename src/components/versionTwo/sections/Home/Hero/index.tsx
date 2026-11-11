@@ -11,7 +11,9 @@ import {
 	Link as ChakraLink,
 	Flex,
 } from "@chakra-ui/react";
-import { businessWABaseLink, whatsappLink } from "@/data";
+import NextLink from "next/link";
+import { whatsappLink } from "@/data";
+import { ROUTES } from "@/data/routes";
 
 export default function Hero() {
 	return (
@@ -117,9 +119,11 @@ export default function Hero() {
 						mb={10}
 						lineHeight="relaxed"
 					>
-						We help businesses look credible and get found online —
-						from brand identity and registration to websites, SEO,
-						and professional social media presence.
+						With AI, you could learn to do most of this yourself.
+						We do it for you, properly: registration, brand,
+						website, Google and social media, set up right the
+						first time, so you save the hours and get back to
+						your business.
 					</Text>
 				</motion.div>
 
@@ -159,7 +163,8 @@ export default function Hero() {
 						</ChakraLink>
 
 						<ChakraLink
-							href="#work"
+							as={NextLink}
+							href={ROUTES.services}
 							_hover={{ textDecoration: "none" }}
 						>
 							<Button
@@ -174,7 +179,7 @@ export default function Hero() {
 								borderRadius="full"
 								className="lgprops: !h-10 rounded-md px-8  !border-[#0D1B2A]/20 !hover:bg-[#0D1B2A]/5  "
 							>
-								View My Work
+								See What We Do
 								<ArrowRight className="!w-4 ml-2" />
 							</Button>
 						</ChakraLink>

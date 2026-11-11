@@ -61,7 +61,7 @@ export default function Contact() {
 
 						<Text color="#4A5568" mx="auto" mt={4} fontSize="md">
 							We help businesses look credible and get found
-							online. Reach out — no pressure, no jargon.
+							online. Reach out. No pressure, no jargon.
 						</Text>
 					</Box>
 

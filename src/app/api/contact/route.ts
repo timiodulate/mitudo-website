@@ -8,7 +8,7 @@ export interface ContactMessage {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PLACEHOLDER — Replace with your real database / email service integration
+// PLACEHOLDER: Replace with your real database / email service integration
 // Options:
 //   - Prisma + Postgres:  await db.contactMessage.create({ data: body })
 //   - Resend:             await resend.emails.send({ to, subject, html })

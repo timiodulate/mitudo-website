@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 import {
 	Box,
@@ -12,38 +13,44 @@ import {
 } from "@chakra-ui/react";
 import MobileNav from "./MobileNavigation";
 import { whatsappLink } from "@/data";
-import { navLinks } from "@/data/routes";
+import { navLinks, ROUTES } from "@/data/routes";
+
+export const isNavLinkActive = (pathname: string, href: string) =>
+	href === ROUTES.home ? pathname === href : pathname.startsWith(href);
 
 export default function Navbar({ bold }: { bold?: boolean }) {
+	const pathname = usePathname() ?? ROUTES.home;
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
-	const [activeHash, setActiveHash] = useState("");
-	const [pathname, setPathname] = useState("");
 
 	useEffect(() => {
-		const updateState = () => {
-			setScrolled(window.scrollY > 20);
-			setActiveHash(window.location.hash);
-			setPathname(window.location.pathname);
-		};
-
-		updateState();
-		window.addEventListener("scroll", updateState);
-		window.addEventListener("hashchange", updateState);
-
-		return () => {
-			window.removeEventListener("scroll", updateState);
-			window.removeEventListener("hashchange", updateState);
-		};
+		const onScroll = () => setScrolled(window.scrollY > 20);
+		onScroll();
+		window.addEventListener("scroll", onScroll);
+		return () => window.removeEventListener("scroll", onScroll);
 	}, []);
 
-	const isActive = (href: string) => {
-		if (href === "/") {
-			return pathname === "/" && !activeHash;
-		}
+	// Close the mobile menu whenever the page changes.
+	useEffect(() => {
+		setIsOpen(false);
+	}, [pathname]);
 
-		return activeHash === href;
-	};
+	// Stop the page scrolling behind the open mobile menu, and close on Escape.
+	useEffect(() => {
+		if (!isOpen) return;
+		const previousOverflow = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setIsOpen(false);
+		};
+		window.addEventListener("keydown", onKeyDown);
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			window.removeEventListener("keydown", onKeyDown);
+		};
+	}, [isOpen]);
+
+	const solid = scrolled || bold || isOpen;
 
 	return (
 		<Box
@@ -54,23 +61,16 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 			right={0}
 			zIndex={50}
 			transition="all 0.3s"
-			bg={scrolled || bold ? "whiteAlpha.950" : "whiteAlpha.850"}
-			// backdropFilter="blur(12px)"
-			borderBottom={
-				scrolled || bold ? "1px solid rgba(15, 23, 42, 0.08)" : "none"
-			}
+			bg={solid ? "white" : "whiteAlpha.850"}
+			borderBottom={solid ? "1px solid rgba(15, 23, 42, 0.08)" : "none"}
 			boxShadow={scrolled ? "sm" : "none"}
-			className={
-				scrolled
-					? " backdrop-blur-md  border-b border-slate-100"
-					: " backdrop-blur-sm"
-			}
+			backdropFilter="blur(8px)"
 		>
 			<Container maxW="6xl" px={{ base: 6, md: 8 }}>
 				<Flex justify="space-between" align="center" h={20}>
 					<ChakraLink
 						as={NextLink}
-						href="/"
+						href={ROUTES.home}
 						_hover={{ textDecoration: "none" }}
 					>
 						<Image
@@ -79,7 +79,6 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 							h={20}
 							w={100}
 							objectFit="contain"
-							transition="transform 0.2s"
 						/>
 					</ChakraLink>
 
@@ -96,7 +95,9 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 								fontSize="sm"
 								fontWeight="medium"
 								color={
-									isActive(link.href) ? "#0077FF" : "#4A5568"
+									isNavLinkActive(pathname, link.href)
+										? "#0077FF"
+										: "#4A5568"
 								}
 								_hover={{
 									color: "#0077FF",
@@ -120,31 +121,35 @@ export default function Navbar({ bold }: { bold?: boolean }) {
 								_hover={{ bg: "#0066DD" }}
 								borderRadius="full"
 								px={6}
-								className="!font-inter"
 							>
-								<MessageCircle className="!w-4 !h-4" />
-								Let's Talk
+								<MessageCircle size={16} />
+								Let&apos;s Talk
 							</Button>
 						</ChakraLink>
 					</Flex>
 
 					<Box
 						as="button"
-						display={{ base: "block", md: "none" }}
+						display={{ base: "flex", md: "none" }}
+						alignItems="center"
+						justifyContent="center"
 						p={2}
-						onClick={() => setIsOpen(!isOpen)}
+						color="#0D1B2A"
+						aria-label={isOpen ? "Close menu" : "Open menu"}
+						aria-expanded={isOpen}
+						onClick={() => setIsOpen((open) => !open)}
 						_hover={{ cursor: "pointer" }}
 					>
-						{isOpen ? (
-							<X className="w-6 h-6" />
-						) : (
-							<Menu className="w-6 h-6" />
-						)}
+						{isOpen ? <X size={24} /> : <Menu size={24} />}
 					</Box>
 				</Flex>
 			</Container>
 
-			<MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+			<MobileNav
+				isOpen={isOpen}
+				pathname={pathname}
+				onClose={() => setIsOpen(false)}
+			/>
 		</Box>
 	);
 }

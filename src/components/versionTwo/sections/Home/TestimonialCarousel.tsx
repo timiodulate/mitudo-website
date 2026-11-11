@@ -9,7 +9,7 @@ const testimonials = [
 		name: "Emeka Okafor",
 		business: "D'Glides Apartments",
 		role: "CEO",
-		text: "Mitudo Agency transformed how my real estate business looks online. Within weeks of launching, I started getting serious enquiries from people who found us on Google. The website looks exactly like what I imagined — professional and trustworthy.",
+		text: "Mitudo Agency transformed how my real estate business looks online. Within weeks of launching, I started getting serious enquiries from people who found us on Google. The website looks exactly like what I imagined: professional and trustworthy.",
 		rating: 5,
 	},
 	{

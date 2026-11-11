@@ -1,59 +1,79 @@
+"use client";
 import React from "react";
+import NextLink from "next/link";
 import { MessageCircle } from "lucide-react";
 import { Button, Box, Link as ChakraLink, VStack } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "@/components/ui/motion";
 import { whatsappLink } from "@/data";
-import { navLinks } from "@/data/routes";
+import { navLinks, ROUTES } from "@/data/routes";
+
+const isActive = (pathname: string, href: string) =>
+	href === ROUTES.home ? pathname === href : pathname.startsWith(href);
 
 export default function MobileNav({
 	isOpen,
-	setIsOpen,
+	pathname,
+	onClose,
 }: {
 	isOpen: boolean;
-	setIsOpen: (value: boolean) => void;
+	pathname: string;
+	onClose: () => void;
 }) {
 	return (
 		<AnimatePresence>
 			{isOpen && (
 				<motion.div
-					initial={{ opacity: 0, height: 0 }}
-					animate={{ opacity: 1, height: "auto" }}
-					exit={{ opacity: 0, height: 0 }}
+					key="mobile-nav"
+					initial={{ opacity: 0, y: -8 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -8 }}
+					transition={{ duration: 0.2 }}
 				>
 					<Box
 						display={{ base: "block", md: "none" }}
-						bg="#0D1B2A"
+						bg="white"
 						borderTop="1px solid"
-						borderColor="slate.800"
+						borderColor="slate.100"
+						boxShadow="lg"
 						px={6}
-						py={6}
+						pt={2}
+						pb={6}
+						maxH="calc(100dvh - 5rem)"
+						overflowY="auto"
 					>
-						<VStack gap={4} align="stretch">
-							{navLinks.splice(1).map((link) => (
-								<ChakraLink
-									key={link.label}
-									href={link.href}
-									display="block"
-									color="slate.300"
-									_hover={{
-										color: "#00C2CB",
-										textDecoration: "none",
-									}}
-									transition="colors 0.3s"
-									fontFamily="inter"
-									py={2}
-									onClick={() => setIsOpen(false)}
-								>
-									{link.label}
-								</ChakraLink>
-							))}
+						<VStack gap={1} align="stretch">
+							{navLinks.map((link) => {
+								const active = isActive(pathname, link.href);
+								return (
+									<ChakraLink
+										key={link.label}
+										as={NextLink}
+										href={link.href}
+										display="block"
+										py={3}
+										fontWeight="medium"
+										color={active ? "#0077FF" : "#0D1B2A"}
+										borderBottom="1px solid"
+										borderColor="slate.100"
+										_hover={{
+											color: "#0077FF",
+											textDecoration: "none",
+										}}
+										onClick={onClose}
+									>
+										{link.label}
+									</ChakraLink>
+								);
+							})}
 
-							<Box pt={4}>
+							<Box pt={5}>
 								<ChakraLink
 									href={whatsappLink}
 									target="_blank"
 									rel="noopener noreferrer"
+									display="block"
 									_hover={{ textDecoration: "none" }}
+									onClick={onClose}
 								>
 									<Button
 										w="full"
@@ -61,10 +81,9 @@ export default function MobileNav({
 										_hover={{ bg: "#0066DD" }}
 										color="white"
 										borderRadius="full"
-										fontFamily="inter"
 									>
-										<MessageCircle className="w-4 h-4" />
-										Let's Talk
+										<MessageCircle size={16} />
+										Let&apos;s Talk
 									</Button>
 								</ChakraLink>
 							</Box>

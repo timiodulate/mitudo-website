@@ -7,7 +7,7 @@ export const Testimonials = () => {
 	const testimonies = [
 		{
 			message:
-				"“Seamless experience—our app launched on time and exceeded expectations.”",
+				"“Seamless experience: our app launched on time and exceeded expectations.”",
 
 			name: "C. Ogunlana",
 			title: "Visioneer",

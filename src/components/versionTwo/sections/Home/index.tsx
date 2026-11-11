@@ -5,13 +5,12 @@ import Navbar from "../../layouts/Header/Navbar";
 import HowItWorks from "./HowItWorks";
 import Services from "./Services";
 import TestimonialCarousel from "./TestimonialCarousel";
-import RecentWork from "./RecentWork";
+import WhyUs from "../../shared/WhyUs";
 import Footer from "../../layouts/Footer";
 import Pricing from "./Pricing";
 import WebsiteRefresh from "./WebsiteRefresh";
 import Maintenance from "./Maintenance";
 import Contact from "./Contact";
-import { Metadata } from "next";
 
 export default function VersionTwoHome() {
 	return (
@@ -27,8 +26,8 @@ export default function VersionTwoHome() {
 			{/* Services Section */}
 			<Services />
 
-			{/* Recent Work Section */}
-			<RecentWork />
+			{/* Why Mitudo (the AI question) */}
+			<WhyUs />
 
 			{/* Pricing Section */}
 			{/* <Pricing /> */}

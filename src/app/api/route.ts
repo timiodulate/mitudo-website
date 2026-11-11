@@ -66,7 +66,7 @@ export async function GET(request: NextRequest) {
 		articles = articles.filter((a) => a.published);
 	}
 
-	// Sort — supports '-created_date' (desc) and 'created_date' (asc)
+	// Sort: supports '-created_date' (desc) and 'created_date' (asc)
 	if (sort) {
 		const desc = sort.startsWith("-");
 		const field = sort.replace("-", "") as keyof Article;

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PLACEHOLDER — Replace with your real database / email service integration
+// PLACEHOLDER: Replace with your real database / email service integration
 // Options: Prisma + Postgres, Supabase, Mailchimp API, Resend, etc.
 // ─────────────────────────────────────────────────────────────────────────────
 

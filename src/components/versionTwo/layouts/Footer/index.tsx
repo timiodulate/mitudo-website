@@ -29,15 +29,8 @@ import {
 	businessWANumberSpread,
 	socialLinks,
 } from "@/data";
+import { footerLinks, ROUTES } from "@/data/routes";
 import { BsTwitterX } from "react-icons/bs";
-
-const navLinks = [
-	{ label: "Home", href: "/" },
-	{ label: "Work", href: "#work" },
-	{ label: "Services", href: "#services" },
-	{ label: "Pricing", href: "#pricing" },
-	{ label: "Contact", href: "#contact" },
-];
 
 const contactLinks = [
 	{
@@ -69,7 +62,7 @@ export default function Footer() {
 
 						<ChakraLink
 							as={NextLink}
-							href="/"
+							href={ROUTES.home}
 							_hover={{ textDecoration: "none" }}
 							mb={4}
 						>
@@ -89,10 +82,11 @@ export default function Footer() {
 							lineHeight="tall"
 							mt={4}
 						>
-							We help businesses look credible and get found
-							online — from brand identity and registration to
-							websites, SEO, and professional social media
-							presence.
+							You could learn to do all of this yourself. We
+							do it for you, properly, so you can get back to
+							running your business: from registration and
+							brand identity to websites, Google and social
+							media.
 						</Text>
 
 						<Flex gap={3} mt={6}>
@@ -124,7 +118,7 @@ export default function Footer() {
 							Navigation
 						</Text>
 						<Stack gap={3}>
-							{navLinks.map((link) => (
+							{footerLinks.map((link) => (
 								<ChakraLink
 									key={link.label}
 									as={NextLink}

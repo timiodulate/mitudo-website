@@ -9,7 +9,7 @@ const steps = [
 		step: "01",
 		title: "Set Up Right",
 		description:
-			"Domain, professional email, business registration, social handles — the foundation every business needs.",
+			"Domain, professional email, business registration, social handles: the foundation every business needs.",
 		color: "#0077FF",
 	},
 	{
@@ -23,7 +23,7 @@ const steps = [
 		step: "03",
 		title: "Get Found",
 		description:
-			"Google Business, SEO, and social presence — so the right people can actually find and trust you online.",
+			"Google Business, SEO, and social presence, so the right people can actually find and trust you online.",
 		color: "#0077FF",
 	},
 ];
@@ -70,7 +70,7 @@ export default function HowItWorks() {
 						</Heading>
 						<Text color="slate.600" maxW="3xl" mx="auto" mt={4}>
 							We take businesses from invisible to credible and
-							findable — in the right order, done right.
+							findable, in the right order, done right.
 						</Text>
 					</Box>
 				</motion.div>

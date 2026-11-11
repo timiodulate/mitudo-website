@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Re-import placeholder — in production, query your DB here
+// Re-import placeholder; in production, query your DB here
 const PLACEHOLDER_ARTICLES = [
 	{
 		id: "1",

@@ -117,7 +117,7 @@ export default function ContactPage() {
 							mx="auto"
 						>
 							Whether you need a website, help with your brand, or
-							just want to understand your options — reach out. No
+							just want to understand your options, reach out. No
 							pressure, no jargon.
 						</Text>
 					</motion.div>
@@ -369,7 +369,7 @@ export default function ContactPage() {
 										>
 											<Icon as={link.icon} boxSize={4} />
 											<Text>
-												{link.label} —{" "}
+												{link.label}:{" "}
 												<Text
 													as="span"
 													fontWeight="medium"
