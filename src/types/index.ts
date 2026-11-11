@@ -18,6 +18,8 @@ export interface NewsletterSubscriber {
 export interface ContactMessage {
 	name: string;
 	email: string;
+	business?: string;
+	service?: string;
 	message: string;
 }
 

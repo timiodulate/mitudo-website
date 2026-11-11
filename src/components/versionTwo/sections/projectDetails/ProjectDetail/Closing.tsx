@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { ROUTES } from "@/data/routes";
 import { Box, Text, Button, Flex, Link as ChakraLink } from "@chakra-ui/react";
 
 export default function Closing({ project }: { project: any }) {
@@ -60,7 +61,7 @@ export default function Closing({ project }: { project: any }) {
 								</Button>
 							</ChakraLink>
 						)}
-						<Link href="#contact">
+						<Link href={ROUTES.contact}>
 							<Button
 								size="lg"
 								bg="transparent"

@@ -34,9 +34,7 @@ export default function TestimonialCarousel({
 			as="section"
 			id="testimonials"
 			py={{ base: 20, md: 28 }}
-			// bg="#F5F7FA"
-			bg="#ffffff"
-			// px={6}
+			bg="#F5F7FA"
 		>
 			<SectionContainer narrow="4xl" center>
 				<Box textAlign="center" mb={14}>

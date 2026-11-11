@@ -4,9 +4,9 @@ import VersionTwoHome from "@/components/versionTwo/sections/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Mitudo Agency | Set up right. Look Legit. Get found by your customer.",
+	title: "Mitudo Agency | Business Registration, Branding, Websites & Custom Software in Nigeria",
 	description:
-		"Mitudo Agency is a Nigeria-based tech solutions agency that helps businesses look credible and get found online: from brand identity and registration to websites, SEO, and professional social media presence.",
+		"Mitudo Agency handles the work behind Nigerian businesses, organisations and personal brands: CAC registration and filings, brand identity, websites and online stores, Google and social media, and custom software. Just starting or already running, you focus on delivering and selling.",
 };
 
 export default function Home() {

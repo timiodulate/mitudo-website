@@ -4,7 +4,7 @@ import AboutView from "@/components/versionTwo/sections/about";
 export const metadata: Metadata = {
 	title: "About Us | Mitudo Agency",
 	description:
-		"Mitudo Agency helps Nigerian businesses, organisations and professionals get set up right, look legit and get found online. You could learn to do it yourself with AI; we do it for you, properly.",
+		"Mitudo Agency helps Nigerian businesses, organisations and personal brands get set up right, stand out and run smoothly, whether they are just starting or already running.",
 };
 
 export default function AboutPage() {

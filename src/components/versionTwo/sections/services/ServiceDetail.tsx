@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import NextLink from "next/link";
-import { ArrowLeft, CheckCircle2, ChevronDown, MessageCircle, Star } from "lucide-react";
+import { ArrowLeft, CalendarClock, CheckCircle2, FolderOpen, MessageCircle, Star, Wallet } from "lucide-react";
 import {
 	Box,
 	Button,
@@ -16,7 +16,8 @@ import Navbar from "../../layouts/Header/Navbar";
 import Footer from "../../layouts/Footer";
 import ContactCTA from "../../shared/ContactCTA";
 import ServiceCard, { KindBadge } from "./ServiceCard";
-import { getService, getSharedFaqs, Service, FAQ } from "@/data/services";
+import { getCategory, getService, getSharedFaqs, paymentShort, Service } from "@/data/services";
+import FaqList from "@/components/versionTwo/shared/FaqList";
 import { getServiceRoute, ROUTES } from "@/data/routes";
 import { type Testimonial, testimonialByline } from "@/data/testimonials";
 import { businessWABaseLink } from "@/data";
@@ -33,44 +34,6 @@ const sectionHeading = (text: string) => (
 		{text}
 	</Heading>
 );
-
-function FaqItem({ faq }: { faq: FAQ }) {
-	const [open, setOpen] = useState(false);
-	return (
-		<Box bg="white" borderRadius="2xl" border="1px solid" borderColor="slate.200">
-			<Flex
-				as="button"
-				w="full"
-				textAlign="left"
-				justify="space-between"
-				align="center"
-				gap={4}
-				px={6}
-				py={5}
-				cursor="pointer"
-				aria-expanded={open}
-				onClick={() => setOpen((value) => !value)}
-			>
-				<Text fontWeight="semibold" color="#0D1B2A">
-					{faq.q}
-				</Text>
-				<Box
-					flexShrink={0}
-					color="#0077FF"
-					transition="transform 0.2s"
-					transform={open ? "rotate(180deg)" : "none"}
-				>
-					<ChevronDown size={18} />
-				</Box>
-			</Flex>
-			{open && (
-				<Text px={6} pb={5} color="#4A5568" fontSize="sm" lineHeight="tall">
-					{faq.a}
-				</Text>
-			)}
-		</Box>
-	);
-}
 
 const toServices = (slugs?: string[]) =>
 	(slugs ?? []).map((slug) => getService(slug)).filter((s): s is Service => Boolean(s));
@@ -91,6 +54,12 @@ export default function ServiceDetailView({
 	const own = testimonials.filter((t) => t.service_slug === service.slug);
 	const shownTestimonials = (own.length > 0 ? own : testimonials).slice(0, 3);
 	const faqs = [...(service.faqs ?? []), ...getSharedFaqs(service)];
+	const category = getCategory(service.category);
+	const facts = [
+		{ icon: Wallet, label: "How you pay", value: paymentShort[service.payment] },
+		{ icon: CalendarClock, label: "Timeline", value: service.timeline ?? "Confirmed in your quote" },
+		...(category ? [{ icon: FolderOpen, label: "Group", value: category.title, href: `${ROUTES.services}#${category.id}` }] : []),
+	];
 	const waLink = `${businessWABaseLink}?text=${encodeURIComponent(
 		`Hello Mitudo Agency, I'm interested in ${service.name}.`,
 	)}`;
@@ -169,6 +138,37 @@ export default function ServiceDetailView({
 							</Button>
 						</ChakraLink>
 					</Flex>
+
+					<Grid
+						templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
+						gap={4}
+						mt={10}
+						pt={8}
+						borderTop="1px solid"
+						borderColor="slate.100"
+					>
+						{facts.map((fact) => (
+							<Flex key={fact.label} gap={3} align="flex-start">
+								<Box color="#00C2CB" mt={0.5} flexShrink={0}>
+									<fact.icon size={18} />
+								</Box>
+								<Box>
+									<Text fontSize="xs" fontWeight="semibold" textTransform="uppercase" letterSpacing="wide" color="#4A5568">
+										{fact.label}
+									</Text>
+									{"href" in fact && fact.href ? (
+										<ChakraLink as={NextLink} href={fact.href} fontSize="sm" color="#0077FF" fontWeight="medium">
+											{fact.value}
+										</ChakraLink>
+									) : (
+										<Text fontSize="sm" color="#0D1B2A" fontWeight="medium">
+											{fact.value}
+										</Text>
+									)}
+								</Box>
+							</Flex>
+						))}
+					</Grid>
 				</SectionContainer>
 			</Box>
 
@@ -297,17 +297,14 @@ export default function ServiceDetailView({
 			<Box as="section" id="faq" scrollMarginTop="6rem" py={{ base: 14, md: 20 }} bg="#F5F7FA">
 				<SectionContainer narrow="4xl">
 					{sectionHeading("Frequently asked questions")}
-					<VStack align="stretch" gap={3}>
-						{faqs.map((faq) => (
-							<FaqItem key={faq.q} faq={faq} />
-						))}
-					</VStack>
+					<FaqList faqs={faqs} />
 				</SectionContainer>
 			</Box>
 
 			{/* Contact */}
 			<ContactCTA
 				serviceName={service.name}
+				serviceSlug={service.slug}
 				title={`Interested in ${service.name}?`}
 				intro="Message us with a little about your business. We'll ask a few quick questions and send you a clear quote."
 			/>

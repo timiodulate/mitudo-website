@@ -1,11 +1,10 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { emailServiceEmailAddress, businessEmail } from "@/data";
-export interface ContactMessage {
-	name: string;
-	email: string;
-	message: string;
-}
+import type { ContactMessage } from "@/types";
+
+const escape = (value: string) =>
+	value.replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
 
 // ─────────────────────────────────────────────────────────────────────────────
 // PLACEHOLDER: Replace with your real database / email service integration
@@ -18,7 +17,7 @@ export interface ContactMessage {
 export async function POST(request: NextRequest) {
 	try {
 		const body = (await request.json()) as ContactMessage;
-		const { name, email, message } = body;
+		const { name, email, message, business, service } = body;
 
 		// Basic validation
 		if (!name?.trim() || !email?.trim() || !message?.trim()) {
@@ -42,8 +41,17 @@ export async function POST(request: NextRequest) {
 		await resend.emails.send({
 			from: emailServiceEmailAddress,
 			to: [businessEmail],
-			subject: `New enquiry from ${name}`,
-			html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong> ${message}</p>`,
+			replyTo: email,
+			subject: `New enquiry from ${name}${service ? `: ${service}` : ""}`,
+			html: [
+				["Name", name],
+				["Email", email],
+				["Business", business || "Not given"],
+				["Needs help with", service || "Not sure yet / several things"],
+				["Message", message],
+			]
+				.map(([label, value]) => `<p><strong>${label}:</strong> ${escape(String(value)).replace(/\n/g, "<br>")}</p>`)
+				.join(""),
 		});
 
 		// console.log("[Contact] New enquiry:", { name, email, message });

@@ -8,16 +8,14 @@ import {
 	Link as ChakraLink,
 	Text,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
+import { serviceCategories } from "@/data/services";
+import { ROUTES } from "@/data/routes";
 
-const services = [
-	{ label: "Brand Identity" },
-	{ label: "Professional Websites" },
-	{ label: "Google Business Profile" },
-	{ label: "Social Media Setup" },
-	{ label: "Domain & Email" },
-	{ label: "Business Registration" },
-];
+const services = serviceCategories
+	.filter((category) => category.stage !== "start")
+	.map((category) => ({ label: category.title, href: `${ROUTES.services}#${category.id}` }));
 
 export default function ServicesSection() {
 	return (
@@ -50,13 +48,16 @@ export default function ServicesSection() {
 						Services We Deliver
 					</Heading>
 					<Text color="#4A5568" mb={10} maxW="lg" mx="auto">
-						We handle everything that gets a business looking
-						credible and findable online.
+						Everything your business needs to set up right, stand
+						out and run smoothly, from one team.
 					</Text>{" "}
 					<Flex wrap="wrap" justify="center" gap={3}>
-						{services.map((service, index) => (
-							<Box
-								key={index}
+						{services.map((service) => (
+							<ChakraLink
+								as={NextLink}
+								href={service.href}
+								key={service.label}
+								_hover={{ borderColor: "#0077FF", color: "#0077FF", textDecoration: "none" }}
 								px={5}
 								py={2.5}
 								bg="#F5F7FA"
@@ -68,7 +69,7 @@ export default function ServicesSection() {
 								color="#0D1B2A"
 							>
 								{service.label}
-							</Box>
+							</ChakraLink>
 						))}
 					</Flex>
 				</motion.div>

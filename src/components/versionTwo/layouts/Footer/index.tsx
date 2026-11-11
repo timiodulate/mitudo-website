@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import {
 	businessAddress,
+	businessMapsLink,
 	businessEmail,
 	businessWABaseLink,
 	businessWANumber,
@@ -46,7 +47,7 @@ const contactLinks = [
 	{
 		icon: MapPin,
 		label: businessAddress,
-		href: `https://maps.google.com/?q=${businessAddress}`,
+		href: businessMapsLink,
 	},
 ];
 
@@ -82,11 +83,10 @@ export default function Footer() {
 							lineHeight="tall"
 							mt={4}
 						>
-							You could learn to do all of this yourself. We
-							do it for you, properly, so you can get back to
-							running your business: from registration and
-							brand identity to websites, Google and social
-							media.
+							Set up right. Stand out. Run smoothly. A Nigerian
+							agency for businesses, organisations and personal
+							brands, from registration and branding to
+							websites, Google and custom software.
 						</Text>
 
 						<Flex gap={3} mt={6}>

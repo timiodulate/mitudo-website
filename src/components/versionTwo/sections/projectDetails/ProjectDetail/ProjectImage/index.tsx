@@ -1,10 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Box, Image } from "@chakra-ui/react";
 
 export default function ProjectImage({ project }: { project: any }) {
+	const [failed, setFailed] = useState(false);
+	const ref = useRef<HTMLImageElement>(null);
+
+	// An image that fails before hydration never fires onError, so check once mounted.
+	useEffect(() => {
+		if (ref.current?.complete && ref.current.naturalWidth === 0) setFailed(true);
+	}, []);
+
+	if (failed) return null;
+
 	return (
 		<Box as="section" px={6} mt={-8}>
 			<Box maxW="5xl" mx="auto">
@@ -22,6 +32,8 @@ export default function ProjectImage({ project }: { project: any }) {
 						borderRadius="2xl"
 						shadow="2xl"
 						objectPosition={"top"}
+						ref={ref}
+						onError={() => setFailed(true)}
 					/>
 				</motion.div>
 			</Box>

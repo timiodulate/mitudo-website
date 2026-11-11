@@ -73,7 +73,7 @@ export default function ServiceCard({
 				</Text>
 				{packages.length > 0 && (
 					<Text fontSize="xs" color="#4A5568" mt={3}>
-						Also in the {packages.join(", ")} package
+						Part of {packages.join(", ")}
 					</Text>
 				)}
 				<Flex align="center" gap={1} mt={4} fontSize="sm" fontWeight="semibold" color="#0077FF">

@@ -1,16 +1,15 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import Hero from "./Hero";
 import Navbar from "../../layouts/Header/Navbar";
-import HowItWorks from "./HowItWorks";
-import Services from "./Services";
-import TestimonialCarousel from "./TestimonialCarousel";
-import WhyUs from "../../shared/WhyUs";
 import Footer from "../../layouts/Footer";
-import Pricing from "./Pricing";
-import WebsiteRefresh from "./WebsiteRefresh";
-import Maintenance from "./Maintenance";
-import Contact from "./Contact";
+import WhyUs from "../../shared/WhyUs";
+import ContactCTA from "../../shared/ContactCTA";
+import Hero from "./Hero";
+import WhoWeHelp from "./WhoWeHelp";
+import Services from "./Services";
+import HowItWorks from "./HowItWorks";
+import TestimonialCarousel from "./TestimonialCarousel";
+import Faq from "./Faq";
 import { getTestimonials } from "@/services/testimonials";
 
 export default async function VersionTwoHome() {
@@ -19,35 +18,17 @@ export default async function VersionTwoHome() {
 	return (
 		<Box minH="screen" bg="#F5F7FA" fontFamily="inter">
 			<Navbar />
-
-			{/* Hero Section */}
 			<Hero />
-
-			{/* How It Works Section */}
-			<HowItWorks />
-
-			{/* Services Section */}
+			<WhoWeHelp />
 			<Services />
-
-			{/* Why Mitudo (the AI question) */}
+			<HowItWorks />
 			<WhyUs />
-
-			{/* Pricing Section */}
-			{/* <Pricing /> */}
-
-			{/* Website Refresh Section */}
-			{/* <WebsiteRefresh /> */}
-
-			{/* Maintenance Section */}
-			{/* <Maintenance /> */}
-
-			{/* Testimonials Section */}
 			<TestimonialCarousel testimonials={testimonials} />
-
-			{/* Contact Section */}
-			<Contact />
-
-			{/* Footer */}
+			<Faq />
+			<ContactCTA
+				title="Ready to hand some of it over?"
+				intro="Tell us where your business is and what's taking your time. We'll ask a few quick questions and send you a clear quote."
+			/>
 			<Footer />
 		</Box>
 	);

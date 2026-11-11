@@ -5,10 +5,14 @@ export const businessEmail = "contact@mitudoagency.com";
 export const businessWANumber = "2348147697225";
 export const businessWANumberSpread = "+234 814 769 7225";
 export const businessWABaseLink = "https://wa.me/2348147697225";
-export const businessAddress = "Ogun, Nigeria";
+/** What the site shows. */
+export const businessAddress = "Ogun State, Nigeria";
+/** The full address, used only for the map link. */
+export const businessFullAddress = "No 3, Jesuloba Street, Agura, Sagamu, Ogun State, Nigeria";
+export const businessMapsLink = `https://maps.google.com/?q=${encodeURIComponent(businessFullAddress)}`;
 
 // other pages
-export const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20a%20website%20for%20my%20business.`;
+export const whatsappLink = `${businessWABaseLink}?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20your%20services.`;
 // contact page
 // const whatsappLink =
 // 	"https://wa.me/2348147697225?text=Hello%20Mitudo%20Agency,%20I'm%20interested%20in%20your%20services.";

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Poppins, Roboto } from "next/font/google";
 import "../globals.css";
 import { Providers } from "../providers";
 import { Toaster } from "sonner";
+import FloatingContact from "@/components/versionTwo/shared/FloatingContact";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -43,9 +44,12 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} ${roboto.variable} ${poppings.variable} antialiased`}
 			>
-				<Providers>{children}</Providers>
+				<Providers>
+					{children}
+					<FloatingContact />
+				</Providers>
 
-				<Toaster position="bottom-right" richColors />
+				<Toaster position="top-center" richColors />
 			</body>
 		</html>
 	);

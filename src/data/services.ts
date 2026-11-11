@@ -27,8 +27,36 @@ export interface Service {
 	/** Services that pair well with this one (slugs). */
 	related?: string[];
 	payment: PaymentTerms;
+	/** Only where it's known; otherwise the quote confirms it. */
+	timeline?: string;
 	faqs?: FAQ[];
 }
+
+export type StageId = "start" | "set-up" | "stand-out" | "run";
+
+/** The three stages (plus where we start) the service groups sit under. */
+export const stages: { id: StageId; title: string; blurb: string }[] = [
+	{
+		id: "start",
+		title: "Start here",
+		blurb: "Find out what's missing, and get your business written down properly.",
+	},
+	{
+		id: "set-up",
+		title: "Set up right",
+		blurb: "Registered properly, protected, and on your own domain and email.",
+	},
+	{
+		id: "stand-out",
+		title: "Stand out",
+		blurb: "A brand, website and online profiles that look established and get you found.",
+	},
+	{
+		id: "run",
+		title: "Run smoothly",
+		blurb: "Filings on time, things renewed and working, and tools that take the busywork off your desk.",
+	},
+];
 
 export type ServiceCategoryId =
 	| "start"
@@ -42,62 +70,80 @@ export type ServiceCategoryId =
 	| "software"
 	| "aftercare";
 
+/** In stage order: this is the order every page lists them in. */
 export const serviceCategories: {
 	id: ServiceCategoryId;
+	stage: StageId;
 	title: string;
 	blurb: string;
 }[] = [
 	{
 		id: "start",
-		title: "Where we start",
+		stage: "start",
+		title: "Start Here: Audit & Discovery",
 		blurb: "Find out what's missing, and get your business written down properly.",
 	},
 	{
-		id: "domain-email",
-		title: "Domain & email",
-		blurb: "Your own web address and email that says you're a real business.",
-	},
-	{
-		id: "websites",
-		title: "Websites",
-		blurb: "A website people find when they search for you, and trust when they land.",
-	},
-	{
-		id: "brand",
-		title: "Brand identity & collateral",
-		blurb: "A logo, colours and materials that make everything look like one business.",
-	},
-	{
-		id: "social-google",
-		title: "Social media & Google",
-		blurb: "Consistent profiles everywhere, and a spot on Google Maps.",
-	},
-	{
 		id: "registration",
-		title: "Business & company registration",
+		stage: "set-up",
+		title: "Business & Company Registration",
 		blurb: "Register the right kind of business with the CAC, and get banking sorted.",
 	},
 	{
-		id: "after-registration",
-		title: "After registration",
-		blurb: "The yearly filings and changes every registered business needs.",
-	},
-	{
 		id: "ip",
-		title: "Protect your brand",
+		stage: "set-up",
+		title: "Trademark & IP Registration",
 		blurb: "Register your name, logo, work or invention so no one else can use it.",
 	},
 	{
+		id: "domain-email",
+		stage: "set-up",
+		title: "Domain, Email & Workspace Setup",
+		blurb: "Your own web address, and email and team accounts that say you're a real business.",
+	},
+	{
+		id: "brand",
+		stage: "stand-out",
+		title: "Brand Identity & Collateral Design",
+		blurb: "A logo, colours and materials that make everything look like one business.",
+	},
+	{
+		id: "websites",
+		stage: "stand-out",
+		title: "Website Design & Development",
+		blurb: "A website or online store people find when they search for you, and trust when they land.",
+	},
+	{
+		id: "social-google",
+		stage: "stand-out",
+		title: "Social Media & Google Business Profile",
+		blurb: "Consistent profiles everywhere, WhatsApp Business, and a spot on Google Maps.",
+	},
+	{
+		id: "after-registration",
+		stage: "run",
+		title: "CAC Filings & Compliance",
+		blurb: "The yearly filings, changes and certificates a registered business needs.",
+	},
+	{
 		id: "software",
-		title: "Custom software",
-		blurb: "Apps and systems built for startups and individuals.",
+		stage: "run",
+		title: "Custom Software Development",
+		blurb: "Tools and information systems that simplify how your business runs.",
 	},
 	{
 		id: "aftercare",
-		title: "After-care",
+		stage: "run",
+		title: "Maintenance, Support & Renewals",
 		blurb: "Keep everything running and renewed after it's delivered.",
 	},
 ];
+
+export const getCategory = (id: ServiceCategoryId) =>
+	serviceCategories.find((category) => category.id === id);
+
+export const getCategoriesByStage = (stage: StageId) =>
+	serviceCategories.filter((category) => category.stage === stage);
 
 export const services: Service[] = [
 	// ── Where we start ──────────────────────────────────────────────
@@ -126,6 +172,7 @@ export const services: Service[] = [
 			"Links to your website and social media, if you have them",
 		],
 		payment: "upfront",
+		timeline: "3 to 5 business days",
 		faqs: [
 			{
 				q: "How long does the audit take?",
@@ -337,7 +384,7 @@ export const services: Service[] = [
 		faqs: [
 			{
 				q: "Can you add booking, a shop or payments?",
-				a: "Yes. Booking systems, online stores and payment integrations (like Paystack) are added on top and quoted based on what you need.",
+				a: "Yes. Booking and payment integrations (like Paystack) are added on top and quoted based on what you need. If selling online is the main job, look at our Online Store service.",
 			},
 			{
 				q: "Who writes the content?",
@@ -374,6 +421,45 @@ export const services: Service[] = [
 		],
 		related: ["blog", "newsletter", "domain-registration", "logo-design"],
 		payment: "split",
+	},
+	{
+		slug: "online-store",
+		name: "Online Store (E-commerce Website)",
+		category: "websites",
+		kind: "service",
+		summary:
+			"A website where customers browse your products, pay online and get order updates, without the back-and-forth on WhatsApp.",
+		description: [
+			"If you sell products, an online store lets customers see what you have, pick what they want and pay, any time of day. You spend less time answering \"how much?\" and \"is it available?\", and more time packing and delivering orders.",
+			"Payments go through Paystack or Flutterwave, into an account in your business's name, so the money comes straight to you. You manage products, prices and orders yourself from a simple dashboard.",
+		],
+		includes: [
+			"Product catalogue with photos, prices and options like size or colour",
+			"Cart and checkout that works well on phones",
+			"Online payments with Paystack or Flutterwave",
+			"Delivery areas and fees, or pick-up",
+			"Order emails to you and your customer",
+			"A dashboard to add products, change prices and see orders",
+			"Your brand colours, fonts and logo, and basic SEO",
+			"Connected to your domain, secured with https",
+		],
+		youProvide: [
+			"Your products with photos, prices and options",
+			"A Paystack or Flutterwave account in your business's name (we can help you open one)",
+			"Delivery areas, fees and how you handle returns",
+		],
+		related: ["domain-registration", "whatsapp-business-setup", "maintenance-support"],
+		payment: "split",
+		faqs: [
+			{
+				q: "Do I need a registered business to take payments?",
+				a: "Payment providers ask for your business details before they pay out larger amounts, and a registered business makes that easier. If you're not registered yet, we can do that too.",
+			},
+			{
+				q: "Can I update products myself?",
+				a: "Yes. You get a dashboard to add and remove products, change prices and stock, and see every order. We show you how before handover.",
+			},
+		],
 	},
 	{
 		slug: "blog",
@@ -750,6 +836,34 @@ export const services: Service[] = [
 			},
 		],
 	},
+	{
+		slug: "whatsapp-business-setup",
+		name: "WhatsApp Business Setup",
+		category: "social-google",
+		kind: "service",
+		summary:
+			"Your business on WhatsApp Business, set up properly: profile, catalogue, greeting messages and quick replies.",
+		description: [
+			"For many customers, WhatsApp is where the conversation starts. We set up WhatsApp Business so you look like an established business the moment someone messages you, and you answer common questions in a tap instead of typing them out every time.",
+			"If your number is on regular WhatsApp, it can move to WhatsApp Business on the same phone, and your chats come with it.",
+		],
+		includes: [
+			"WhatsApp Business set up on your business number",
+			"Business profile: logo, description, address, hours, website and email",
+			"A catalogue of your products or services",
+			"Greeting and away messages",
+			"Quick replies for the questions you get most",
+			"Labels to keep track of new customers, orders and payments",
+			"A short link and QR code customers can use to message you",
+		],
+		youProvide: [
+			"The phone number you use for business",
+			"Your logo, products or services with prices and photos",
+			"Your opening hours and the questions customers ask most",
+		],
+		related: ["social-media-styling-setup", "google-business-profile-setup", "services-flier-design"],
+		payment: "split",
+	},
 
 	// ── Registration ───────────────────────────────────────────────
 	{
@@ -882,6 +996,37 @@ export const services: Service[] = [
 		],
 		related: ["lbg-registration", "business-website"],
 		payment: "upfront",
+	},
+	{
+		slug: "scuml-registration",
+		name: "SCUML Registration",
+		category: "registration",
+		kind: "service",
+		summary:
+			"Get your SCUML certificate from the EFCC's anti-money-laundering unit, which banks ask NGOs and some businesses for.",
+		description: [
+			"The Special Control Unit against Money Laundering (SCUML) registers non-profits and certain kinds of business, like real estate, car dealers, hotels, jewellers and some professional firms. Banks often ask for the certificate before they open or keep an account for them.",
+			"We check whether you need it, prepare and submit the application, and follow it up until your certificate is issued.",
+		],
+		includes: [
+			"A check that your organisation or business needs SCUML",
+			"Application prepared and submitted on the SCUML portal",
+			"Follow-up until the certificate is issued",
+			"Your SCUML certificate, saved to your folder",
+		],
+		youProvide: [
+			"Your CAC certificate and registration documents",
+			"Your TIN",
+			"Details and IDs of your directors, partners or trustees",
+		],
+		related: ["incorporated-trustees-registration", "lbg-registration", "bank-account-guidance"],
+		payment: "upfront",
+		faqs: [
+			{
+				q: "Who needs SCUML registration?",
+				a: "Non-profits (NGOs, foundations, churches and mosques registered as incorporated trustees), and businesses the law lists as designated, such as real estate agents, car dealers, hotels, jewellers and some professional firms. If you're not sure, ask us and we'll check before you pay.",
+			},
+		],
 	},
 	{
 		slug: "bank-account-guidance",
@@ -1048,9 +1193,10 @@ export const services: Service[] = [
 		category: "software",
 		kind: "service",
 		summary:
-			"Your product or system, built from idea to launch, by a team that can stay on as your tech partner.",
+			"Tools and information systems that simplify how your business runs, or your own product, built from idea to launch.",
 		description: [
-			"For startups, we act as your tech partner: we build the product from scratch and can take over the tech side once it's live. For individuals, we build the specific tool, app or system you need.",
+			"If your business runs on spreadsheets, notebooks and WhatsApp chats, a lot of time goes into keeping track. We build systems that do it for you: bookings, records, invoicing, inventory, staff, customers and reports, shaped around how you already work.",
+			"For startups, we act as your tech partner: we build the product from scratch and can take over the tech side once it's live.",
 			"Every project starts with a discovery session before any price or timeline is given.",
 		],
 		includes: [
@@ -1140,5 +1286,41 @@ export const getSharedFaqs = (service: Service): FAQ[] => [
 	{
 		q: "How do we get started?",
 		a: "Send us a message on WhatsApp or through the contact form. We'll ask a few quick questions, then send you a clear quote with what's included and how long it takes.",
+	},
+];
+
+/** Short form of how a service is paid for, for the facts row on a service page. */
+export const paymentShort: Record<PaymentTerms, string> = {
+	split: "50% upfront, 50% on delivery",
+	upfront: "In full, upfront",
+	monthly: "Each period, upfront",
+	free: "Free with every engagement",
+};
+
+/** The homepage FAQ. */
+export const generalFaqs: FAQ[] = [
+	{
+		q: "Do you only work with new businesses?",
+		a: "No. Some clients come to us before they've even registered; others have been running for years. For running businesses we fix what's patchy, keep CAC filings and renewals on time, and build tools that take the busywork off your desk.",
+	},
+	{
+		q: "Can't I just do this myself with AI?",
+		a: "You can, and AI has made a lot of it easier. What it doesn't remove is the hours of learning each platform, the trial and error, and knowing what \"done properly\" looks like. We do this every day, so we get it right quickly, and you keep your time for delivering and selling.",
+	},
+	{
+		q: "How do I pay?",
+		a: "Most services are 50% upfront and 50% on delivery. Registrations and filings are paid in full upfront, since most of the cost is the government fee. Monthly services are paid at the start of each month. Buy 3 or more services together and get 10 to 15% off.",
+	},
+	{
+		q: "How long does it take?",
+		a: "It depends on the service. Your quote says how long before you pay anything, and we keep you updated as we go.",
+	},
+	{
+		q: "Do I own everything you set up?",
+		a: "Yes. Every file, login and document goes into one organised folder that's yours to keep, in your name, whether or not you stay with us.",
+	},
+	{
+		q: "Where are you based?",
+		a: "Ogun State, Nigeria. We work with clients across Nigeria over WhatsApp, email and calls, so you don't need to be nearby.",
 	},
 ];

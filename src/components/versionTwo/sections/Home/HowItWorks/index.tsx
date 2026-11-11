@@ -1,128 +1,58 @@
 "use client";
-
 import React from "react";
-import { motion } from "@/components/ui/motion";
 import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import { ClipboardCheck, FileText, FolderCheck, Search } from "lucide-react";
 import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
+import SectionIntro from "@/components/versionTwo/shared/SectionIntro";
 
 const steps = [
 	{
-		step: "01",
-		title: "Set Up Right",
-		description:
-			"Domain, professional email, business registration, social handles: the foundation every business needs.",
-		color: "#0077FF",
+		icon: Search,
+		title: "Find what's missing",
+		text: "A short chat if you already know what you need, or an Online Presence Audit if you'd like us to look first.",
 	},
 	{
-		step: "02",
-		title: "Look Legit",
-		description:
-			"Brand identity, collateral, and a professional website that makes you look credible before a word is said.",
-		color: "#00C2CB",
+		icon: FileText,
+		title: "Write your business down",
+		text: "Every engagement starts with Brand Documentation, free: what you do, who you serve, and every decision we make.",
 	},
 	{
-		step: "03",
-		title: "Get Found",
-		description:
-			"Google Business, SEO, and social presence, so the right people can actually find and trust you online.",
-		color: "#0077FF",
+		icon: ClipboardCheck,
+		title: "Do the work, properly",
+		text: "We deliver what you chose, one service at a time or as a package, and check every piece before it reaches you.",
+	},
+	{
+		icon: FolderCheck,
+		title: "Hand it all over",
+		text: "Every file, login and document in one organised folder that's yours to keep. We stay around for renewals and support.",
 	},
 ];
 
-const fadeInUp = {
-	initial: { opacity: 0, y: 30 },
-	animate: { opacity: 1, y: 0 },
-	transition: { duration: 0.6 },
-};
-
 export default function HowItWorks() {
 	return (
-		<Box
-			as="section"
-			id="how-it-works"
-			py={{ base: 20, md: 28 }}
-			bg="#F5F7FA"
-		>
+		<Box as="section" id="how-we-work" py={{ base: 20, md: 28 }} bg="#F5F7FA">
 			<SectionContainer>
-				<motion.div
-					initial={{ opacity: 0, y: 30 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true }}
-				>
-					<Box textAlign="center" mb={16}>
-						<Text
-							fontSize="sm"
-							fontWeight="medium"
-							letterSpacing="wider"
-							textTransform="uppercase"
-							color="#0077FF"
-						>
-							Our Approach
-						</Text>
-						<Heading
-							as="h2"
-							fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
-							fontWeight="bold"
-							color="#0D1B2A"
-							mt={4}
-							fontFamily="poppins"
-						>
-							Three Stages. One Goal.
-						</Heading>
-						<Text color="slate.600" maxW="3xl" mx="auto" mt={4}>
-							We take businesses from invisible to credible and
-							findable, in the right order, done right.
-						</Text>
-					</Box>
-				</motion.div>
-
-				<Grid
-					templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
-					gap={8}
-				>
-					{steps.map((item) => (
-						<motion.div key={item.step} variants={fadeInUp}>
-							<Box
-								bg="white"
-								borderRadius="2xl"
-								p={8}
-								border="1px solid"
-								borderColor="slate.200"
-								boxShadow="sm"
-								transition="all 0.3s"
-								_hover={{ boxShadow: "lg" }}
-
-								// className="bg-white rounded-2xl p-8 border border-slate-200 hover:shadow-lg transition-shadow"
-							>
-								<Text
-									fontSize="5xl"
-									fontWeight="bold"
-									fontFamily="poppins"
-									color={item.color}
-									opacity={0.3}
-									className={`text-${item.color}`}
-								>
-									{item.step}
-								</Text>
-								<Heading
-									as="h3"
-									fontSize={{ base: "xl", md: "2xl" }}
-									mt={4}
-									mb={4}
-									color={item.color}
-									fontFamily="poppins"
-								>
-									{item.title}
-								</Heading>
-								<Text
-									color="#4A5568"
-									fontSize={"sm"}
-									lineHeight="tall"
-								>
-									{item.description}
-								</Text>
+				<SectionIntro
+					eyebrow="How we work"
+					title="Four steps, no surprises"
+					intro="You always know what's happening, what it costs and what you'll get before we start."
+				/>
+				<Grid templateColumns={{ base: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(4, 1fr)" }} gap={6}>
+					{steps.map((step, index) => (
+						<Box key={step.title} position="relative" bg="white" borderRadius="2xl" p={6} border="1px solid" borderColor="slate.200">
+							<Text position="absolute" top={5} right={6} fontSize="3xl" fontWeight="bold" fontFamily="poppins" color="#0077FF" opacity={0.15}>
+								0{index + 1}
+							</Text>
+							<Box color="#00C2CB" mb={4}>
+								<step.icon size={24} />
 							</Box>
-						</motion.div>
+							<Heading as="h3" fontSize="md" fontFamily="poppins" color="#0D1B2A" mb={2}>
+								{step.title}
+							</Heading>
+							<Text color="#4A5568" fontSize="sm" lineHeight="tall">
+								{step.text}
+							</Text>
+						</Box>
 					))}
 				</Grid>
 			</SectionContainer>

@@ -16,11 +16,14 @@ import SectionContainer from "@/components/versionTwo/shared/SectionContainer";
 
 export default function ContactCTA({
 	serviceName,
-	title = "Let's get your business set up right",
-	intro = "Tell us what you need. We'll ask a few quick questions and send you a clear quote. No pressure, no jargon.",
+	serviceSlug,
+	title = "Let's take some work off your plate",
+	intro = "Tell us what you need. We'll ask a few quick questions and send you a clear quote.",
 	id = "contact",
 }: {
 	serviceName?: string;
+	/** Preselects the service on the enquiry form. */
+	serviceSlug?: string;
 	title?: string;
 	intro?: string;
 	id?: string;
@@ -109,7 +112,7 @@ export default function ContactCTA({
 
 					<ChakraLink
 						as={NextLink}
-						href={ROUTES.contact}
+						href={serviceSlug ? `${ROUTES.contact}?service=${serviceSlug}` : ROUTES.contact}
 						display="inline-flex"
 						alignItems="center"
 						gap={1}

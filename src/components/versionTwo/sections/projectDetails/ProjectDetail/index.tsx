@@ -9,23 +9,25 @@ import WhatsIncluded from "./WhatsIncluded";
 import WhyIWorks from "./WhyItWorks";
 import Closing from "./Closing";
 
-export default function ProjectDetails({ project }: { project: any }) {
+import type { CaseStudy } from "@/data/portfolio";
+
+export default function ProjectDetails({ project }: { project: CaseStudy }) {
 	return (
 		<Box as="div">
 			{/* Hero Section */}
 			<Hero project={project} />
 
 			{/* Project Image */}
-			<ProjectImage project={project} />
+			{project.imageUrl && <ProjectImage project={project} />}
 
 			{/* Business Objectives */}
-			<BusinessObjective project={project} />
+			{project.objectives.length > 0 && <BusinessObjective project={project} />}
 
 			{/* What's Included */}
-			<WhatsIncluded project={project} />
+			{project.includes.length > 0 && <WhatsIncluded project={project} />}
 
 			{/* Why It Works */}
-			<WhyIWorks project={project} />
+			{project.whyItWorks.length > 0 && <WhyIWorks project={project} />}
 
 			{/* Closing */}
 			<Closing project={project} />
